@@ -23,6 +23,10 @@ import { AppComponent, AddMessageComponent } from './app.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -31,6 +35,8 @@ import { HeaderComponent } from './shared/header/header.component';
     NavComponent,
     FooterComponent,
     HeaderComponent,
+    HomeComponent,
+    NotFoundComponent,
     AddMessageComponent
   ],
   entryComponents: [
@@ -38,6 +44,7 @@ import { HeaderComponent } from './shared/header/header.component';
     AddMessageComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpModule,
