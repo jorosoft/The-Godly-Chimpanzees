@@ -1,9 +1,25 @@
+import { ModelsService } from './models.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdCardModule, MdButtonModule, MdSelectModule, MdSidenavModule, MdToolbarModule, MdInputModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { AppComponent } from './app.component';
+import {
+  MdButtonModule,
+  MdCardModule,
+  MdDialogModule,
+  MdGridListModule,
+  MdIconModule,
+  MdInputModule,
+  MdMenuModule,
+  MdSidenavModule,
+  MdToolbarModule,
+  MdTabsModule,
+} from '@angular/material';
+
+import { AppComponent, AddMessageComponent } from './app.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -15,18 +31,30 @@ import { HeaderComponent } from './shared/header/header.component';
     NavComponent,
     FooterComponent,
     HeaderComponent,
+    AddMessageComponent
+  ],
+  entryComponents: [
+    AppComponent,
+    AddMessageComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
     BrowserAnimationsModule,
-    MdCardModule,
     MdButtonModule,
-    MdSelectModule,
+    MdCardModule,
+    MdDialogModule,
+    MdGridListModule,
+    MdIconModule,
+    MdInputModule,
+    MdMenuModule,
     MdSidenavModule,
     MdToolbarModule,
-    MdInputModule
+    MdTabsModule,
+    FlexLayoutModule
   ],
-  providers: [],
+  providers: [ModelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
