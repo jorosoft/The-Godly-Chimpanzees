@@ -16,7 +16,7 @@ md-toolbar {
 }
 
 md-sidenav {
-    width: 40vw; // emmet w40vw
+    width: 30vw; // emmet w40vw
 }
 
 md-card {
@@ -24,7 +24,7 @@ md-card {
 }
 
 $md-toolbar-height: 70px;
-$md-tab-header-height: 50px;
+$md-tab-header-height: 60px;
 .mat-tab-body {
     height: calc(100vh - #{$md-tab-header-height} - #{$md-toolbar-height});
 }
@@ -33,7 +33,7 @@ $md-tab-header-height: 50px;
     display: inline-block;
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
 }
 
 md-toolbar-row {
