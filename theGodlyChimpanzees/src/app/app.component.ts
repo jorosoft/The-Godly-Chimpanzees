@@ -1,5 +1,5 @@
-import { ModelsService } from './models.service';
-import { Model } from './model';
+import { AnimalsService } from './services/animals.service';
+import { Animal } from './models/animal.model';
 
 import { element } from 'protractor';
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
@@ -11,24 +11,22 @@ import { MdSidenav, MdDialog, MdDialogConfig, MdDialogRef, MdInputContainer } fr
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  models: Model[] = [];
-  selectedModel: Model;
-
-  isDarkTheme = false;
+  animals: Animal[] = [];
+  selectedAnimal: Animal;
 
   @ViewChild('sidenav') sidenav: MdSidenav;
 
-  constructor(private modelsService: ModelsService,
+  constructor(private animalsService: AnimalsService,
     private vcr: ViewContainerRef,
     private mdDialog: MdDialog) { }
 
   ngOnInit(): void {
-    this.models = this.modelsService.getAll();
+    this.animals = this.animalsService.getAll();
   }
 
-  showDetails(model: Model) {
+  showDetails(animal: Animal) {
     // 1. set selected models
-    this.selectedModel = model;
+    this.selectedAnimal = animal;
     // 2. open sidenav
     // this.sidenav.open();
   }
@@ -41,12 +39,9 @@ export class AppComponent implements OnInit {
     // 2. open dialog
     const dialog = this.mdDialog.open(AddMessageComponent, dialogConfig);
     // 3. pass selected model to dialog - CHECK??
-    (<any>dialog.componentInstance).selectedModel = this.selectedModel;
+    (<any>dialog.componentInstance).selectedAnimal = this.selectedAnimal;
   }
 
-  toggleTheme() {
-    this.isDarkTheme = !this.isDarkTheme;
-  }
 }
 
 @Component({
@@ -69,8 +64,8 @@ export class AddMessageComponent {
     // 1. create message
     const newMessage = { who: 'Jon Doe', content: this.message };
     // 2. add message to selected model
-    const selectedModel: Model = (<any>this.mdDialogRef.componentInstance).selectedModel;
-    selectedModel.messages.push(newMessage);
+    const selectedAnimal: Animal = (<any>this.mdDialogRef.componentInstance).selectedAnimal;
+    selectedAnimal.messages.push(newMessage);
     // 3. close dialog
     this.mdDialogRef.close();
   }

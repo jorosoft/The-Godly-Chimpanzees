@@ -1,12 +1,12 @@
-import { Model } from './model';
+import { Animal } from './../models/animal.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ModelsService {
+export class AnimalsService {
 
   constructor() { }
 
-  models: Model[] = [
+  models: Animal[] = [
     {
       name: 'Bear', status: 'Teaching children to swim',
       about: 'Native range lies largely within the Arctic Circle',
@@ -34,32 +34,32 @@ export class ModelsService {
     },
     {
       name: 'Penguin', status: 'Teaching children to swim',
-      about: 'Dancing with the stars', 
+      about: 'Dancing with the stars',
       messages: [], rows: 1, cols: 1
     },
     {
       name: 'Panda', status: 'Papa was a rolling stone',
-      about: 'Not endangered any more', 
+      about: 'Not endangered any more',
       messages: [], rows: 2, cols: 1
     },
     {
       name: 'Piglet', status: 'Teaching children to swim',
-      about: 'Pretty in pink', 
+      about: 'Pretty in pink',
       messages: [], rows: 1, cols: 1
     },
     {
       name: 'Turtle', status: 'Fast and furious',
-      about: 'Wait for me', 
+      about: 'Wait for me',
       messages: [], rows: 1, cols: 2
     },
     {
       name: 'Yoda', status: 'Teaching children to swim',
-      about: 'Fear is the path to the dark side', 
+      about: 'Fear is the path to the dark side',
       messages: [], rows: 1, cols: 1
     },
   ];
 
-  getAll(): Model[] {
+  getAll(): Animal[] {
     return this.models;
   }
 }

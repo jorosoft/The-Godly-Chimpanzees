@@ -1,30 +1,8 @@
-<!-- <app-header></app-header> -->
-
 <!-- <app-nav></app-nav> -->
 
 <section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch" [class.dark-theme]="isDarkTheme">
     <!-- toolbar -->
-
-    <md-toolbar color="primary" class="mat-elevation-z10">
-        <span><md-icon>favorite</md-icon>
-            &nbsp;TheZoo
-            </span>
-        
-    <a [routerLink]="[ '/users' ]">Log In</a>
-        <!-- menu button -->
-        <button md-icon-button [md-menu-trigger-for]="menu">
-                <md-icon>more_vert</md-icon>
-            </button>
-    </md-toolbar>
-
-    <!-- menu -->
-    <md-menu x-position="before" #menu="mdMenu">
-        <button md-menu-item>Settins</button>
-        <button md-menu-item (click)="toggleTheme()">Toggle Theme</button>
-        <button md-menu-item>Contact</button>
-        <button md-menu-item>Free Hugs</button>
-        <button md-menu-item>Help Me!</button>
-    </md-menu>
+    <app-header></app-header>
 
     <!-- sidenav with details -->
     <!-- this flex item takes the rest of the screen in height -->
@@ -38,19 +16,19 @@
                         <md-card>
                             <md-card-title>Name</md-card-title>
                             <md-card-content>
-                                <p>{{selectedModel?.name}}</p>
+                                <p>{{selectedAnimal?.name}}</p>
                             </md-card-content>
                         </md-card>
                         <md-card>
                             <md-card-title>Status</md-card-title>
                             <md-card-content>
-                                <p>{{selectedModel?.status}}</p>
+                                <p>{{selectedAnimal?.status}}</p>
                             </md-card-content>
                         </md-card>
                         <md-card>
                             <md-card-title>About</md-card-title>
                             <md-card-content>
-                                <p>{{selectedModel?.about}}</p>
+                                <p>{{selectedAnimal?.about}}</p>
                             </md-card-content>
                         </md-card>
                     </section>
@@ -62,7 +40,7 @@
                 </md-tab>
                 <md-tab label="Messages">
                     <section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
-                        <md-card *ngFor="let message of selectedModel?.messages">
+                        <md-card *ngFor="let message of selectedAnimal?.messages">
                             <md-card-subtitle>{{message.who}}</md-card-subtitle>
                             <md-card-content>{{message.content}}</md-card-content>
                         </md-card>
@@ -77,16 +55,14 @@
             </md-tab-group>
         </md-sidenav>
 
-        <!-- gridlist with models -->
-
-        <!-- models -->
+        <!-- animals -->
         <md-grid-list cols="4" rowHeight="250px">
-            <md-grid-tile *ngFor="let model of models" [rowspan]="model.rows" [colspan]="model.cols">
-                <img src="assets/img/{{model.name}}.jpg" alt="model">
+            <md-grid-tile *ngFor="let animal of animals" [rowspan]="animal.rows" [colspan]="animal.cols">
+                <img src="assets/img/{{animal.name}}.jpg" alt="animal">
                 <md-grid-tile-footer>
-                    <h3 md-line>{{model.name}}</h3>
-                    <span md-line>{{model.status}}</span>
-                    <button md-icon-button (click)="showDetails(model);sidenav.open()">
+                    <h3 md-line>{{animal.name}}</h3>
+                    <span md-line>{{animal.status}}</span>
+                    <button md-icon-button (click)="showDetails(animal);sidenav.open()">
                             <md-icon>info</md-icon>
                         </button>
                 </md-grid-tile-footer>

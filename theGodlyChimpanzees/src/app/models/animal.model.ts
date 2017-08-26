@@ -1,4 +1,4 @@
-export class Model {
+export class Animal {
     name: string;
     status: string;
     about: string;
