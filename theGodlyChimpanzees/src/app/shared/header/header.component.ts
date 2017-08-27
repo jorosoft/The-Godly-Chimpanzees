@@ -7,13 +7,11 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output() themeEmitter;
+  isDarkTheme = false;
 
-  constructor() {
-    this.themeEmitter = new EventEmitter();
-  }
+  constructor() { }
 
-  onToggleTheme() {
-    this.themeEmitter.emit('switch theme');
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
   }
 }

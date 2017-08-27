@@ -1,3 +1,4 @@
+import { HeaderComponent } from './shared/header/header.component';
 import { AnimalsService } from './services/animals.service';
 import { Animal } from './models/animal.model';
 
@@ -13,20 +14,17 @@ import { MdSidenav, MdDialog, MdDialogConfig, MdDialogRef, MdInputContainer } fr
 export class AppComponent implements OnInit {
   animals: Animal[] = [];
   selectedAnimal: Animal;
-  isDarkTheme = false;
 
+  // TODO review and remove
   @ViewChild('sidenav') sidenav: MdSidenav;
 
+  @ViewChild(HeaderComponent) header: HeaderComponent;
   constructor(private animalsService: AnimalsService,
     private vcr: ViewContainerRef,
     private mdDialog: MdDialog) { }
 
   ngOnInit(): void {
     this.animals = this.animalsService.getAll();
-  }
-
-  toggleTheme() {
-    this.isDarkTheme = !this.isDarkTheme;
   }
 
   showDetails(animal: Animal) {

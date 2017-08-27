@@ -1,8 +1,8 @@
 <!-- <app-nav></app-nav> -->
 
-<section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch" [class.dark-theme]="isDarkTheme">
+<section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch" [class.dark-theme]="header.isDarkTheme">
     <!-- toolbar -->
-    <app-header (themeEmitter)="toggleTheme()"></app-header>
+    <app-header></app-header>
 
     <!-- sidenav with details -->
     <!-- this flex item takes the rest of the screen in height -->
