@@ -19,13 +19,14 @@ import {
   MdGridListModule,
   MdIconModule,
   MdInputModule,
+  MdListModule,
   MdMenuModule,
   MdSidenavModule,
   MdToolbarModule,
   MdTabsModule,
 } from '@angular/material';
 
-import { AppComponent, AddMessageComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -45,12 +46,12 @@ import { AppRoutingModule } from './app-routing.module';
     HeaderComponent,
     HomeComponent,
     NotFoundComponent,
-    AddMessageComponent
+    // AddMessageComponent
     // LoginComponent
   ],
   entryComponents: [
     AppComponent,
-    AddMessageComponent
+    // AddMessageComponent
   ],
   imports: [
     AppRoutingModule,
@@ -67,6 +68,7 @@ import { AppRoutingModule } from './app-routing.module';
     MdGridListModule,
     MdIconModule,
     MdInputModule,
+    MdListModule,
     MdMenuModule,
     MdSidenavModule,
     MdToolbarModule,

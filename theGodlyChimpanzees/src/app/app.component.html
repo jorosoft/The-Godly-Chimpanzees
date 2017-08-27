@@ -1,76 +1,12 @@
-<!-- <app-nav></app-nav> -->
-
 <section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch" [class.dark-theme]="header.isDarkTheme">
-    <!-- toolbar -->
-    <app-header></app-header>
 
-    <!-- sidenav with details -->
-    <!-- this flex item takes the rest of the screen in height -->
     <md-sidenav-container fxFlex>
-        <md-sidenav mode="side" align="start" class="mat-elevation-z6" #sidenav>
-            <!--opened-->
-            <!-- adding some tabs for the details -->
-            <md-tab-group>
-                <md-tab label="About">
-                    <section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
-                        <md-card>
-                            <md-card-title>Name</md-card-title>
-                            <md-card-content>
-                                <p>{{selectedAnimal?.name}}</p>
-                            </md-card-content>
-                        </md-card>
-                        <md-card>
-                            <md-card-title>Status</md-card-title>
-                            <md-card-content>
-                                <p>{{selectedAnimal?.status}}</p>
-                            </md-card-content>
-                        </md-card>
-                        <md-card>
-                            <md-card-title>About</md-card-title>
-                            <md-card-content>
-                                <p>{{selectedAnimal?.about}}</p>
-                            </md-card-content>
-                        </md-card>
-                    </section>
-                    <footer class="tab-actions">
-                        <button md-fab (click)="sidenav.close()" color="warn">
-                                <md-icon>close</md-icon>
-                            </button>
-                    </footer>
-                </md-tab>
-                <md-tab label="Messages">
-                    <section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
-                        <md-card *ngFor="let message of selectedAnimal?.messages">
-                            <md-card-subtitle>{{message.who}}</md-card-subtitle>
-                            <md-card-content>{{message.content}}</md-card-content>
-                        </md-card>
-                    </section>
-                    <footer class="tab-actions">
-                        <button md-fab color="accent" (click)="addMessage()">
-                                <md-icon>add</md-icon>
-                            </button>
-                    </footer>
-                </md-tab>
-                <md-tab label="Photos"></md-tab>
-            </md-tab-group>
+        <md-sidenav mode="side" align="start" class="mat-elevation-z6" #sidenav opened>
+            <!-- TODO make sidenav foldable -->
+            <app-nav></app-nav>
         </md-sidenav>
 
-        <!-- animals -->
-        <md-grid-list cols="4" rowHeight="250px">
-            <md-grid-tile *ngFor="let animal of animals" [rowspan]="animal.rows" [colspan]="animal.cols">
-                <img src="assets/img/{{animal.name}}.jpg" alt="animal">
-                <md-grid-tile-footer>
-                    <h3 md-line>{{animal.name}}</h3>
-                    <span md-line>{{animal.status}}</span>
-                    <button md-icon-button (click)="showDetails(animal);sidenav.open()">
-                            <md-icon>info</md-icon>
-                        </button>
-                </md-grid-tile-footer>
-            </md-grid-tile>
-        </md-grid-list>
+        <app-header></app-header>
+        <router-outlet></router-outlet>
     </md-sidenav-container>
 </section>
-
-<!-- <app-footer></app-footer> -->
-
-<router-outlet></router-outlet>

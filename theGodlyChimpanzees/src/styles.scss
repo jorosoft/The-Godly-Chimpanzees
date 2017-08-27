@@ -16,17 +16,11 @@ md-toolbar {
 }
 
 md-sidenav {
-    width: 30vw; // emmet w40vw
+    width: 10vw; // emmet w40vw
 }
 
 md-card {
     margin: 12px;
-}
-
-$md-toolbar-height: 70px;
-$md-tab-header-height: 60px;
-.mat-tab-body {
-    height: calc(100vh - #{$md-tab-header-height} - #{$md-toolbar-height});
 }
 
 .tab-actions {
@@ -36,12 +30,13 @@ $md-tab-header-height: 60px;
     left: 20px;
 }
 
-md-toolbar-row {
-    justify-content: space-between;
-}
-
-img {
+md-grid-tile img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+// TODO Why does this apply to header when no such class in it?
+md-toolbar-row {
+    justify-content: space-between;
 }

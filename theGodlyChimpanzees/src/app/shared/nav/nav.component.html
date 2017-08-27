@@ -1,3 +1,16 @@
-<p class="mat-typography">
-    nav works!
-</p>
+<md-toolbar class="sidenav-toolbar mat-elevation-z1 mat-toolbar mat-primary" color="primary" role="toolbar">
+    <span><img src="assets/img/icon.png" width="25px"> TheZoo</span>
+    <!--<a md-icon-button (click)="sidenav.close()">
+        <md-icon>close</md-icon>
+        chevron_left
+    </a>-->
+</md-toolbar>
+<!-- nav items -->
+<section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+    <md-list>
+        <md-list-item *ngFor="let item of items">
+            <a md-icon-button routerLink="/{{item.path}}">
+                <md-icon md-list-icon>{{item.icon}}</md-icon> {{item.name}}</a>
+        </md-list-item>
+    </md-list>
+</section>
