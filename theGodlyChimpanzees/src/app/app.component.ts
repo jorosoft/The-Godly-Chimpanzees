@@ -13,6 +13,7 @@ import { MdSidenav, MdDialog, MdDialogConfig, MdDialogRef, MdInputContainer } fr
 export class AppComponent implements OnInit {
   animals: Animal[] = [];
   selectedAnimal: Animal;
+  isDarkTheme = false;
 
   @ViewChild('sidenav') sidenav: MdSidenav;
 
@@ -22,6 +23,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.animals = this.animalsService.getAll();
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
   }
 
   showDetails(animal: Animal) {

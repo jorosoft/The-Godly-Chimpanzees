@@ -6,11 +6,14 @@
 
 
 
-## Description
+### Description
 ...
 
+#### Todos
+- Come up with a better name of the page
 
-## Project Members
+
+### Project Members
 
 |     Team member     |        Email         |  Username   | Tasks |
 | ------------------- | -------------------- | :---------: | ----- |
@@ -19,9 +22,9 @@
 | Zhivko Ivanov       | jorosoftbg@gmail.com |  jorosoft   |       |
 
 
-## Links
+### Links
 - [Cloud]()
-- [GitHub Team Vencedores](https://github.com/)
+- [GitHub Team Godly Chimpanzees](https://github.com/TeamGodlyChimpanzees)
 - [Telerik Best](http://)
 
 ## Prerequisites for local launch
