@@ -3,7 +3,17 @@ import { CommonModule } from '@angular/common';
 import { AnimalsRoutingModule } from './animals-routing.module';
 import { AnimalsListComponent } from './animals-list/animals-list.component';
 import { AnimalDetailsComponent } from './animal-details/animal-details.component';
-import { MdPaginatorModule, MdTableModule, MdGridListModule } from '@angular/material';
+import {
+  MdPaginatorModule,
+  MdTableModule,
+  MdGridListModule,
+  MdSidenavModule,
+  MdListModule,
+  MdCardModule,
+  MdIconModule,
+  MdInputModule,
+  MdSelectModule
+} from '@angular/material';
 import { CdkTableModule } from '@angular/cdk';
 
 @NgModule({
@@ -13,7 +23,13 @@ import { CdkTableModule } from '@angular/cdk';
     CdkTableModule,
     MdTableModule,
     MdPaginatorModule,
-    MdGridListModule
+    MdGridListModule,
+    MdSidenavModule,
+    MdListModule,
+    MdCardModule,
+    MdIconModule,
+    MdInputModule,
+    MdSelectModule
   ],
   declarations: [
     AnimalsListComponent,

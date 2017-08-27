@@ -17,6 +17,18 @@
     overflow: auto;
 }
 
+md-sidenav {
+    width: 25%;
+}
+
+md-header-row {
+    display: none;
+}
+
 .customHeight {
     height: 300px;
+}
+
+.filters-title {
+    vertical-align: middle;
 }

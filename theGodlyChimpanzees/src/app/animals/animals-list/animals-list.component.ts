@@ -15,7 +15,11 @@ import { Model } from '../../model';
   styleUrls: ['./animals-list.component.css']
 })
 export class AnimalsListComponent implements OnInit {
+
+  types;
+  zones;
   animals;
+  filteredAnimals;
   exampleDatabase;
   dataSource: ExampleDataSource | null;
 
@@ -27,8 +31,29 @@ export class AnimalsListComponent implements OnInit {
 
   ngOnInit() {
     this.animals = this.modelService.getAll();
-    this.exampleDatabase = new ExampleDatabase(this.animals);
-    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
+    this.filteredAnimals = this.animals.slice(0);
+    this.types = this.animals
+      .map((animal) => animal.status)
+      .filter((value, index, self) => self.indexOf(value) === index);
+    this.zones = this.animals
+      .map((animal) => animal.about)
+      .filter((value, index, self) => self.indexOf(value) === index);
+      this.initDB();
+  }
+
+ initDB() {
+  this.exampleDatabase = new ExampleDatabase(this.filteredAnimals);
+  this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
+}
+
+  filterAnimalsByType(filter) {
+    this.filteredAnimals = this.animals.filter(x => x.status === filter.value);
+    this.initDB();
+  }
+
+  filterAnimalsByZone(filter) {
+    this.filteredAnimals = this.animals.filter(x => x.about === filter.value);
+    this.initDB();
   }
 }
 
