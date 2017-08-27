@@ -1,4 +1,4 @@
-import { ModelsService } from './../../models.service';
+import { AnimalsService } from './../../services/animals.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataSource } from '@angular/cdk';
 import { MdPaginator } from '@angular/material';
@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
-import { Model } from '../../model';
+import { Animal } from '../../models/animal.model';
 
 @Component({
   selector: 'app-animals-list',
@@ -27,10 +27,10 @@ export class AnimalsListComponent implements OnInit {
 
   displayedColumns = ['name'];
 
-  constructor(private modelService: ModelsService) { }
+  constructor(private animalService: AnimalsService) { }
 
   ngOnInit() {
-    this.animals = this.modelService.getAll();
+    this.animals = this.animalService.getAll();
     this.filteredAnimals = this.animals.slice(0);
     this.types = this.animals
       .map((animal) => animal.status)
@@ -65,13 +65,13 @@ export class AnimalsListComponent implements OnInit {
 
 export class ExampleDatabase {
   /** Stream that emits whenever the data has been modified. */
-  dataChange: BehaviorSubject<Model[]>;
+  dataChange: BehaviorSubject<Animal[]>;
 
-  constructor(animals: Model[]) {
-    this.dataChange = new BehaviorSubject<Model[]>(animals);
+  constructor(animals: Animal[]) {
+    this.dataChange = new BehaviorSubject<Animal[]>(animals);
   }
 
-  get data(): Model[] { return this.dataChange.value; }
+  get data(): Animal[] { return this.dataChange.value; }
 }
 
 export class ExampleDataSource extends DataSource<any> {
@@ -80,7 +80,7 @@ export class ExampleDataSource extends DataSource<any> {
   }
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<Model[]> {
+  connect(): Observable<Animal[]> {
     const displayDataChanges = [
       this._exampleDatabase.dataChange,
       this._paginator.page,

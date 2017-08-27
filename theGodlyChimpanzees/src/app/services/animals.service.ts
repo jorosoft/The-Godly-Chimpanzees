@@ -63,7 +63,7 @@ export class AnimalsService {
     return this.models;
   }
 
-  getAnimalByName(name: string): Model {
+  getAnimalByName(name: string): Animal {
     return this.models.filter(x => x.name === name)[0];
   }
 }
