@@ -1,10 +1,41 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnimalsRoutingModule } from './animals-routing.module';
+import { AnimalsListComponent } from './animals-list/animals-list.component';
+import { AnimalDetailsComponent } from './animal-details/animal-details.component';
+import {
+  MdPaginatorModule,
+  MdTableModule,
+  MdGridListModule,
+  MdSidenavModule,
+  MdListModule,
+  MdCardModule,
+  MdIconModule,
+  MdInputModule,
+  MdSelectModule,
+  MdButtonModule
+} from '@angular/material';
+import { CdkTableModule } from '@angular/cdk';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AnimalsRoutingModule,
+    CdkTableModule,
+    MdTableModule,
+    MdPaginatorModule,
+    MdGridListModule,
+    MdSidenavModule,
+    MdListModule,
+    MdCardModule,
+    MdIconModule,
+    MdInputModule,
+    MdSelectModule,
+    MdButtonModule
   ],
-  declarations: []
+  declarations: [
+    AnimalsListComponent,
+    AnimalDetailsComponent
+]
 })
-export class AnimalsModule { }
+export class AnimalsModule {}

@@ -62,4 +62,8 @@ export class AnimalsService {
   getAll(): Animal[] {
     return this.models;
   }
+
+  getAnimalByName(name: string): Model {
+    return this.models.filter(x => x.name === name)[0];
+  }
 }

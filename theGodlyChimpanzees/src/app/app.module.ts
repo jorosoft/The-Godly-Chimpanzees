@@ -32,7 +32,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UsersModule } from './users/users.module';
-
+import { AnimalsModule } from './animals/animals.module';
 import { AppRoutingModule } from './app-routing.module';
 
 // import { LoginComponent } from './users/login/login.component';
