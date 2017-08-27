@@ -55,6 +55,12 @@ export class AnimalsListComponent implements OnInit {
     this.filteredAnimals = this.animals.filter(x => x.about === filter.value);
     this.initDB();
   }
+
+  search(input) {
+    const searchedText = input.value.toLowerCase().trim();
+    this.filteredAnimals = this.animals.filter(x => x.name.toLowerCase().includes(searchedText));
+    this.initDB();
+  }
 }
 
 export class ExampleDatabase {
