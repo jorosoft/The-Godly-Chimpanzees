@@ -1,0 +1,26 @@
+<form [formGroup]="registerForm" class="example-form">
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+    <td><md-input-container class="example-full-width">
+      <input mdInput placeholder="Username" formControlName="username">
+    </md-input-container></td>
+  </tr>
+  <tr>
+    <td><md-input-container class="example-full-width">
+      <input mdInput placeholder="Email" formControlName="email">
+    </md-input-container></td>
+  </tr>
+  <tr>
+    <td><md-input-container class="example-full-width">
+        <input mdInput placeholder="Password" formControlName="password">
+    </md-input-container></td>
+  </tr>
+  <tr>
+      <td><md-input-container class="example-full-width">
+          <input mdInput placeholder="Confirm password" formControlName="confirmPassword">
+      </md-input-container></td>
+  </tr>
+</table>
+<button md-raised-button type="submit" (click) ="onSubmit()" >Send</button>
+</form>
