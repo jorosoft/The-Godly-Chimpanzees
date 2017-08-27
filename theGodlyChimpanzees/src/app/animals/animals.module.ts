@@ -12,7 +12,8 @@ import {
   MdCardModule,
   MdIconModule,
   MdInputModule,
-  MdSelectModule
+  MdSelectModule,
+  MdButtonModule
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk';
 
@@ -29,7 +30,8 @@ import { CdkTableModule } from '@angular/cdk';
     MdCardModule,
     MdIconModule,
     MdInputModule,
-    MdSelectModule
+    MdSelectModule,
+    MdButtonModule
   ],
   declarations: [
     AnimalsListComponent,

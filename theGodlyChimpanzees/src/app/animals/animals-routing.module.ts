@@ -7,7 +7,7 @@ import { AnimalDetailsComponent } from './animal-details/animal-details.componen
 const routes: Routes = [
   { path: '', redirectTo: 'all', pathMatch: 'full' },
   { path: 'all', component: AnimalsListComponent},
-  { path: ':id', component: AnimalDetailsComponent }
+  { path: ':name', component: AnimalDetailsComponent }
 ];
 
 @NgModule({
