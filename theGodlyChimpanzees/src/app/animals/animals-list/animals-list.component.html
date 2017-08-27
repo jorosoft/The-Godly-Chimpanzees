@@ -53,7 +53,8 @@
                         <h3 md-line>Animal Type</h3>
                         <p md-line>
                             <span class="subline">
-                                <md-select placeholder="Types" (change)="filterAnimalsByType($event)">
+                                <md-select placeholder="Types" (change)="filterAnimals('status', $event)">
+                                    <md-option value="All">All</md-option>     
                                     <md-option *ngFor="let type of types" [value]="type">
                                         {{ type }}
                                     </md-option>
@@ -65,7 +66,8 @@
                         <h3 md-line>Zoo Zone</h3>
                         <p md-line>
                             <span class="subline">
-                                <md-select placeholder="Zones" (change)="filterAnimalsByZone($event)">
+                                <md-select placeholder="Zones" (change)="filterAnimals('about', $event)">
+                                    <md-option value="All">All</md-option>
                                     <md-option *ngFor="let zone of zones" [value]="zone">
                                         {{ zone }}
                                     </md-option>

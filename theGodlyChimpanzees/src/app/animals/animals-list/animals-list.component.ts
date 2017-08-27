@@ -46,13 +46,13 @@ export class AnimalsListComponent implements OnInit {
   this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
 }
 
-  filterAnimalsByType(filter) {
-    this.filteredAnimals = this.animals.filter(x => x.status === filter.value);
-    this.initDB();
-  }
+  filterAnimals(prop, filter) {
+    if (filter.value === 'All') {
+      this.filteredAnimals = this.animals.slice(0);
+    } else {
+      this.filteredAnimals = this.animals.filter(x => x[prop] === filter.value);
+    }
 
-  filterAnimalsByZone(filter) {
-    this.filteredAnimals = this.animals.filter(x => x.about === filter.value);
     this.initDB();
   }
 
