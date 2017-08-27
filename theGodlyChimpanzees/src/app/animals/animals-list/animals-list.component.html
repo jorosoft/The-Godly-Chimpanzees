@@ -1,0 +1,82 @@
+<md-sidenav-container class="example-container">
+    <div class="my-content">
+        <div class="example-container mat-elevation-z8">
+            <md-table class="table-bordered" #table [dataSource]="dataSource">
+                <ng-container cdkColumnDef="name">
+                    <md-header-cell *cdkHeaderCellDef></md-header-cell>
+                    <md-cell *cdkCellDef="let model">
+                        <md-grid-list cols="4" rowHeight="250px">
+                            <a href="animals/{{model.name}}">
+                                <md-grid-tile>
+                                    <img src="assets/img/{{model.name}}.jpg" alt="model">
+                                    <md-grid-tile-footer>
+                                        <h3 md-line>{{model.name}}</h3>
+                                        <span md-line>{{model.status}}</span>
+                                    </md-grid-tile-footer>
+                                </md-grid-tile>
+                            </a>
+                        </md-grid-list>
+                    </md-cell>
+                </ng-container>
+                <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+                <md-row [ngClass]="'customHeight'" *cdkRowDef="let model; columns: displayedColumns;"></md-row>
+            </md-table>
+            <md-paginator #paginator [length]="exampleDatabase.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
+            </md-paginator>
+        </div>
+    </div>
+    <md-sidenav mode="side" align="end" opened="true">
+        <md-card>
+            <md-card-header>
+                <div class="filters-title">
+                    <md-icon>search</md-icon>
+                    <span>Search</span>
+                </div>
+            </md-card-header>
+            <md-card-content>
+                <md-input-container>
+                    <input mdInput placeholder="Search animal" #val (keyup)="search(val)">
+                </md-input-container>
+            </md-card-content>
+        </md-card>
+
+        <md-card>
+            <md-card-header>
+                <div class="filters-title">
+                    <md-icon>filter_list</md-icon>
+                    <span>Filters</span>
+                </div>
+            </md-card-header>
+            <md-card-content>
+                <md-list class="demo-list mat-elevation-z2">
+                    <md-list-item>
+                        <h3 md-line>Animal Type</h3>
+                        <p md-line>
+                            <span class="subline">
+                                <md-select placeholder="Types" (change)="filterAnimals('status', $event)">
+                                    <md-option value="All">All</md-option>     
+                                    <md-option *ngFor="let type of types" [value]="type">
+                                        {{ type }}
+                                    </md-option>
+                                </md-select>
+                            </span>
+                        </p>
+                    </md-list-item>
+                    <md-list-item>
+                        <h3 md-line>Zoo Zone</h3>
+                        <p md-line>
+                            <span class="subline">
+                                <md-select placeholder="Zones" (change)="filterAnimals('about', $event)">
+                                    <md-option value="All">All</md-option>
+                                    <md-option *ngFor="let zone of zones" [value]="zone">
+                                        {{ zone }}
+                                    </md-option>
+                                </md-select>
+                            </span>
+                        </p>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+    </md-sidenav>
+</md-sidenav-container>
