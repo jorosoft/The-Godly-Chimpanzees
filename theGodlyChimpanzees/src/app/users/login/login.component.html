@@ -1,4 +1,36 @@
-<p>
-  login works!
-</p>
-<a [routerLink]="[ '/users/register' ]">Register</a>
+<form [formGroup]="registerForm" class="example-form">
+  
+    <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td><md-input-container class="example-full-width">
+        <input mdInput placeholder="Email" formControlName="email">
+      </md-input-container></td>
+      <td><div *ngIf="email.invalid" >
+        <div *ngIf="email.dirty || email.hasError('required') || email.hasError('email')" >
+          Please provide an email!
+        </div>
+        <!-- <div *ngIf="email.hasError('email')" >
+            Wrong email format!
+          </div> -->
+    </div>
+  </td>
+    </tr>
+    <tr>
+      <td><md-input-container class="example-full-width">
+          <input mdInput placeholder="Password" formControlName="password" (input)="takePassword($event)">
+      </md-input-container></td>
+      <td><div *ngIf="password.invalid" >
+        <div *ngIf="password.dirty || password.hasError('required')" >
+          The password should be at least 6 symbols!
+        </div>
+        <div *ngIf="password.hasError('pattern')" >
+            The password should contain only letters, numbers and _!
+          </div>
+      </div>
+    </td>
+    </tr>
+  </table>
+  <button md-raised-button type="submit" (click) ="onSubmit()" >Send</button>
+  </form>
+
+<a md-raised-button [routerLink]="[ '/users/register' ]">Register</a>

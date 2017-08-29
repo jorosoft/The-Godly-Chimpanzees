@@ -5,8 +5,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { RegisterComponent } from './register/register.component';
 
 import { UsersService } from './users.service';
-import { MdButtonModule, MdCardModule, MdDialogModule, MdGridListModule, MdIconModule, MdInputModule, MdMenuModule, MdSidenavModule, MdToolbarModule, MdTabsModule,
-} from '@angular/material';
+import { MdButtonModule, MdCardModule, MdDialogModule, MdGridListModule, MdIconModule, MdInputModule, MdMenuModule, MdSidenavModule, MdToolbarModule, MdTabsModule,} from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
