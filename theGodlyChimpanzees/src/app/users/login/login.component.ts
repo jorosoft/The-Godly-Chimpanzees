@@ -10,9 +10,9 @@ import { UsersService } from './../users.service';
 })
 export class LoginComponent implements OnInit {
 
-  private registerForm: FormGroup;
+  private loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UsersService) {
+  constructor(private fb: FormBuilder, private userService: UsersService, private router: Router) {
     this.createForm();
   }
 
@@ -20,21 +20,21 @@ export class LoginComponent implements OnInit {
   }
 
   createForm() {
-    this.registerForm = this.fb.group({
+    this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern(/[_a-zA-Z0-9]{4,6}/)]]
     });
   }
 
-  get email() { return this.registerForm.get('email'); }
-  get password() { return this.registerForm.get('password'); }
+  get email() { return this.loginForm.get('email'); }
+  get password() { return this.loginForm.get('password'); }
 
   // submitted = false;
 
   // form submit
   onSubmit() {
       this.userService.logIn(this.email.value, this.password.value)
-         .then((confirmation) => console.log('User Registered'))
+         .then((confirmation) => this.router.navigate(['/home']))
          .catch((err) => {
           console.log(err);
           throw err;

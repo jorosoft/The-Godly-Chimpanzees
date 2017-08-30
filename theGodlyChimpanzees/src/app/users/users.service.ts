@@ -16,6 +16,8 @@ export class UsersService {
               const userAuth = firebase.auth().currentUser;
               userAuth.updateProfile({ displayName: newUser.username, photoURL: '' });
               this.displayUser = {displayName: newUser.username, uid: userAuth.uid};
+              localStorage.setItem('displayUser', JSON.stringify({displayName: newUser.username, uid: user.uid}));
+
               console.log(userAuth);
               return firebase.database().ref('users').push(newUser);
           });
@@ -25,6 +27,7 @@ export class UsersService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
               .then((user) => {
                 this.displayUser = {displayName: user.displayName, uid: user.uid};
+                localStorage.setItem('displayUser', JSON.stringify({displayName: user.displayName, uid: user.uid}));
                 return this.displayUser;
               })
               .catch(err => {
@@ -32,7 +35,15 @@ export class UsersService {
               });
   }
 
+  logOut() {
+    return firebase.auth().signOut();
+  }
+
   getCurrenUser() {
-    return this.displayUser;
+    const userAuth = firebase.auth().currentUser;
+    if (!userAuth) {
+      localStorage.clear();
+    }
+    return JSON.parse(localStorage.getItem('displayUser'));
   }
 }

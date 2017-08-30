@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from './../../models/user.model';
 import { UsersService } from './../users.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
   array: [any];
   firstPassword: string;
 
-  constructor(private fb: FormBuilder, private userService: UsersService) {
+  constructor(private fb: FormBuilder, private userService: UsersService, private router: Router) {
     this.createForm();
   }
 
@@ -51,6 +52,7 @@ export class RegisterComponent implements OnInit {
          .then((confirmation) => {
           console.log(this.userService.getCurrenUser());
           console.log('User Registered');
+          this.router.navigate(['/home']);
          })
          .catch((err) => {
           console.log(err);

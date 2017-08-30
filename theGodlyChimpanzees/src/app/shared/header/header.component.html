@@ -4,7 +4,14 @@
         </span>
 
     <a [routerLink]="[ '/animals/all' ]">Animals</a>
-    <a [routerLink]="[ '/users' ]">Log In</a>
+    <div *ngIf="displayName">
+        <span>{{displayName}}</span>
+        <a (click)="logOut()">Log Out</a>
+    </div>
+    <div *ngIf="!displayName">
+        <a [routerLink]="[ '/users/login' ]">Log In</a>
+    </div>
+
     <!-- menu button -->
     <button md-icon-button [md-menu-trigger-for]="menu">
             <md-icon>more_vert</md-icon>
