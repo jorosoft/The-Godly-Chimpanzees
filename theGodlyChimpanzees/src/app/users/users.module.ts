@@ -8,6 +8,8 @@ import { UsersService } from './users.service';
 import { MdButtonModule, MdCardModule, MdDialogModule, MdGridListModule, MdIconModule, MdInputModule, MdMenuModule, MdSidenavModule, MdToolbarModule, MdTabsModule,} from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
+import { UsersGuardService } from './guards/users-guard.service';
 
 
 @NgModule({
@@ -27,9 +29,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ProfileComponent],
   providers: [
     UsersService,
+    UsersGuardService
 ]
 })
 export class UsersModule { }
