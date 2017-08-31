@@ -12,7 +12,7 @@ import { UsersService } from './../users.service';
 })
 export class RegisterComponent implements OnInit {
 
-  private registerForm: FormGroup;
+  public registerForm: FormGroup;
   user: User;
   array: [any];
   firstPassword: string;
@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/home']);
          })
          .catch((err) => {
-          console.log(err);
+          alert(err);
           throw err;
          });
   }

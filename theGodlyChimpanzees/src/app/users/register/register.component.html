@@ -1,11 +1,11 @@
-<form [formGroup]="registerForm" class="example-form">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="example-form" name="test">
 
   <table class="example-full-width" cellspacing="0">
     <tr>
     <td><md-input-container class="example-full-width">
       <input mdInput placeholder="Username" formControlName="username">
     </md-input-container></td>
-    <td><div *ngIf="username.invalid" >
+    <td><div *ngIf="username.invalid  && (username.touched || mouseover)" >
           <div *ngIf="username.dirty || username.hasError('required')" >
             The username should be at least 4 symbols!
           </div>
@@ -19,7 +19,7 @@
     <td><md-input-container class="example-full-width">
       <input mdInput placeholder="Email" formControlName="email">
     </md-input-container></td>
-    <td><div *ngIf="email.invalid" >
+    <td><div *ngIf="email.invalid  && (email.touched || mouseover)" >
       <div *ngIf="email.dirty || email.hasError('required') || email.hasError('email')" >
         Please provide an email!
       </div>
@@ -33,7 +33,7 @@
     <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Password" formControlName="password" (blur)="takePassword($event)">
     </md-input-container></td>
-    <td><div *ngIf="password.invalid" >
+    <td><div *ngIf="password.invalid && (password.touched || mouseover)" >
       <div *ngIf="password.dirty || password.hasError('required')" >
         The password should be at least 6 symbols!
       </div>
@@ -55,5 +55,8 @@
   </td>
   </tr>
 </table>
-<button md-raised-button type="submit" (click) ="onSubmit()" >Send</button>
+<span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
+  <button md-raised-button type="submit" [disabled]="!registerForm.valid">Send</button>
+</span>
+
 </form>

@@ -31,7 +31,7 @@ import { UsersGuardService } from './guards/users-guard.service';
   ],
   declarations: [LoginComponent, RegisterComponent, ProfileComponent],
   providers: [
-    UsersService,
+    // UsersService,
     UsersGuardService
 ]
 })
