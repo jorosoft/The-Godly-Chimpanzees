@@ -5,7 +5,7 @@
         <md-grid-tile-footer>
             <h3 md-line>{{animal.name}}</h3>
             <span md-line>{{animal.status}}</span>
-            <button md-icon-button> <!-- (click)="" TODO open animal page -->
+            <button md-icon-button routerLink="/animals/{{animal.name}}"> <!-- (click)="" TODO open animal page -->
                         <md-icon>info</md-icon>
                     </button>
         </md-grid-tile-footer>
