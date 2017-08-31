@@ -9,7 +9,7 @@ export class NavComponent implements OnInit {
 
   items = [
     { name: 'Animals', icon: 'face', path: 'animals/all' },
-    { name: 'Tickets', icon: 'account_balance_wallet', path: 'home' },
+    { name: 'Tickets', icon: 'account_balance_wallet', path: 'activities' },
     { name: 'Membership', icon: 'account_box', path: 'home' },
     { name: 'Donate', icon: 'group_work', path: 'home' },
   ];
