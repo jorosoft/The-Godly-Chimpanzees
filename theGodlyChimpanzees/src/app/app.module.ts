@@ -35,8 +35,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UsersModule } from './users/users.module';
 import { AnimalsModule } from './animals/animals.module';
 import { AppRoutingModule } from './app-routing.module';
-
-// import { LoginComponent } from './users/login/login.component';
+import { UsersService } from './users/users.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,6 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     NotFoundComponent,
     // AddMessageComponent
-    // LoginComponent
   ],
   entryComponents: [
     AppComponent,
@@ -75,7 +73,7 @@ import { AppRoutingModule } from './app-routing.module';
     MdTabsModule,
     FlexLayoutModule
   ],
-  providers: [AnimalsService],
+  providers: [AnimalsService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
