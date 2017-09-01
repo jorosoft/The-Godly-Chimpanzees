@@ -17,8 +17,6 @@ export class HeaderComponent implements DoCheck {
    }
 
    ngDoCheck() {
-    console.log('check test');
-    console.log(this.userService.getCurrenUser());
     this.displayName = this.userService.getCurrenUser() ? this.userService.getCurrenUser().displayName : null;
     }
 

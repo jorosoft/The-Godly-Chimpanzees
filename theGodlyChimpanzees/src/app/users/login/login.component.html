@@ -1,11 +1,11 @@
-<form [formGroup]="loginForm" class="example-form">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
   
     <table class="example-full-width" cellspacing="0">
     <tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Email" formControlName="email">
       </md-input-container></td>
-      <td><div *ngIf="email.invalid" >
+      <td><div *ngIf="email.invalid && (email.touched || mouseover)" >
         <div *ngIf="email.dirty || email.hasError('required') || email.hasError('email')" >
           Please provide an email!
         </div>
@@ -19,7 +19,7 @@
       <td><md-input-container class="example-full-width">
           <input mdInput placeholder="Password" formControlName="password">
       </md-input-container></td>
-      <td><div *ngIf="password.invalid" >
+      <td><div *ngIf="password.invalid && (password.touched || mouseover)" >
         <div *ngIf="password.dirty || password.hasError('required')" >
           The password should be at least 6 symbols!
         </div>
@@ -30,7 +30,9 @@
     </td>
     </tr>
   </table>
-  <button md-raised-button type="submit" (click) ="onSubmit()" >Log In</button>
+  <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
+    <button md-raised-button type="submit" [disabled]="!loginForm.valid">Send</button>
+  </span>
   </form>
 
 <a md-raised-button [routerLink]="[ '/users/register' ]">Register</a>

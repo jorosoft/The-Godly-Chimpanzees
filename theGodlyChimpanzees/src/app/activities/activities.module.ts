@@ -4,6 +4,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { ActivitiesRoutingModule } from './activities-routing.module';
 import { MdSelectModule, MdButtonModule, MdCardModule, MdDialogModule, MdGridListModule, MdIconModule, MdInputModule, MdMenuModule, MdSidenavModule, MdToolbarModule, MdTabsModule, MdDatepickerModule, MdTooltipModule, MdAutocompleteModule, MdButtonToggleModule, MdCheckboxModule, MdTableModule, MdNativeDateModule, MdExpansionModule, MdListModule, MdCoreModule, MdPaginatorModule, MdProgressBarModule, MdProgressSpinnerModule, MdRadioModule, MdRippleModule, MdSlideToggleModule, MdSliderModule, MdSnackBarModule, MdSortModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePickerModule } from 'ng2-datepicker';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MdTabsModule,
     MdToolbarModule,
     MdTooltipModule,
-    MdNativeDateModule,  ],
+    MdNativeDateModule,
+    DatePickerModule ],
   declarations: [TicketsComponent]
 })
 export class ActivitiesModule { }
