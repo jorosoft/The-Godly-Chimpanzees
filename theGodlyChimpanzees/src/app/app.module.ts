@@ -24,6 +24,7 @@ import {
   MdSidenavModule,
   MdToolbarModule,
   MdTabsModule,
+  MdDatepickerModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { UsersModule } from './users/users.module';
 import { AnimalsModule } from './animals/animals.module';
 import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './users/users.service';
+import { ActivitiesModule } from './activities/activities.module';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { UsersService } from './users/users.service';
     MdSidenavModule,
     MdToolbarModule,
     MdTabsModule,
-    FlexLayoutModule
+    MdDatepickerModule,
+    FlexLayoutModule,
+    ActivitiesModule
   ],
   providers: [AnimalsService, UsersService],
   bootstrap: [AppComponent]
