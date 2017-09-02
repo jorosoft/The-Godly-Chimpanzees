@@ -19,7 +19,7 @@ export class UsersService {
               localStorage.setItem('displayUser', JSON.stringify({displayName: newUser.username, uid: user.uid}));
 
               console.log(userAuth);
-              return firebase.database().ref('users').push(newUser);
+              return firebase.database().ref('users/' + user.uid).push(newUser);
           });
   }
 

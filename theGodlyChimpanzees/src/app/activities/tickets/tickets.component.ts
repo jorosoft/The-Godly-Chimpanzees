@@ -2,6 +2,10 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { Ticket } from './../../models/ticket.model';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
+import { ActivitiesService } from './../../services/activities.service';
+import { UsersService } from './../../users/users.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-tickets',
@@ -9,6 +13,7 @@ import { DatePickerOptions, DateModel } from 'ng2-datepicker';
   styleUrls: ['./tickets.component.scss']
 })
 export class TicketsComponent implements OnInit, DoCheck {
+  public user: any;
   public selectedValue: string;
   public selectedNumberOfAdults = 0;
   public selectedNumberOfChildren = 0;
@@ -42,12 +47,14 @@ export class TicketsComponent implements OnInit, DoCheck {
   public date: DateModel;
   public options: DatePickerOptions;
 
-   constructor(public fb: FormBuilder) {
+   constructor(public router: Router, public fb: FormBuilder, public activitiService: ActivitiesService, public userService: UsersService) {
      this.options = new DatePickerOptions();
     }
 
    ngOnInit() {
      this.createForm();
+     this.user = this.userService.getCurrenUser();
+     console.log(this.router.url);
    }
 
    ngDoCheck() {
@@ -76,4 +83,13 @@ export class TicketsComponent implements OnInit, DoCheck {
   get adultsCounter() { return this.ticketForm.get('adultsCounter'); }
   get childrenCounter() { return this.ticketForm.get('childrenCounter'); }
   get totalCounter() { return this.ticketForm.get('totalCounter'); }
+
+  onSubmit() {
+    if (!this.user) {
+      alert('You should log in to proceed!');
+      this.router.navigate(['/users/login']);
+    } else {
+      console.log('Bravo!');
+    }
+  }
 }

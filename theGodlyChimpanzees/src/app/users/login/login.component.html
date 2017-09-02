@@ -1,6 +1,6 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
   
-    <table class="example-full-width" cellspacing="0">
+    <table class="example-full-width" cellspacing="15">
     <tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Email" formControlName="email">
@@ -29,10 +29,15 @@
       </div>
     </td>
     </tr>
+    <tr>
+      <td>
+        <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
+            <button md-raised-button type="submit" [disabled]="!loginForm.valid">Log In</button>
+        </span>
+      </td>
+      </tr>
   </table>
-  <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
-    <button md-raised-button type="submit" [disabled]="!loginForm.valid">Send</button>
-  </span>
+
   </form>
 
 <a md-raised-button [routerLink]="[ '/users/register' ]">Register</a>

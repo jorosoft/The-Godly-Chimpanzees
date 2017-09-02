@@ -38,6 +38,7 @@ import { AnimalsModule } from './animals/animals.module';
 import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './users/users.service';
 import { ActivitiesModule } from './activities/activities.module';
+import { ActivitiesService } from './services/activities.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,7 @@ import { ActivitiesModule } from './activities/activities.module';
     FlexLayoutModule,
     ActivitiesModule
   ],
-  providers: [AnimalsService, UsersService],
+  providers: [AnimalsService, UsersService, ActivitiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
