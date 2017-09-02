@@ -4,12 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
-import { UsersGuardService } from './guards/users-guard.service';
+import { UsersGuardService } from './../shared/guards/auth.service';
+import { NotAuthGuardService } from './../shared/guards/not-auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService]},
+  { path: 'register', component: RegisterComponent, canActivate: [NotAuthGuardService]},
   { path: 'profile', component: ProfileComponent, canActivate: [UsersGuardService]}
   // { path: ':id', component: UsersListComponent, canActivate: [UsersGuardService] }
 ];

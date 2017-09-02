@@ -9,8 +9,8 @@ import { MdButtonModule, MdCardModule, MdDialogModule, MdGridListModule, MdIconM
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
-import { UsersGuardService } from './guards/users-guard.service';
-
+import { UsersGuardService } from './../shared/guards/auth.service';
+import { NotAuthGuardService } from './../shared/guards/not-auth-guard.service';
 
 @NgModule({
   imports: [
@@ -32,7 +32,8 @@ import { UsersGuardService } from './guards/users-guard.service';
   declarations: [LoginComponent, RegisterComponent, ProfileComponent],
   providers: [
     // UsersService,
-    UsersGuardService
+    UsersGuardService,
+    NotAuthGuardService
 ]
 })
 export class UsersModule { }
