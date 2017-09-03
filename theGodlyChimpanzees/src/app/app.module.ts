@@ -39,6 +39,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './users/users.service';
 import { ActivitiesModule } from './activities/activities.module';
 import { ActivitiesService } from './services/activities.service';
+import { DataBaseService } from './services/data-base.service';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,7 @@ import { ActivitiesService } from './services/activities.service';
     FlexLayoutModule,
     ActivitiesModule
   ],
-  providers: [AnimalsService, UsersService, ActivitiesService],
+  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

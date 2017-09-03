@@ -1,7 +1,7 @@
 export class Ticket {
     name: string;
     date: string;
-    price: string;
+    price: number;
     type: string;
 
     constructor(name, date, price, type) {

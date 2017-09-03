@@ -14,14 +14,12 @@ export class RegisterComponent implements OnInit {
 
   public registerForm: FormGroup;
   user: User;
-  array: [any];
   firstPassword: string;
-
   constructor(private fb: FormBuilder, private userService: UsersService, private router: Router) {
-    this.createForm();
   }
 
   ngOnInit() {
+      this.createForm();
   }
 
 
@@ -47,7 +45,7 @@ export class RegisterComponent implements OnInit {
 
   // form submit
   onSubmit() {
-      this.user = {username: this.username.value + '', email: this.email.value + '', password: this.password.value + '', array: ['test']};
+      this.user = new User(this.username.value + '', this.email.value + '', this.password.value + '');
       this.userService.register(this.user)
          .then((confirmation) => {
           console.log(this.userService.getCurrenUser());

@@ -5,7 +5,9 @@ import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 import { ActivitiesService } from './../../services/activities.service';
 import { UsersService } from './../../users/users.service';
 import { Router } from '@angular/router';
-
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/find';
 
 @Component({
   selector: 'app-tickets',
@@ -20,47 +22,33 @@ export class TicketsComponent implements OnInit, DoCheck {
   public ticketForm: FormGroup;
   public ticketPrice = 0;
   public totalPrice = 0;
-  public tickets = [
-    {value: 'tour-0', viewValue: 'General', viewDate: '10.09.2017', ticketPrice: 10},
-    {value: 'tour-1', viewValue: 'Snakes', viewDate: '11.09.2017', ticketPrice: 15},
-    {value: 'tour-2', viewValue: 'Big cats', viewDate: '12.09.2017', ticketPrice: 20}
-  ];
-
-  public numbers = [
-    {value: 0},
-    {value: 1},
-    {value: 2},
-    {value: 3},
-    {value: 4},
-    {value: 5},
-    {value: 6},
-    {value: 7},
-    {value: 8},
-    {value: 9},
-    {value: 10},
-    {value: 11},
-    {value: 12},
-    {value: 13},
-    {value: 14},
-    {value: 15}
-  ];
+  // public tickets: Observable<any>;
+  public tickets = [];
+  public numbers = [];
   public date: DateModel;
   public options: DatePickerOptions;
+  public newTicket: Ticket;
+  public searched: any;
 
-   constructor(public router: Router, public fb: FormBuilder, public activitiService: ActivitiesService, public userService: UsersService) {
-     this.options = new DatePickerOptions();
+   constructor(public router: Router, public fb: FormBuilder,
+               public activitiService: ActivitiesService, public userService: UsersService) {
+
     }
 
    ngOnInit() {
      this.createForm();
      this.user = this.userService.getCurrenUser();
-     console.log(this.router.url);
+     this.options = new DatePickerOptions();
+    //  this.tickets = this.activitiService.getTickets().subscribe((data) => data)
+    this.activitiService.getTickets().subscribe(value => this.tickets.push(value));
+     this.activitiService.getNumbers().subscribe(number => this.numbers.push(number));
+
    }
 
    ngDoCheck() {
-    const searched = this.tickets.find((el) => el.value === this.selectedValue);
-    if (searched) {
-      this.ticketPrice = searched.ticketPrice;
+    this.searched = this.tickets.find((el) => el.value === this.selectedValue);
+    if (this.searched) {
+      this.ticketPrice = this.searched.ticketPrice;
     }
     this.totalPrice = this.ticketPrice * ( this.selectedNumberOfChildren / 2 + this.selectedNumberOfAdults);
 
@@ -89,7 +77,16 @@ export class TicketsComponent implements OnInit, DoCheck {
       alert('You should log in to proceed!');
       this.router.navigate(['/users/login']);
     } else {
-      console.log('Bravo!');
+      const addTickets = [];
+      for ( let i = 1; i <= this.adultsCounter.value; i += 1 ) {
+        addTickets.push(new Ticket(this.searched.viewValue, this.searched.viewDate, this.searched.ticketPrice, 'adult'));
+      }
+      for ( let i = 1; i <= this.childrenCounter.value; i += 1 ) {
+        addTickets.push(new Ticket(this.searched.viewValue, this.searched.viewDate, this.searched.ticketPrice / 2, 'child'));
+      }
+      this.activitiService.addTickets(addTickets, this.user.uid)
+        .then((conf) => console.log('Done'))
+        .catch((err) => alert(err));
     }
   }
 }
