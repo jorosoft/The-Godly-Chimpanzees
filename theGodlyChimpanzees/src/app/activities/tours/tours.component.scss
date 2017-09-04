@@ -1,0 +1,35 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    max-height: 500px;
+    min-width: 300px;
+}
+
+.example-header {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    font-size: 20px;
+}
+
+.mat-table {
+    overflow: auto;
+}
+
+md-sidenav {
+    width: 25%;
+}
+
+md-header-row {
+    display: none;
+}
+
+.customHeight {
+    height: 300px;
+}
+
+.filters-title {
+    vertical-align: middle;
+}

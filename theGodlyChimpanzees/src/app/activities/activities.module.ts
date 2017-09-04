@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePickerModule } from 'ng2-datepicker';
 import { TourInfoComponent } from './tour-info/tour-info.component';
 import { ToursComponent } from './tours/tours.component';
+import { CdkTableModule } from '@angular/cdk';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { ToursComponent } from './tours/tours.component';
     MdToolbarModule,
     MdTooltipModule,
     MdNativeDateModule,
-    DatePickerModule ],
+    DatePickerModule,
+    CdkTableModule ],
   declarations: [TicketsComponent, TourInfoComponent, ToursComponent]
 })
 export class ActivitiesModule { }
