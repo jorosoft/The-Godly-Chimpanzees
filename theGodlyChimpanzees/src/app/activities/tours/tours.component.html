@@ -6,7 +6,7 @@
                   <md-header-cell *cdkHeaderCellDef></md-header-cell>
                   <md-cell *cdkCellDef="let model">
                       <md-grid-list cols="4" rowHeight="250px">
-                          <a href="activities/tours/{{model.name}}">
+                          <a href="activities/{{model.name}}">
                               <md-grid-tile>
                                   <img src="assets/img/tours/{{model.name}}/{{model.name}}_0.jpg" alt="model">
                                   <md-grid-tile-footer>
@@ -62,7 +62,7 @@
                           </span>
                       </p>
                   </md-list-item>
-                  <md-list-item>
+                  <!-- <md-list-item>
                       <h3 md-line>Search price</h3>
                       <p md-line>
                           <span class="subline">
@@ -74,7 +74,7 @@
                               </md-select>
                           </span>
                       </p>
-                  </md-list-item>
+                  </md-list-item> -->
               </md-list>
           </md-card-content>
       </md-card>

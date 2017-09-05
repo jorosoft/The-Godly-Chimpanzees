@@ -21,6 +21,7 @@
         "@angular/platform-browser-dynamic": "^4.2.4",
         "@angular/router": "^4.2.4",
         "@types/rx": "^4.1.1",
+        "angular4-carousel": "^3.1.5",
         "angularfire2": "^4.0.0-rc.2-next.1",
         "core-js": "^2.4.1",
         "firebase": "^4.3.0",

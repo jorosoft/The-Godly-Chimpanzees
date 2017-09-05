@@ -1,3 +1,28 @@
-<p>
-  tour-info works!
-</p>
+
+<md-card fxFlex="80%">
+  <md-card-header>
+      <md-card-title>
+          <h2>{{tour.viewValue}}</h2>
+      </md-card-title>
+  </md-card-header>
+  <img class="img-width" md-card-image src="assets/img/tours/{{tour.name}}/{{tour.name}}_0.jpg">
+  <!-- <div style="width: 800px; height: 400px">
+    <carousel [sources]="imageSources" [config]="config"></carousel>
+</div> -->
+  <md-card-content>
+      <p>Date: {{tour.viewDate}}</p>
+      <p>Ticket price: {{tour.ticketPrice}}</p>
+      <p>{{tour.info}}</p>
+  </md-card-content>
+  <md-divider></md-divider>
+  <md-card-actions>
+      <div fxLayout="row">
+          <button md-raised-button (click)="backToList()">            
+          <md-icon>keyboard_backspace</md-icon>            
+        </button>
+          <button md-raised-button (click)="buyATicket()">            
+            Buy a ticket            
+        </button>
+      </div>
+  </md-card-actions>
+</md-card>

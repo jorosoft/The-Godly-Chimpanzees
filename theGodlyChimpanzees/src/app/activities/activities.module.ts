@@ -47,7 +47,9 @@ import { CdkTableModule } from '@angular/cdk';
     MdTooltipModule,
     MdNativeDateModule,
     DatePickerModule,
-    CdkTableModule ],
-  declarations: [TicketsComponent, TourInfoComponent, ToursComponent]
+    CdkTableModule
+  ],
+  declarations: [TicketsComponent, TourInfoComponent, ToursComponent],
+  exports: [TicketsComponent, TourInfoComponent, ToursComponent]
 })
 export class ActivitiesModule { }

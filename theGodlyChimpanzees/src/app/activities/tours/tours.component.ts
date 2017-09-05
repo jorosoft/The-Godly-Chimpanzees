@@ -48,6 +48,7 @@ export class ToursComponent implements OnInit, DoCheck {
   }
 
     filterTours(prop, filter) {
+      // this.filteredTours = this.tours.slice(0);
       if (filter.value === 'All') {
         this.filteredTours = this.tours.slice(0);
       } else {
