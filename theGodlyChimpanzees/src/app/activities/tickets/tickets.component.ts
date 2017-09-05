@@ -42,7 +42,10 @@ export class TicketsComponent implements OnInit, DoCheck {
     //  this.tickets = this.activitiService.getTickets().subscribe((data) => data)
     this.activitiService.getTickets().subscribe(value => this.tickets.push(value));
      this.activitiService.getNumbers().subscribe(number => this.numbers.push(number));
-
+     const tempValue = this.activitiService.getSelectedValue();
+     if (tempValue) {
+      this.selectedValue = tempValue;
+     }
    }
 
    ngDoCheck() {

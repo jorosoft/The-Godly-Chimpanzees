@@ -8,10 +8,12 @@ import { DatePickerModule } from 'ng2-datepicker';
 import { TourInfoComponent } from './tour-info/tour-info.component';
 import { ToursComponent } from './tours/tours.component';
 import { CdkTableModule } from '@angular/cdk';
+import { CarouselModule } from 'angular4-carousel';
 
 @NgModule({
   imports: [
     CommonModule,
+    CarouselModule,
     ActivitiesRoutingModule,
     FormsModule,
     ReactiveFormsModule,

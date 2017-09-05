@@ -40,7 +40,6 @@ import { UsersService } from './users/users.service';
 import { ActivitiesModule } from './activities/activities.module';
 import { ActivitiesService } from './services/activities.service';
 import { DataBaseService } from './services/data-base.service';
-import { CarouselModule } from 'angular4-carousel';
 
 @NgModule({
   declarations: [
@@ -78,8 +77,7 @@ import { CarouselModule } from 'angular4-carousel';
     MdTabsModule,
     MdDatepickerModule,
     FlexLayoutModule,
-    ActivitiesModule,
-    CarouselModule
+    ActivitiesModule
   ],
   exports: [
     AppComponent,

@@ -5,10 +5,9 @@
           <h2>{{tour.viewValue}}</h2>
       </md-card-title>
   </md-card-header>
-  <img class="img-width" md-card-image src="assets/img/tours/{{tour.name}}/{{tour.name}}_0.jpg">
-  <!-- <div style="width: 800px; height: 400px">
-    <carousel [sources]="imageSources" [config]="config"></carousel>
-</div> -->
+    <div style="width: 800px; height: 400px">
+        <carousel [sources]="imageSources" [config]="config"></carousel>
+    </div>
   <md-card-content>
       <p>Date: {{tour.viewDate}}</p>
       <p>Ticket price: {{tour.ticketPrice}}</p>

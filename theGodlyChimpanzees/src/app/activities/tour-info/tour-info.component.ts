@@ -48,6 +48,7 @@ export class TourInfoComponent implements OnInit {
     this.router.navigateByUrl('activities/tours');
   }
   buyATicket() {
+    this.activitiesService.setSelectedValue(this.tour.value);
     this.router.navigateByUrl('activities/tickets');
   }
 }

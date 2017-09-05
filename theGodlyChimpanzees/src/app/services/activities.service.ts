@@ -54,8 +54,17 @@ public tours = [
   {value: 'tour-5', name: 'monkeys', viewValue: 'Monkeys', viewDate: '15.09.2017',
   ticketPrice: 25, info: this.monkeys, imgs: ['monkeys_0', 'monkeys_1', 'monkeys_2']}
 ];
+public selectedValue: string;
 
   constructor(public db: AngularFireDatabase, public dataBaseService: DataBaseService) { }
+
+  setSelectedValue(selectedValue: string) {
+    this.selectedValue = selectedValue;
+  }
+
+  getSelectedValue() {
+    return this.selectedValue;
+  }
 
   getTickets() {
     return new Observable( observer => {
@@ -90,6 +99,8 @@ public tours = [
         })
         .catch((err) => alert(err));
   }
+  
+
 
 }
 
