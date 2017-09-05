@@ -1,22 +1,35 @@
 <md-toolbar color="primary" class="mat-elevation-z1 mat-toolbar " #header>
     <span><md-icon>pets</md-icon>
         &nbsp;TheZoo
-        </span>
+    </span> 
 
-    <a [routerLink]="[ '/animals/all' ]">Animals</a>
-    <div *ngIf="displayName">
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-fill-remaining-space"></span>
+
+
+    <!-- <a [routerLink]="[ '/animals/all' ]">Animals</a> -->
+    <span *ngIf="displayName" class="fill-remaining-space">
         <span>{{displayName}}</span>
-        <a (click)="logOut()">Log Out</a>
-        <a [routerLink]="[ '/users/profile' ]">Profile</a>
-    </div>
-    <div *ngIf="!displayName">
-        <a [routerLink]="[ '/users/login' ]">Log In</a>
-    </div>
+        <a  md-button (click)="logOut()">Log Out</a>
+        <a  md-button [routerLink]="[ '/users/profile' ]">Profile</a>
+    </span>
+    <span *ngIf="!displayName" class="fill-remaining-space">
+        <a  md-button [routerLink]="[ '/users/login' ]">Log In</a>
+    </span>
 
     <!-- menu button -->
     <button md-icon-button [md-menu-trigger-for]="menu">
             <md-icon>more_vert</md-icon>
-        </button>
+    </button>
 </md-toolbar>
 
 <!-- menu -->

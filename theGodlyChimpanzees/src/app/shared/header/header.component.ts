@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, DoCheck} from '@angular/core';
-import { UsersService } from './../../users/users.service';
+import { UsersService } from './../../services/users.service';
 import { Router, RouterModule } from '@angular/router';
 
 

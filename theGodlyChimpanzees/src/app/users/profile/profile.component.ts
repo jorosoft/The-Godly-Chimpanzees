@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './../users.service';
+import { UsersService } from './../../services/users.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 import { ActivitiesService } from './../../services/activities.service';

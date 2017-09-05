@@ -6,8 +6,6 @@ import { UsersService } from './../users.service';
 export class UsersGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
     const currentUser = !!this.usersService.getCurrenUser();
-
-    console.log(currentUser + ' currentUser');
     let check = true;
 
     if (currentUser) {

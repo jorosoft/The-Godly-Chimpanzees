@@ -32,12 +32,12 @@
                 <tr>
                   <td>
                       <md-input-container class="example-full-width">
-                          <input mdInput placeholder="Email" formControlName="email">
+                          <input mdInput placeholder="Email" formControlName="emailR">
                         </md-input-container>
                   </td>
                   <td>
-                      <div *ngIf="email.invalid  && (email.touched || mouseover)" >
-                          <div *ngIf="email.dirty || email.hasError('required') || email.hasError('email')" >
+                      <div *ngIf="emailR.invalid  && (emailR.touched || mouseover)" >
+                          <div *ngIf="emailR.dirty || emailR.hasError('required') || emailR.hasError('email')" >
                             Please provide an email!
                           </div>
                           <!-- <div *ngIf="email.hasError('email')" >
@@ -53,15 +53,15 @@
               <tr>
                 <td>
                     <md-input-container class="example-full-width">
-                        <input mdInput type = "password" placeholder="Password" formControlName="password" (blur)="takePassword($event)">
+                        <input mdInput type = "password" placeholder="Password" formControlName="passwordR" (blur)="takePassword($event)">
                     </md-input-container>
                 </td>
                 <td>
-                    <div *ngIf="password.invalid && (password.touched || mouseover)" >
-                        <div *ngIf="password.dirty || password.hasError('required')" >
+                    <div *ngIf="passwordR.invalid && (passwordR.touched || mouseover)" >
+                        <div *ngIf="passwordR.dirty || passwordR.hasError('required')" >
                           The password should be at least 6 symbols!
                         </div>
-                        <div *ngIf="password.hasError('pattern')" >
+                        <div *ngIf="passwordR.hasError('pattern')" >
                             The password should contain only letters, numbers and _!
                           </div>
                       </div>

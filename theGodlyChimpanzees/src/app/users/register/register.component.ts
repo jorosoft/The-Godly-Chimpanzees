@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from './../../models/user.model';
-import { UsersService } from './../users.service';
+import { UsersService } from './../../services/users.service';
 
 
 @Component({
@@ -30,20 +30,20 @@ export class RegisterComponent implements OnInit {
   createForm() {
     this.registerForm = this.fb.group({
       username: ['', [Validators.required, Validators.pattern(/\S[_a-zA-Z0-9]{4,6}/)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(/[_a-zA-Z0-9]{4,6}/)]]
+      emailR: ['', [Validators.required, Validators.email]],
+      passwordR: ['', [Validators.required, Validators.pattern(/[_a-zA-Z0-9]{4,6}/)]]
     });
   }
 
   get username() { return this.registerForm.get('username'); }
-  get email() { return this.registerForm.get('email'); }
-  get password() { return this.registerForm.get('password'); }
+  get emailR() { return this.registerForm.get('emailR'); }
+  get passwordR() { return this.registerForm.get('passwordR'); }
 
   // submitted = false;
 
   // form submit
   onSubmit() {
-      this.user = new User(this.username.value + '', this.email.value + '', this.password.value + '');
+      this.user = new User(this.username.value + '', this.emailR.value + '', this.passwordR.value + '');
       this.userService.register(this.user)
          .then((confirmation) => {
           console.log(this.userService.getCurrenUser());

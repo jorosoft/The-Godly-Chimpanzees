@@ -36,7 +36,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UsersModule } from './users/users.module';
 import { AnimalsModule } from './animals/animals.module';
 import { AppRoutingModule } from './app-routing.module';
-import { UsersService } from './users/users.service';
+import { UsersService } from './services/users.service';
 import { ActivitiesModule } from './activities/activities.module';
 import { ActivitiesService } from './services/activities.service';
 import { DataBaseService } from './services/data-base.service';
