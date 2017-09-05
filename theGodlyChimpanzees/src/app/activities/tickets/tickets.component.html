@@ -1,84 +1,107 @@
 
-  <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="example-form">
-
-        <table class="example-full-width" cellspacing="15">
-            <tr>
-              <td>     
-                <md-select placeholder="Ticket type" [(ngModel)]="selectedValue" name="ticket" formControlName="selectTicket">
-                  <md-option *ngFor="let ticket of tickets" [value]="ticket.value">
-                    {{ticket.viewValue}}
-                  </md-option>
-                </md-select>
-            </td>
-            <td><div *ngIf="selectTicket.invalid  && (selectTicket.touched || mouseover)" >
-                <div *ngIf="selectTicket.dirty || selectTicket.hasError('required')" >
-                  Please choose an event type or a date!
-                </div>
-            </div>
-          </td>
-            </tr>
-            <tr>
-              <td>
-                  <md-select placeholder="Date" [(ngModel)]="selectedValue" name="ticket" formControlName="selectDate">
-                      <md-option *ngFor="let ticket of tickets" [value]="ticket.value" >
-                        {{ticket.viewDate}}
-                      </md-option>
-                    </md-select>
-            </td>
-            <td>
-              <div *ngIf="selectDate.invalid  && (selectDate.touched || mouseover)" >
-                <div *ngIf="selectDate.dirty || selectDate.hasError('required')" >
-                  Please choose an event type or a date!
-                </div>
-              </div>
-            </td>
-            </tr>
-            <tr>
-                <td>
-                    <md-input-container>
-                        <input mdInput placeholder="Price" [value]="ticketPrice" formControlName="price">
-                    </md-input-container>
-              </td>
-              </tr>
-              <tr>
-                <td>
-                    <md-select placeholder="Adults" [(ngModel)]="selectedNumberOfAdults" name="adults" formControlName="adultsCounter">
-                      <md-option *ngFor="let number of numbers" [value]="number.value">
-                        {{number.value}}
-                      </md-option>
-                    </md-select>
-              </td>
-              </tr>
-              <tr>
-                <td>
-                    <md-select placeholder="Children - half of the ticket price" [(ngModel)]="selectedNumberOfChildren" name="children" formControlName="childrenCounter">
-                      <md-option *ngFor="let number of numbers" [value]="number.value">
-                        {{number.value}}
-                      </md-option>
-                    </md-select>
-              </td>
-              </tr>
-              <tr>
-                <td>
-                    <md-input-container>
-                        <input mdInput placeholder="Total" formControlName="totalCounter" [value]="totalPrice">
-                    </md-input-container>
-              </td>
-              <td>
-                  <div *ngIf="totalCounter.invalid  &&  mouseover" >
-                    <div *ngIf="totalCounter.hasError('min')" >
-                      Please add visitors (adults or children)!
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            <tr>
-              <td>
-                  <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
-                      <button md-raised-button type="submit" [disabled]="!ticketForm.valid">Buy a ticket</button>
-                    </span>
-              </td>
-            </tr>
-          </table>
     
-
+  <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="example-form">
+        <md-card class="cardMaterial">
+          <md-card-header>
+            <md-card-title>Buy a ticket form</md-card-title>
+            <md-card-subtitle>Please fill in the fields below:</md-card-subtitle>
+          </md-card-header>
+          <md-card-content>
+              <table>
+                  <tr>
+                      <td>     
+                        <md-select placeholder="Ticket type" [(ngModel)]="selectedValue" name="ticket" formControlName="selectTicket">
+                          <md-option *ngFor="let ticket of tickets" [value]="ticket.value">
+                            {{ticket.viewValue}}
+                          </md-option>
+                        </md-select>
+                    </td>
+                    <td><div *ngIf="selectTicket.invalid  && (selectTicket.touched || mouseover)" >
+                        <div *ngIf="selectTicket.dirty || selectTicket.hasError('required')" >
+                          Please choose an event type or a date!
+                        </div>
+                    </div>
+                  </td>
+                    </tr>
+              </table>
+          </md-card-content>
+          <md-card-content>
+              <table>
+                  <tr>
+                      <td>
+                          <md-select placeholder="Date" [(ngModel)]="selectedValue" name="ticket" formControlName="selectDate">
+                              <md-option *ngFor="let ticket of tickets" [value]="ticket.value" >
+                                {{ticket.viewDate}}
+                              </md-option>
+                            </md-select>
+                    </td>
+                    <td>
+                      <div *ngIf="selectDate.invalid  && (selectDate.touched || mouseover)" >
+                        <div *ngIf="selectDate.dirty || selectDate.hasError('required')" >
+                          Please choose an event type or a date!
+                        </div>
+                      </div>
+                    </td>
+                    </tr>
+              </table>
+          </md-card-content>
+          <md-card-content>
+              <table>
+                  <tr>
+                      <td>
+                          <md-input-container>
+                              <input mdInput placeholder="Price" [value]="ticketPrice" formControlName="price">
+                          </md-input-container>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <md-select placeholder="Adults" [(ngModel)]="selectedNumberOfAdults" name="adults" formControlName="adultsCounter">
+                            <md-option *ngFor="let number of numbers" [value]="number.value">
+                              {{number.value}}
+                            </md-option>
+                          </md-select>
+                    </td>
+                    </tr>
+              </table>
+          </md-card-content>
+          <md-card-content>
+              <table>
+                  <tr>
+                      <td>
+                          <md-select placeholder="Children - half of the ticket price" [(ngModel)]="selectedNumberOfChildren" name="children" formControlName="childrenCounter">
+                            <md-option *ngFor="let number of numbers" [value]="number.value">
+                              {{number.value}}
+                            </md-option>
+                          </md-select>
+                    </td>
+                    </tr>
+              </table>
+          </md-card-content>
+          <md-card-content>
+              <table>
+                  <tr>
+                      <td>
+                          <md-input-container>
+                              <input mdInput placeholder="Total" formControlName="totalCounter" [value]="totalPrice">
+                          </md-input-container>
+                    </td>
+                    <td>
+                        <div *ngIf="totalCounter.invalid  &&  mouseover" >
+                          <div *ngIf="totalCounter.hasError('min')" >
+                            Please add visitors (adults or children)!
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                </table>
+        </md-card-content>
+        <md-card-actions>
+            <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
+                <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
+                    <button md-raised-button type="submit" [disabled]="!ticketForm.valid">Buy a ticket</button>
+                </span>             
+            </span>
+      </md-card-actions>
+    </md-card>
+  </form>

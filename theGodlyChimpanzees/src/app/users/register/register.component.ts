@@ -31,15 +31,13 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       username: ['', [Validators.required, Validators.pattern(/\S[_a-zA-Z0-9]{4,6}/)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(/[_a-zA-Z0-9]{4,6}/)]],
-      confirmPassword: ['', [Validators.required, Validators.pattern(this.firstPassword)]]
+      password: ['', [Validators.required, Validators.pattern(/[_a-zA-Z0-9]{4,6}/)]]
     });
   }
 
   get username() { return this.registerForm.get('username'); }
   get email() { return this.registerForm.get('email'); }
   get password() { return this.registerForm.get('password'); }
-  get confirmPassword() { return this.registerForm.get('confirmPassword'); }
 
   // submitted = false;
 

@@ -1,65 +1,78 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="example-form">
 
-  <table class="example-full-width" cellspacing="15">
-    <tr>
-    <td><md-input-container class="example-full-width">
-      <input mdInput placeholder="Username" formControlName="username">
-    </md-input-container></td>
-    <td><div *ngIf="username.invalid  && (username.touched || mouseover)" >
-          <div *ngIf="username.dirty || username.hasError('required')" >
-            The username should be at least 4 symbols!
-          </div>
-          <div *ngIf="username.hasError('pattern')" >
-              The username should contain only letters, numbers and _!
-            </div>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td><md-input-container class="example-full-width">
-      <input mdInput placeholder="Email" formControlName="email">
-    </md-input-container></td>
-    <td><div *ngIf="email.invalid  && (email.touched || mouseover)" >
-      <div *ngIf="email.dirty || email.hasError('required') || email.hasError('email')" >
-        Please provide an email!
-      </div>
-      <!-- <div *ngIf="email.hasError('email')" >
-          Wrong email format!
-        </div> -->
-  </div>
-</td>
-  </tr>
-  <tr>
-    <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Password" formControlName="password" (blur)="takePassword($event)">
-    </md-input-container></td>
-    <td><div *ngIf="password.invalid && (password.touched || mouseover)" >
-      <div *ngIf="password.dirty || password.hasError('required')" >
-        The password should be at least 6 symbols!
-      </div>
-      <div *ngIf="password.hasError('pattern')" >
-          The password should contain only letters, numbers and _!
-        </div>
-    </div>
-  </td>
-  </tr>
-  <tr>
-      <td><md-input-container class="example-full-width">
-          <input mdInput placeholder="Confirm password"  formControlName="confirmPassword">
-      </md-input-container></td>
-      <td><div *ngIf="confirmPassword.invalid" >
-        <div *ngIf="confirmPassword.dirty || confirmPassword.hasError('required') || confirmPassword.hasError('pattern')" >
-          The passwords should match! (Currently not working...)
-        </div>
-    </div>
-  </td>
-  </tr>
-  <tr>
-    <td>
-      <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
-          <button md-raised-button type="submit" [disabled]="!registerForm.valid">Register</button>
-      </span>
-  </td>
-  </tr>
-</table>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="example-form">
+      
+<md-card class="cardMaterial">
+  <md-card-header>
+    <md-card-title>Registration form</md-card-title>
+    <md-card-subtitle>Please fill in the fields below:</md-card-subtitle>
+  </md-card-header>
+        <md-card-content>
+            <table>
+              <tr>
+                <td>
+                    <md-input-container class="example-full-width">
+                        <input mdInput placeholder="Username" formControlName="username">
+                      </md-input-container>
+                </td>
+                <td>
+                    <div *ngIf="username.invalid  && (username.touched || mouseover)" >
+                        <div *ngIf="username.dirty || username.hasError('required')" >
+                          The username should be at least 4 symbols!
+                        </div>
+                        <div *ngIf="username.hasError('pattern')" >
+                            The username should contain only letters, numbers and _!
+                          </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+        </md-card-content>
+        <md-card-content>
+            <table>
+                <tr>
+                  <td>
+                      <md-input-container class="example-full-width">
+                          <input mdInput placeholder="Email" formControlName="email">
+                        </md-input-container>
+                  </td>
+                  <td>
+                      <div *ngIf="email.invalid  && (email.touched || mouseover)" >
+                          <div *ngIf="email.dirty || email.hasError('required') || email.hasError('email')" >
+                            Please provide an email!
+                          </div>
+                          <!-- <div *ngIf="email.hasError('email')" >
+                              Wrong email format!
+                            </div> -->
+                      </div>
+                  </td>
+                </tr>
+              </table>
+      </md-card-content>
+      <md-card-content>
+          <table>
+              <tr>
+                <td>
+                    <md-input-container class="example-full-width">
+                        <input mdInput type = "password" placeholder="Password" formControlName="password" (blur)="takePassword($event)">
+                    </md-input-container>
+                </td>
+                <td>
+                    <div *ngIf="password.invalid && (password.touched || mouseover)" >
+                        <div *ngIf="password.dirty || password.hasError('required')" >
+                          The password should be at least 6 symbols!
+                        </div>
+                        <div *ngIf="password.hasError('pattern')" >
+                            The password should contain only letters, numbers and _!
+                          </div>
+                      </div>
+                </td>
+              </tr>
+            </table>
+      </md-card-content>
+      <md-card-actions>
+        <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
+                <button md-raised-button type="submit" [disabled]="!registerForm.valid">Register</button>
+        </span>
+    </md-card-actions>
+  </md-card>
 </form>
