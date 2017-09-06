@@ -1,15 +1,15 @@
 <md-card fxFlex="80%">
     <md-card-header>
         <md-card-title>
-            <h2>{{animal.name}}</h2>
+            <h2>{{animal.name}} <md-icon md-list-icon class='a' *appMyFavToggle = 'condition'>grade</md-icon></h2>
         </md-card-title>
     </md-card-header>
     <img class="img-width" md-card-image src="assets/img/{{animal.name}}.jpg">
     <md-card-content>
         <p>{{animal.status}}</p>
         <p>{{animal.about}}</p>
-    </md-card-content>
     <md-divider></md-divider>
+    </md-card-content>
     <md-card-actions>
         <div fxLayout="row">
             <button md-button (click)="backToList()">            
@@ -18,8 +18,10 @@
             <button md-button>            
               Adopt            
           </button>
-            <button md-button>            
-              Add To My Route           
+            <button md-button    
+            (click)="condition = !condition"
+            [ngClass] = "{ 'a': condition, 'b': !condition }" >
+            {{condition ? 'Add To My Fav' : 'Remove from my favs'}}                
           </button>
         </div>
     </md-card-actions>

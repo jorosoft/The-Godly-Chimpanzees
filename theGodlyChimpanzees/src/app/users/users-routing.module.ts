@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService]},
   { path: 'register', component: RegisterComponent, canActivate: [NotAuthGuardService]},
   { path: 'profile', component: ProfileComponent, canActivate: [UsersGuardService]}
-  // { path: ':id', component: UsersListComponent, canActivate: [UsersGuardService] }
 ];
 
 @NgModule({

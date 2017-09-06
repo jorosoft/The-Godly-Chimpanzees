@@ -4,7 +4,7 @@ import * as firebase from 'firebase/app';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
-import { DataBaseService } from './../services/data-base.service';
+import { DataBaseService } from './data-base.service';
 
 @Injectable()
 export class ActivitiesService {

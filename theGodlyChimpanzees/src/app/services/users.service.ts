@@ -1,24 +1,27 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { DataBaseService } from './data-base.service';
 
 @Injectable()
 export class UsersService {
-  displayUser: {displayName: string, uid: string};
+  public displayUser: {displayName: string, uid: string};
+  public userAuth;
 
-  constructor(public afAuth: AngularFireAuth) {
+
+  constructor(public afAuth: AngularFireAuth, public dataBaseService: DataBaseService) {
   }
 
 
   register(newUser) {
      return this.afAuth.auth.createUserWithEmailAndPassword(newUser.email, newUser.password)
           .then((user) => {
-              const userAuth = firebase.auth().currentUser;
-              userAuth.updateProfile({ displayName: newUser.username, photoURL: '' });
-              this.displayUser = {displayName: newUser.username, uid: userAuth.uid};
+              this.userAuth = firebase.auth().currentUser;
+              this.userAuth.updateProfile({ displayName: newUser.username, photoURL: '' });
+              this.displayUser = {displayName: newUser.username, uid: this.userAuth.uid};
               localStorage.setItem('displayUser', JSON.stringify({displayName: newUser.username, uid: user.uid}));
 
-              console.log(userAuth);
+              console.log(this.userAuth);
               return firebase.database().ref('users/').child(user.uid).set(newUser);
           });
   }
@@ -26,6 +29,7 @@ export class UsersService {
   logIn(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
               .then((user) => {
+                this.userAuth = firebase.auth().currentUser;
                 this.displayUser = {displayName: user.displayName, uid: user.uid};
                 localStorage.setItem('displayUser', JSON.stringify({displayName: user.displayName, uid: user.uid}));
                 return this.displayUser;
@@ -40,10 +44,22 @@ export class UsersService {
   }
 
   getCurrenUser() {
-    const userAuth = firebase.auth().currentUser;
-    if (!userAuth) {
+    this.userAuth = firebase.auth().currentUser;
+    if (!this.userAuth) {
       localStorage.clear();
     }
     return JSON.parse(localStorage.getItem('displayUser'));
   }
+
+  getCurrenUserInfo() {
+    if (this.userAuth) {
+      console.log(this.userAuth.uid);
+    }
+    if (this.userAuth) {
+      return this.dataBaseService.getItemsPromise('users/' + this.userAuth.uid + '/info');
+    }
+    return this.dataBaseService.getItemsPromise('users/');
+
+  }
+
 }

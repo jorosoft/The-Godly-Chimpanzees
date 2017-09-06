@@ -16,6 +16,9 @@ import {
   MdButtonModule
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk';
+import { MyFavToggleDirective } from './../shared/directives/my-fav-toggle.directive';
+
+
 
 @NgModule({
   imports: [
@@ -35,7 +38,8 @@ import { CdkTableModule } from '@angular/cdk';
   ],
   declarations: [
     AnimalsListComponent,
-    AnimalDetailsComponent
+    AnimalDetailsComponent,
+    MyFavToggleDirective
 ]
 })
 export class AnimalsModule {}

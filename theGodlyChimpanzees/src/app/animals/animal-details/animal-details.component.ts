@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AnimalDetailsComponent implements OnInit {
 
   animal;
+  condition = false;
 
   constructor(private animalService: AnimalsService,
     private activatedRoute: ActivatedRoute,
