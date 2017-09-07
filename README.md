@@ -11,6 +11,18 @@
 
 #### Todos
 - Come up with a better name of the page
+- Login to popup with modal
+
+- **Nadia**:
+    - Take out service form animals.ts file
+    - Fix header to not scroll on long pages
+    - Fix sidebar to hide link names with mediaquery
+    - Try to implement toastr
+    - Include tours in home page
+    - Implement comments
+    - Change name of project in GitHub to 'TheZoo'
+    - BRANCH
+
 
 
 ### Project Members
@@ -23,9 +35,9 @@
 
 
 ### Links
-- [Cloud]()
+- [Cloud - TO ADD]()
 - [GitHub Team Godly Chimpanzees](https://github.com/TeamGodlyChimpanzees)
-- [Telerik Best](http://)
+- [Telerik Best - TO ADD](http://)
 
 ## Prerequisites for local launch
 
