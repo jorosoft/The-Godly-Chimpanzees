@@ -61,6 +61,10 @@ export class ToursComponent implements OnInit, DoCheck {
       const searchedText = text.toLowerCase().trim();
       this.filteredTours = this.tours.filter(x => x.viewValue.toLowerCase().indexOf(searchedText) > -1);
     }
+
+    redirectToTour(toUrl) {
+      this.router.navigateByUrl('activities/' + toUrl);
+    }
   }
 
   export class ExampleDatabase {

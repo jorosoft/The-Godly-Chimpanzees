@@ -6,7 +6,7 @@
                     <md-header-cell *cdkHeaderCellDef></md-header-cell>
                     <md-cell *cdkCellDef="let model">
                         <md-grid-list cols="4" rowHeight="250px">
-                            <a href="animals/{{model.name}}">
+                            <div (click) = "redirectToUrl(model.name)">
                                 <md-grid-tile>
                                     <img src="assets/img/{{model.name}}.jpg" alt="model">
                                     <md-grid-tile-footer>
@@ -14,7 +14,7 @@
                                         <span md-line>{{model.status}}</span>
                                     </md-grid-tile-footer>
                                 </md-grid-tile>
-                            </a>
+                            </div>
                         </md-grid-list>
                     </md-cell>
                 </ng-container>

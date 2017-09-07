@@ -17,7 +17,7 @@
 
 
     <!-- <a [routerLink]="[ '/animals/all' ]">Animals</a> -->
-    <span *ngIf="displayName" class="fill-remaining-space">
+    <span *ngIf="displayName || (userService.userA | async) " class="fill-remaining-space">
         <span>{{displayName}}</span>
         <a  md-button (click)="logOut()">Log Out</a>
         <a  md-button [routerLink]="[ '/users/profile' ]">Profile</a>

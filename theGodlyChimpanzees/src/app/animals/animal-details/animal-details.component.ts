@@ -1,6 +1,10 @@
+import { UsersService } from './../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { AnimalsService } from '../../services/animals.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-animal-details',
@@ -8,11 +12,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./animal-details.component.css']
 })
 export class AnimalDetailsComponent implements OnInit {
-
+  currentUser;
   animal;
   condition = false;
 
-  constructor(private animalService: AnimalsService,
+  constructor(public usersService: UsersService, private animalService: AnimalsService,
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
 
@@ -20,6 +24,7 @@ export class AnimalDetailsComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       const name = params['name'];
       this.animal = this.animalService.getAnimalByName(name);
+      this.currentUser = this.usersService.getCurrenUser();
     });
   }
 

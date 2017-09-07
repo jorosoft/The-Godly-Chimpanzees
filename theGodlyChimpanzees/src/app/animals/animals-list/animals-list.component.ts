@@ -8,6 +8,7 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 import { Animal } from '../../models/animal.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-animals-list',
@@ -27,7 +28,7 @@ export class AnimalsListComponent implements OnInit {
 
   displayedColumns = ['name'];
 
-  constructor(private animalService: AnimalsService) { }
+  constructor(private animalService: AnimalsService, public router: Router) { }
 
   ngOnInit() {
     this.animals = this.animalService.getAll();
@@ -61,6 +62,11 @@ export class AnimalsListComponent implements OnInit {
     this.filteredAnimals = this.animals.filter(x => x.name.toLowerCase().includes(searchedText));
     this.initDB();
   }
+
+  redirectToUrl(toUrl) {
+    this.router.navigateByUrl('animals/' + toUrl);
+  }
+
 }
 
 export class ExampleDatabase {

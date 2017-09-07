@@ -7,7 +7,7 @@ export class UsersGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
     const currentUser = !!this.usersService.getCurrenUser();
     const status = this.usersService.getCurrenUserInfo();
-    status.then((user) => console.log(user));
+    // status.then((user) => console.log(user));
     console.log(status);
     let check = true;
 

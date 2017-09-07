@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { DataBaseService } from './data-base.service';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UsersService {
   public displayUser: {displayName: string, uid: string};
   public userAuth;
-
+  userA: Observable<firebase.User>;
 
   constructor(public afAuth: AngularFireAuth, public dataBaseService: DataBaseService) {
+    this.userA = afAuth.authState;
   }
-
 
   register(newUser) {
      return this.afAuth.auth.createUserWithEmailAndPassword(newUser.email, newUser.password)
@@ -52,9 +53,6 @@ export class UsersService {
   }
 
   getCurrenUserInfo() {
-    if (this.userAuth) {
-      console.log(this.userAuth.uid);
-    }
     if (this.userAuth) {
       return this.dataBaseService.getItemsPromise('users/' + this.userAuth.uid + '/info');
     }
