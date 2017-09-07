@@ -62,7 +62,7 @@ export class ToursComponent implements OnInit, DoCheck {
       this.filteredTours = this.tours.filter(x => x.viewValue.toLowerCase().indexOf(searchedText) > -1);
     }
 
-    redirectToTour(toUrl) {
+    redirectToUrl(toUrl) {
       this.router.navigateByUrl('activities/' + toUrl);
     }
   }
