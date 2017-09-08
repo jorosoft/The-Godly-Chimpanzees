@@ -7,7 +7,7 @@
                         <h2>{{animal.name}}</h2>
                     </td>
                     <td *ngIf="currentUser">
-                        <md-icon  md-list-icon class='a' *appMyFavToggle = 'condition'>grade</md-icon>
+                        <md-icon  md-list-icon class='a' *appMyFavToggle = '!condition'>grade</md-icon>
                     </td>
                 </tr>
             </table>
@@ -27,11 +27,11 @@
             <button md-raised-button>            
               Adopt            
           </button>
-            <button md-raised-button  *ngIf="currentUser"
-            (click)="condition = !condition"
-            [ngClass] = "{ 'a': condition, 'b': !condition }" >
-            {{condition ? 'Add To My Fav' : 'Remove from my favs'}}                
-          </button>
+          <button md-raised-button  *ngIf="currentUser"
+          (click)="favAnimal()"
+          [ngClass] = "{ 'a': !condition}" >
+          {{condition ? 'Remove from my favs' : 'Add To My Fav'}}                
+        </button>
         </div>
     </md-card-actions>
 </md-card>

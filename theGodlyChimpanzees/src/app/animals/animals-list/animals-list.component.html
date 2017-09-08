@@ -6,18 +6,18 @@
                     <md-header-cell *cdkHeaderCellDef></md-header-cell>
                     <md-cell *cdkCellDef="let model">
                         <md-grid-list cols="4" rowHeight="250px">
-                            <!-- <div (click) = "redirectToUrl(model.name)"> -->
+                            <div (click) = "redirectToUrl(model.name)">
                             <md-grid-tile>
                                 <img src="assets/img/{{model.name}}.jpg" alt="model">
                                 <md-grid-tile-footer>
                                     <h3 md-line>{{model.name}}</h3>
                                     <span md-line>{{model.status}}</span>
-                                    <button md-icon-button routerLink="/animals/{{model.name}}"> 
+                                    <button md-icon-button> 
                                             <md-icon>info</md-icon>
                                         </button>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
-                            <!-- </div> -->
+                            </div>
                         </md-grid-list>
                     </md-cell>
                 </ng-container>
