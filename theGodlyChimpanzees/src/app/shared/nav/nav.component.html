@@ -8,7 +8,7 @@
 
             <md-list>
                 <md-list-item *ngFor="let item of items">
-                    <a md-button color="warn" routerLink="/{{item.path}}">
+                    <a md-button color="primary" routerLink="/{{item.path}}">
                         <md-icon md-list-icon>{{item.icon}}</md-icon>
                         <span fxShow="true" fxShow.lt-md="false"> {{item.name}}</span>
                     </a>
