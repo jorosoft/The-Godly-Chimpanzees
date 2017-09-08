@@ -1,5 +1,5 @@
 import { UsersService } from './../../services/users.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { AnimalsService } from '../../services/animals.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AnimalDetailsComponent implements OnInit {
   currentUser;
   animal;
-  condition = false;
+  public condition: boolean;
 
   constructor(public usersService: UsersService, private animalService: AnimalsService,
     private activatedRoute: ActivatedRoute,
@@ -26,9 +26,26 @@ export class AnimalDetailsComponent implements OnInit {
       this.animal = this.animalService.getAnimalByName(name);
       this.currentUser = this.usersService.getCurrenUser();
     });
+    if (this.currentUser) {
+      this.animalService.checkStatus(this.animal.name, this.currentUser.uid)
+      .then((item) => {
+        console.log('ngOnInIT');
+        console.log(item.val());
+        console.log(this.condition);
+        this.condition = item.val();
+      })
+      .catch((err) => alert(err));
+    }
   }
 
   backToList() {
     this.router.navigateByUrl('animals/all');
   }
+
+  favAnimal() {
+    this.animalService.addFavAnimal(this.animal.name, this.currentUser.uid)
+         .then((item) => this.condition = item.val())
+         .catch((err) => alert(err));
+  }
+
 }

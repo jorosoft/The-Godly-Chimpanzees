@@ -63,9 +63,9 @@ export class AnimalsListComponent implements OnInit {
     this.initDB();
   }
 
-  // redirectToUrl(toUrl) {
-  //   this.router.navigateByUrl('animals/' + toUrl);
-  // }
+  redirectToUrl(toUrl) {
+    this.router.navigateByUrl('animals/' + toUrl);
+  }
 
 }
 

@@ -27,6 +27,14 @@ export class DataBaseService {
     return firebase.database().ref(collectionPath).set(item);
   }
 
+  addItemsObjects(item: any, collectionPath: string) {
+    return firebase.database().ref(collectionPath).child(item).set(true);
+  }
+
+  removeItem (collectionPath: string, listKey: string) {
+    return firebase.database()
+        .ref(collectionPath).child(listKey).set(false);
+  }
 }
 
 

@@ -1,10 +1,14 @@
+import { User } from './../models/user.model';
 import { Animal } from './../models/animal.model';
 import { Injectable } from '@angular/core';
+import { DataBaseService } from './data-base.service';
 
 @Injectable()
 export class AnimalsService {
-
-  constructor() { }
+public condition: boolean;
+  constructor(public dataBaseService: DataBaseService) {
+    this.condition = false;
+  }
 
   models: Animal[] = [
     {
@@ -65,5 +69,27 @@ export class AnimalsService {
 
   getAnimalByName(name: string): Animal {
     return this.models.filter(x => x.name === name)[0];
+  }
+  checkStatus(animal: string, user: string) {
+    const collectionPath = 'users/' + user + '/info/favs/';
+    return this.dataBaseService.getItemsPromise(collectionPath + animal);
+  }
+
+  addFavAnimal(animal: string, user: string) {
+    // let arr = [animal];
+    const collectionPath = 'users/' + user + '/info/favs/';
+   return this.dataBaseService.getItemsPromise(collectionPath + animal)
+        .then((item) => {
+          if (item.val()) {
+            return this.dataBaseService.removeItem(collectionPath, animal);
+          } else {
+            return this.dataBaseService.addItemsObjects(animal, collectionPath);
+          }
+        })
+        .then(() => {
+          return this.dataBaseService.getItemsPromise(collectionPath + animal);
+        })
+        .catch((err) => alert(err));
+
   }
 }
