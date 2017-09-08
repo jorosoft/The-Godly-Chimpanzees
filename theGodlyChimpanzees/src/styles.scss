@@ -4,6 +4,7 @@
 body {
     padding: 0;
     margin: 0;
+    height: 100%;
     font-family: Roboto, sans-serif;
 }
 
@@ -11,6 +12,9 @@ body {
     height: 100vh; // emmet h100vh
 }
 
+// /deep/ .mat-list-item-content {
+//     background-color: red !important;
+// }
 md-toolbar {
     z-index: 10; // emmet z10
 }
@@ -19,20 +23,12 @@ md-card {
     margin: 12px;
 }
 
-.tab-actions {
-    display: inline-block;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-}
-
 md-grid-tile img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-// TODO Why does this apply to header when no such class in it?
 md-toolbar-row {
     justify-content: space-between;
 }

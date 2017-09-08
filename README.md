@@ -14,14 +14,16 @@
 - Login to popup with modal
 
 - **Nadia**:
-    - Take out service form animals.ts file
-    - Fix header to not scroll on long pages
-    - Fix sidebar to hide link names with mediaquery
-    - Try to implement toastr
-    - Include tours in home page
     - Implement comments
+    - Take out data form animals.service.ts file and move to firebase
+    - Include tours in home page
+    - Try to implement toastr
+    - N/A: Fix header to not scroll on long pages
+    + DONE: Fix sidebar to hide link names with mediaquery
+    + BRANCH
     - Change name of project in GitHub to 'TheZoo'
-    - BRANCH
+    - Cleanup code, organise better, move Material modules to a bundling/core module and import that everywhere else
+    - Delete theGodlyChimpanzees folder, move app files to main repo directory
 
 
 

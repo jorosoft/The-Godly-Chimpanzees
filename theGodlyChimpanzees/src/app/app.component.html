@@ -1,6 +1,6 @@
-<section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch" [class.dark-theme]="header.isDarkTheme">
+<section class="app flex-container" fxFlex fxLayout="column" fxLayoutAlign="start stretch" [class.dark-theme]="header.isDarkTheme">
     <app-header></app-header>
-    <app-nav>
+    <app-nav fxFlex>
         <router-outlet></router-outlet>
     </app-nav>
 

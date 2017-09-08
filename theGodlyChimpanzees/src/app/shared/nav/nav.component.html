@@ -1,14 +1,14 @@
 <md-sidenav-container fxFlex>
     <md-sidenav mode="side" align="start" class="mat-elevation-z6" #sidenav opened>
-        <!--fxFlex.lt-md="70px" fxFlex.gt-sm="160px"-->
-        <!-- TODO make sidenav foldable -->
 
         <!-- nav items -->
         <section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
-            <button md-menu-item *ngFor="let item of items" routerLink="/{{item.path}}">
-                <md-icon md-list-icon>{{item.icon}}</md-icon>
-                <span class="nav-text"  fxShow="true" fxShow.lt-md="false"> {{item.name}}</span>
-            </button>
+            <md-nav-list>
+                <md-list-item *ngFor="let item of items" routerLink="/{{item.path}}">
+                    <md-icon md-list-icon>{{item.icon}}</md-icon>
+                    <span class="nav-text" fxShow="true" fxShow.lt-md="false"> {{item.name}}</span>
+                </md-list-item>
+            </md-nav-list>
         </section>
 
     </md-sidenav>
