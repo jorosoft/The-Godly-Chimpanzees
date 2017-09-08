@@ -1,7 +1,15 @@
 <md-toolbar color="primary" class="mat-elevation-z1 mat-toolbar " #header>
-    <span><md-icon>pets</md-icon>
-        &nbsp;TheZoo
-    </span> 
+
+    <div>
+        <a md-icon-button routerLink="/home"><img src="assets/img/icon.png" width="25px"></a>
+        <a md-button routerLink="/home">
+            <span class="mat-title" fxShow="true" fxShow.lt-md="false">TheZoo</span>
+        </a>
+        <!--<a md-icon-button (click)="sidenav.close()">
+                        <md-icon>close</md-icon>
+                        chevron_left
+                    </a>-->
+    </div>
 
     <span class="example-fill-remaining-space"></span>
     <span class="example-fill-remaining-space"></span>
@@ -19,8 +27,8 @@
     <!-- <a [routerLink]="[ '/animals/all' ]">Animals</a> -->
     <span *ngIf="displayName || (userService.userA | async) " class="fill-remaining-space">
         <span>{{displayName}}</span>
-        <a  md-button (click)="logOut()">Log Out</a>
-        <a  md-button [routerLink]="[ '/users/profile' ]">Profile</a>
+    <a md-button (click)="logOut()">Log Out</a>
+    <a md-button [routerLink]="[ '/users/profile' ]">Profile</a>
     </span>
     <span *ngIf="!displayName" class="fill-remaining-space">
         <a  md-button [routerLink]="[ '/users/login' ]">Log In</a>

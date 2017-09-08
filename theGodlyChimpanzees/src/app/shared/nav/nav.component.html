@@ -1,22 +1,24 @@
-<!-- nav items -->
-<section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
-    <md-toolbar class="sidenav-toolbar mat-elevation-z1 mat-toolbar mat-primary" color="primary" role="toolbar">
-        <a md-icon-button routerLink="/home"><img src="assets/img/icon.png" width="25px"></a>
-        <a md-button routerLink="/home">
-            <span class="mat-title" fxShow="true" fxShow.lt-md="false">TheZoo</span>
-        </a>
-        <!--<a md-icon-button (click)="sidenav.close()">
-                    <md-icon>close</md-icon>
-                    chevron_left
-                </a>-->
-    </md-toolbar>
+<md-sidenav-container fxFlex>
+    <md-sidenav mode="side" align="start" class="mat-elevation-z6" #sidenav opened>
+        <!--fxFlex.lt-md="70px" fxFlex.gt-sm="160px"-->
+        <!-- TODO make sidenav foldable -->
 
-    <md-list>
-        <md-list-item *ngFor="let item of items">
-            <a md-icon-button routerLink="/{{item.path}}">
-                <md-icon md-list-icon>{{item.icon}}</md-icon>
-                <span fxShow="true" fxShow.lt-md="false"> {{item.name}}</span>
-            </a>
-        </md-list-item>
-    </md-list>
-</section>
+        <!-- nav items -->
+        <section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+
+            <md-list>
+                <md-list-item *ngFor="let item of items">
+                    <a md-button color="warn" routerLink="/{{item.path}}">
+                        <md-icon md-list-icon>{{item.icon}}</md-icon>
+                        <span fxShow="true" fxShow.lt-md="false"> {{item.name}}</span>
+                    </a>
+                </md-list-item>
+            </md-list>
+        </section>
+
+    </md-sidenav>
+
+    <div class="my-content">
+        <ng-content></ng-content>
+    </div>
+</md-sidenav-container>
