@@ -5,15 +5,10 @@
 
         <!-- nav items -->
         <section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
-
-            <md-list>
-                <md-list-item *ngFor="let item of items">
-                    <a md-button color="primary" routerLink="/{{item.path}}">
-                        <md-icon md-list-icon>{{item.icon}}</md-icon>
-                        <span fxShow="true" fxShow.lt-md="false"> {{item.name}}</span>
-                    </a>
-                </md-list-item>
-            </md-list>
+            <button md-menu-item *ngFor="let item of items" routerLink="/{{item.path}}">
+                <md-icon md-list-icon>{{item.icon}}</md-icon>
+                <span class="nav-text"  fxShow="true" fxShow.lt-md="false"> {{item.name}}</span>
+            </button>
         </section>
 
     </md-sidenav>
