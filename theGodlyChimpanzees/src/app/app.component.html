@@ -1,12 +1,7 @@
 <section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch" [class.dark-theme]="header.isDarkTheme">
-
-    <md-sidenav-container fxFlex>
-        <md-sidenav mode="side" align="start" class="mat-elevation-z6" #sidenav opened>
-            <!-- TODO make sidenav foldable -->
-            <app-nav></app-nav>
-        </md-sidenav>
-
-        <app-header></app-header>
+    <app-header></app-header>
+    <app-nav>
         <router-outlet></router-outlet>
-    </md-sidenav-container>
+    </app-nav>
+
 </section>
