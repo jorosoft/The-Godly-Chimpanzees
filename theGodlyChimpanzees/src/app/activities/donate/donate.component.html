@@ -29,13 +29,13 @@
               <tr>
                   <td>
                       <md-input-container>
-                          <input mdInput placeholder="Amount" type="number" [(ngModel)]="inputValue" formControlName="count">
+                          <input mdInput placeholder="Amount" type="number" [value]="inputValue" formControlName="count">
                       </md-input-container>
                 </td>
                 <td>
                       <div *ngIf="count.invalid  && (count.touched || mouseover)" >
-                      <div *ngIf="count.hasError('required')" >
-                        Please fill in!
+                      <div *ngIf="count.hasError('required') || count.hasError('min')" >
+                        The min allowed value is 1!
                       </div>
                   </div>
                 </td>
@@ -48,5 +48,11 @@
                 <button md-raised-button type="submit" [disabled]="!donateForm.valid">Submit</button>
             </span>             
   </md-card-actions>
+  <md-card-content>
+          <md-input-container>
+            <h3>All Donations:</h3>
+            <input mdInput [value]="donationsValue" formControlName="allDonations">
+          </md-input-container>
+  </md-card-content>
 </md-card>
 </form>

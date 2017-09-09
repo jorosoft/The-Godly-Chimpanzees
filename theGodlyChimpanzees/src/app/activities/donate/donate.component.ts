@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/find';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-donate',
@@ -22,9 +23,10 @@ export class DonateComponent implements OnInit {
   public amount: Observable<any>;
   public inputValue = 0;
   public currentBalance: number;
+  public donationsValue: number;
 
   constructor(public router: Router, public fb: FormBuilder,
-    public activitiService: ActivitiesService, public userService: UsersService) {
+    public activitiService: ActivitiesService, public userService: UsersService, public toastr: ToastsManager) {
 
 }
 
@@ -32,10 +34,10 @@ ngOnInit() {
   this.createForm();
   this.user = this.userService.getCurrenUser();
   this.activitiService.getItems('donate').subscribe(value => this.options.push(value));
-  const temp = this.activitiService.getCurrentAmount(this.user.uid)
-  temp.then((val) => {
-    this.currentBalance = +val.val() || 0;
- });
+  this.activitiService.getCurrentAmount(this.user.uid)
+            .then((val) => this.currentBalance = +val.val() || 0);
+  this.activitiService.getAllDonations()
+            .then((val) => this.donationsValue = +val.val() || 0)
 
   }
 
@@ -43,11 +45,13 @@ ngOnInit() {
     this.donateForm = this.fb.group({
       selectOption: ['', [Validators.required]],
       count: [0, [Validators.required, Validators.min(1)]],
+      allDonations: [{value: 0, disabled: true}]
     });
   }
 
   get selectOption() { return this.donateForm.get('selectOption'); }
   get count() { return this.donateForm.get('count'); }
+  get allDonations() {return this.donateForm.get('allDonations');}
 
   fillTheInput(selectedValue: string) {
     if (selectedValue === 'donate') {
@@ -60,15 +64,31 @@ ngOnInit() {
   }
 
   onSubmit() {
-
     const forAmountUpdate = this.count.value;
-    console.log(forAmountUpdate);
     if (this.selectOption.value === 'donate') {
-      this.currentBalance -= forAmountUpdate;
+      if (forAmountUpdate > this.currentBalance) {
+        this.toastr.error('Not enought money in the bank account!');
+        return;
+      } else {
+        this.currentBalance -= forAmountUpdate;
+        this.donationsValue += forAmountUpdate;
+      }
     } else if ( this.selectOption.value === 'charging' ) {
       this.currentBalance += forAmountUpdate;
     }
-    return this.activitiService.updateCurrentAmount(this.currentBalance, this.user.uid);
+    return this.activitiService.updateCurrentAmount(this.currentBalance, this.user.uid)
+            .then((conf) => {
+              if (this.selectOption.value === 'donate') {
+                this.toastr.success('Thank you for your help!');
+              } else if ( this.selectOption.value === 'charging' ) {
+                this.toastr.success('Done!');
+              }
+              return this.activitiService.updateAllDonations(this.donationsValue);
+            })
+            .catch((err) => {
+              this.toastr.error(err.message);
+              throw (err);
+            });
   }
 
 

@@ -5,10 +5,12 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import { DataBaseService } from './data-base.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Injectable()
 export class ActivitiesService {
   items: FirebaseListObservable<any[]>;
+  public toastr: ToastsManager;
   public tickets = [
     {value: 'tour-0', viewValue: 'General', viewDate: '10.09.2017', ticketPrice: 10},
     {value: 'tour-1', viewValue: 'Snakes', viewDate: '11.09.2017', ticketPrice: 15},
@@ -118,6 +120,13 @@ public selectedValue: string;
 
   updateCurrentAmount(currentBalance: number, user: string) {
     return this.dataBaseService.addItems(currentBalance, 'users/' + user + '/info/amount/');
+  }
+
+  updateAllDonations(allDonations: number) {
+    return this.dataBaseService.addItems(allDonations, 'donations/');
+  }
+  getAllDonations() {
+    return this.dataBaseService.getItemsPromise('donations/');
   }
 }
 
