@@ -1,3 +1,4 @@
+import { CustomToastsManager } from './app.toastr.settings';
 import { AnimalsService } from './services/animals.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -40,6 +41,7 @@ import { UsersService } from './services/users.service';
 import { ActivitiesModule } from './activities/activities.module';
 import { ActivitiesService } from './services/activities.service';
 import { DataBaseService } from './services/data-base.service';
+import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,8 @@ import { DataBaseService } from './services/data-base.service';
     MdTabsModule,
     MdDatepickerModule,
     FlexLayoutModule,
-    ActivitiesModule
+    ActivitiesModule,
+    ToastModule.forRoot()
   ],
   exports: [
     AppComponent,
@@ -88,7 +91,15 @@ import { DataBaseService } from './services/data-base.service';
     NotFoundComponent,
     // AddMessageComponent
   ],
-  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService],
+  providers: [
+    AnimalsService,
+    UsersService,
+    ActivitiesService,
+    DataBaseService,
+    [{
+      provide: ToastsManager, useClass: CustomToastsManager
+    }]
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

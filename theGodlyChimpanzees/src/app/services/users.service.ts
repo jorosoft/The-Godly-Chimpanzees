@@ -3,6 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { DataBaseService } from './data-base.service';
 import { Observable } from 'rxjs/Observable';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Injectable()
 export class UsersService {
@@ -10,7 +11,11 @@ export class UsersService {
   public userAuth;
   userA: Observable<firebase.User>;
 
-  constructor(public afAuth: AngularFireAuth, public dataBaseService: DataBaseService) {
+  constructor(
+    public afAuth: AngularFireAuth,
+    public dataBaseService: DataBaseService,
+    public toastr: ToastsManager
+  ) {
     this.userA = afAuth.authState;
   }
 
@@ -33,14 +38,18 @@ export class UsersService {
                 this.userAuth = firebase.auth().currentUser;
                 this.displayUser = {displayName: user.displayName, uid: user.uid};
                 localStorage.setItem('displayUser', JSON.stringify({displayName: user.displayName, uid: user.uid}));
+                this.toastr.success('Login Success!');
                 return this.displayUser;
               })
               .catch(err => {
+                this.toastr.error(err.message);
                 throw err;
               });
   }
 
   logOut() {
+    this.toastr.success('Logout Sucess!');
+
     return firebase.auth().signOut();
   }
 
