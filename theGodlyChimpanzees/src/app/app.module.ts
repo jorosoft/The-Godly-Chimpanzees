@@ -44,6 +44,7 @@ import { DataBaseService } from './services/data-base.service';
 import { UsersGuardService } from './shared/guards/auth.service';
 import { NotAuthGuardService } from './shared/guards/not-auth-guard.service';
 import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +54,9 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
     HeaderComponent,
     HomeComponent,
     NotFoundComponent,
+    AboutComponent,
     // AddMessageComponent
-  ],
+],
   entryComponents: [
     AppComponent,
     // AddMessageComponent
@@ -90,10 +92,11 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
+    AboutComponent,
     NotFoundComponent,
     // AddMessageComponent
   ],
-  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService, UsersGuardService, NotAuthGuardService,    
+  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService, UsersGuardService, NotAuthGuardService,
   [{
     provide: ToastsManager, useClass: CustomToastsManager
   }]],
