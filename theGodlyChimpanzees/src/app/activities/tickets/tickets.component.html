@@ -17,7 +17,7 @@
                         </md-select>
                     </td>
                     <td><div *ngIf="selectTicket.invalid  && (selectTicket.touched || mouseover)" >
-                        <div *ngIf="selectTicket.dirty || selectTicket.hasError('required')" >
+                        <div *ngIf="selectTicket.dirty || selectTicket.hasError('required')" appErrorMsg>
                           {{errorMsg  | nb}}
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                     </td>
                     <td>
                       <div *ngIf="selectDate.invalid  && (selectDate.touched || mouseover)" >
-                        <div *ngIf="selectDate.dirty || selectDate.hasError('required')" >
+                        <div *ngIf="selectDate.dirty || selectDate.hasError('required')"  appErrorMsg>
                           {{errorMsg  | nb}}
                         </div>
                       </div>

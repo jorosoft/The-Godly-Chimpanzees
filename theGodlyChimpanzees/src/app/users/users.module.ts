@@ -9,6 +9,8 @@ import { MdButtonModule, MdCardModule, MdDialogModule, MdGridListModule, MdIconM
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 @NgModule({
   imports: [
@@ -25,7 +27,8 @@ import { ProfileComponent } from './profile/profile.component';
     MdToolbarModule,
     MdTabsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   declarations: [LoginComponent, RegisterComponent, ProfileComponent],
   providers: []

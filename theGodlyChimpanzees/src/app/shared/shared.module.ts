@@ -10,6 +10,8 @@ import { ErrorMsgDirective } from './directives/error-msg.directive';
     CommonModule
   ],
   declarations: [MyFavToggleDirective, NbPipe, ErrorMsgDirective],
-  providers: []
+  providers: [],
+  exports: [MyFavToggleDirective, NbPipe, ErrorMsgDirective]
 })
+
 export class SharedModule { }

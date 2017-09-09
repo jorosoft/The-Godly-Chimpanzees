@@ -16,7 +16,7 @@
                     </md-select>
                 </td>
                 <td><div *ngIf="selectOption.invalid  && (selectOption.touched || mouseover)" >
-                    <div *ngIf="selectOption.hasError('required')" >
+                    <div *ngIf="selectOption.hasError('required')" appErrorMsg>
                       Please choose an option!
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 </td>
                 <td>
                       <div *ngIf="count.invalid  && (count.touched || mouseover)" >
-                      <div *ngIf="count.hasError('required') || count.hasError('min')" >
+                      <div *ngIf="count.hasError('required') || count.hasError('min')" appErrorMsg>
                         The min allowed value is 1!
                       </div>
                   </div>
