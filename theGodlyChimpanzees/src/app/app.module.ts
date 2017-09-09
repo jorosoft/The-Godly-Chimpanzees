@@ -1,3 +1,4 @@
+import { MaterialModule } from './shared/material/material.module';
 import { CustomToastsManager } from './app.toastr.settings';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -10,23 +11,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { firebaseConfig } from './../environments/firebase.config';
-
-
-import {
-  MdButtonModule,
-  MdCardModule,
-  MdDialogModule,
-  MdGridListModule,
-  MdIconModule,
-  MdInputModule,
-  MdListModule,
-  MdMenuModule,
-  MdSidenavModule,
-  MdToolbarModule,
-  MdTabsModule,
-  MdTooltipModule,
-  MdDatepickerModule
-} from '@angular/material';
 
 import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
@@ -52,13 +36,13 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @NgModule({
   declarations: [
+    AboutComponent,
     AppComponent,
-    NavComponent,
     FooterComponent,
     HeaderComponent,
     HomeComponent,
+    NavComponent,
     NotFoundComponent,
-    AboutComponent
   ],
   entryComponents: [
     AppComponent,
@@ -73,35 +57,29 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MdButtonModule,
-    MdCardModule,
-    MdDialogModule,
-    MdGridListModule,
-    MdIconModule,
-    MdInputModule,
-    MdListModule,
-    MdMenuModule,
-    MdSidenavModule,
-    MdToolbarModule,
-    MdTooltipModule,
-    MdTabsModule,
-    MdTooltipModule,
-    MdDatepickerModule,
+    MaterialModule,
     FlexLayoutModule,
     ActivitiesModule,
     ToastModule.forRoot()
   ],
   exports: [
+    AboutComponent,
     AppComponent,
-    NavComponent,
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    AboutComponent,
-    NotFoundComponent
+    NavComponent,
+    NotFoundComponent,
     // AddMessageComponent
   ],
-  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService, UsersGuardService, NotAuthGuardService,
+  providers: [
+    AnimalsService,
+    ActivitiesService,
+    CommentsService,
+    DataBaseService,
+    NotAuthGuardService,
+    UsersGuardService,
+    UsersService,
     [{
       provide: ToastsManager, useClass: CustomToastsManager
     }]],
