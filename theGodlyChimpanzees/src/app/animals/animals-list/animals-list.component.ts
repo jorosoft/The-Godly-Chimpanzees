@@ -19,6 +19,8 @@ export class AnimalsListComponent implements OnInit {
 
   types;
   zones;
+  selectedType: string;
+  selectedZone: string;
   animals;
   filteredAnimals;
   exampleDatabase;
@@ -34,11 +36,13 @@ export class AnimalsListComponent implements OnInit {
     this.animals = this.animalService.getAll();
     this.filteredAnimals = this.animals.slice(0);
     this.types = this.animals
-      .map((animal) => animal.status)
-      .filter((value, index, self) => self.indexOf(value) === index);
+      .map((animal) => animal.type)
+      .filter((value, index, self) => self.indexOf(value) === index)
+      .sort();
     this.zones = this.animals
-      .map((animal) => animal.about)
-      .filter((value, index, self) => self.indexOf(value) === index);
+      .map((animal) => animal.zone)
+      .filter((value, index, self) => self.indexOf(value) === index)
+      .sort();
       this.initDB();
   }
 
@@ -50,8 +54,25 @@ export class AnimalsListComponent implements OnInit {
   filterAnimals(prop, filter) {
     if (filter.value === 'All') {
       this.filteredAnimals = this.animals.slice(0);
+      this.selectedType = null;
+      this.selectedZone = null;
     } else {
-      this.filteredAnimals = this.animals.filter(x => x[prop] === filter.value);
+      if (prop === 'type') {
+        this.selectedType = filter.value;
+      }
+
+      if (prop === 'zone') {
+        this.selectedZone = filter.value;
+      }
+
+      if (this.selectedType && this.selectedZone) {
+        this.filteredAnimals = this.animals
+          .filter(x => x.type === this.selectedType && x.zone === this.selectedZone);
+      } else if (this.selectedType) {
+        this.filteredAnimals = this.animals.filter(x => x.type === this.selectedType);
+      } else if (this.selectedZone) {
+        this.filteredAnimals = this.animals.filter(x => x.zone === this.selectedZone);
+      }
     }
 
     this.initDB();

@@ -19,7 +19,7 @@ import {
   MdButtonModule
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk';
-import { MyFavToggleDirective } from './../shared/directives/my-fav-toggle.directive';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -39,13 +39,14 @@ import { MyFavToggleDirective } from './../shared/directives/my-fav-toggle.direc
     MdInputModule,
     MdSelectModule,
     MdTooltipModule,
-    MdButtonModule
+    MdButtonModule,
+    SharedModule
   ],
   declarations: [
     AnimalsListComponent,
     AnimalDetailsComponent,
     CommentsComponent,
-    MyFavToggleDirective
+    // MyFavToggleDirective
   ]
 })
 export class AnimalsModule { }

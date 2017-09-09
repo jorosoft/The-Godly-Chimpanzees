@@ -5,18 +5,18 @@
                 <ng-container cdkColumnDef="name">
                     <md-header-cell *cdkHeaderCellDef></md-header-cell>
                     <md-cell *cdkCellDef="let model">
-                        <md-grid-list cols="4" rowHeight="250px">
-                            <div (click) = "redirectToUrl(model.name)">
-                            <md-grid-tile>
-                                <img src="assets/img/{{model.name}}.jpg" alt="model">
-                                <md-grid-tile-footer>
-                                    <h3 md-line>{{model.name}}</h3>
-                                    <span md-line>{{model.status}}</span>
-                                    <button md-icon-button> 
+                        <md-grid-list cols="2" rowHeight="250px">
+                            <div (click)="redirectToUrl(model.name)">
+                                <md-grid-tile>
+                                    <img src="assets/img/{{model.name}}.jpg" alt="model">
+                                    <md-grid-tile-footer>
+                                        <h3 md-line>{{model.name}}</h3>
+                                        <span md-line>{{model.status}}</span>
+                                        <button md-icon-button> 
                                             <md-icon>info</md-icon>
                                         </button>
-                                </md-grid-tile-footer>
-                            </md-grid-tile>
+                                    </md-grid-tile-footer>
+                                </md-grid-tile>
                             </div>
                         </md-grid-list>
                     </md-cell>
@@ -56,7 +56,7 @@
                         <h3 md-line>Animal Type</h3>
                         <p md-line>
                             <span class="subline">
-                                <md-select placeholder="Types" (change)="filterAnimals('status', $event)">
+                                <md-select placeholder="Types" (change)="filterAnimals('type', $event)">
                                     <md-option value="All">All</md-option>     
                                     <md-option *ngFor="let type of types" [value]="type">
                                         {{ type }}
@@ -69,7 +69,7 @@
                         <h3 md-line>Zoo Zone</h3>
                         <p md-line>
                             <span class="subline">
-                                <md-select placeholder="Zones" (change)="filterAnimals('about', $event)">
+                                <md-select placeholder="Zones" (change)="filterAnimals('zone', $event)">
                                     <md-option value="All">All</md-option>
                                     <md-option *ngFor="let zone of zones" [value]="zone">
                                         {{ zone }}

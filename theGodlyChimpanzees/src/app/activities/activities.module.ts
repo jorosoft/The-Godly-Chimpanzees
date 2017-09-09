@@ -10,6 +10,9 @@ import { ToursComponent } from './tours/tours.component';
 import { CdkTableModule } from '@angular/cdk';
 import { CarouselModule } from 'angular4-carousel';
 import { CommentsComponent } from '../shared/comments/comments.component';
+import { DonateComponent } from './donate/donate.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 @NgModule({
   imports: [
@@ -50,9 +53,17 @@ import { CommentsComponent } from '../shared/comments/comments.component';
     MdTooltipModule,
     MdNativeDateModule,
     DatePickerModule,
-    CdkTableModule
+    CdkTableModule,
+    SharedModule
   ],
-  declarations: [TicketsComponent, TourInfoComponent, ToursComponent, CommentsComponent],
+  declarations: [
+    TicketsComponent,
+    TourInfoComponent,
+    ToursComponent,
+    DonateComponent,
+    CommentsComponent
+    // ErrorMsgDirective
+  ],
   exports: [TicketsComponent, TourInfoComponent, ToursComponent]
 })
 export class ActivitiesModule { }

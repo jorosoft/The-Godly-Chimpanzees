@@ -4,4 +4,8 @@ export class Animal {
     about: string;
     rows: number;
     cols: number;
+
+    zone: string;
+
+    type: string;
 }

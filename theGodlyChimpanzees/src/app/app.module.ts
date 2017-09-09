@@ -1,3 +1,4 @@
+import { CustomToastsManager } from './app.toastr.settings';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -22,18 +23,19 @@ import {
   MdMenuModule,
   MdSidenavModule,
   MdToolbarModule,
-  MdTooltipModule,
   MdTabsModule,
+  MdTooltipModule,
   MdDatepickerModule
 } from '@angular/material';
 
+import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { UsersModule } from './users/users.module';
+
 import { AnimalsModule } from './animals/animals.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ActivitiesModule } from './activities/activities.module';
@@ -42,7 +44,11 @@ import { ActivitiesService } from './services/activities.service';
 import { AnimalsService } from './services/animals.service';
 import { CommentsService } from './services/comments.service';
 import { DataBaseService } from './services/data-base.service';
+import { NotAuthGuardService } from './shared/guards/not-auth-guard.service';
+import { UsersGuardService } from './shared/guards/auth.service';
 import { UsersService } from './services/users.service';
+import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +58,7 @@ import { UsersService } from './services/users.service';
     HeaderComponent,
     HomeComponent,
     NotFoundComponent,
-    // AddMessageComponent
+    AboutComponent
   ],
   entryComponents: [
     AppComponent,
@@ -79,9 +85,11 @@ import { UsersService } from './services/users.service';
     MdToolbarModule,
     MdTooltipModule,
     MdTabsModule,
+    MdTooltipModule,
     MdDatepickerModule,
     FlexLayoutModule,
-    ActivitiesModule
+    ActivitiesModule,
+    ToastModule.forRoot()
   ],
   exports: [
     AppComponent,
@@ -89,16 +97,14 @@ import { UsersService } from './services/users.service';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    NotFoundComponent,
+    AboutComponent,
+    NotFoundComponent
     // AddMessageComponent
   ],
-  providers: [
-    AnimalsService,
-    ActivitiesService,
-    CommentsService,
-    DataBaseService,
-    UsersService
-  ],
+  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService, UsersGuardService, NotAuthGuardService,
+    [{
+      provide: ToastsManager, useClass: CustomToastsManager
+    }]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

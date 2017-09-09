@@ -12,12 +12,12 @@
                         <input mdInput placeholder="Email" formControlName="email">
                       </md-input-container></td>
                       <td><div *ngIf="email.invalid && (email.touched || mouseover)" >
-                        <div *ngIf="email.dirty || email.hasError('required') || email.hasError('email')" >
+                        <div *ngIf="email.dirty || email.hasError('required') || email.hasError('email')" appErrorMsg>
                           Please provide an email!
                         </div>
-                        <!-- <div *ngIf="email.hasError('email')" >
+                        <div *ngIf="email.hasError('email')" appErrorMsg>
                             Wrong email format!
-                          </div> -->
+                          </div>
                       </div>
                     </td>
                   </tr>
@@ -30,10 +30,10 @@
                           <input mdInput type = "password"  placeholder="Password" formControlName="password">
                       </md-input-container></td>
                       <td><div *ngIf="password.invalid && (password.touched || mouseover)" >
-                        <div *ngIf="password.dirty || password.hasError('required')" >
+                        <div *ngIf="password.dirty || password.hasError('required')" appErrorMsg>
                           The password should be at least 6 symbols!
                         </div>
-                        <div *ngIf="password.hasError('pattern')" >
+                        <div *ngIf="password.hasError('pattern')" appErrorMsg>
                             The password should contain only letters, numbers and _!
                           </div>
                         </div>
