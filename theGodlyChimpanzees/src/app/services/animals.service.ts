@@ -14,52 +14,62 @@ public condition: boolean;
     {
       name: 'Bear', status: 'Teaching children to swim',
       about: 'Native range lies largely within the Arctic Circle',
-      messages: [], rows: 1, cols: 1
+      messages: [], rows: 1, cols: 1,
+      zone: 'Z1', type: 'T3'
     },
     {
       name: 'Duck', status: 'Teaching children to swim',
       about: 'Quack',
-      messages: [], rows: 1, cols: 1
+      messages: [], rows: 1, cols: 1,
+      zone: 'Z2', type: 'T2'
     },
     {
       name: 'Fox', status: 'Hide and seek',
       about: 'What does the fox say?',
-      messages: [], rows: 1, cols: 1
+      messages: [], rows: 1, cols: 1,
+      zone: 'Z1', type: 'T3'
     },
     {
       name: 'Hedgehog', status: 'Teaching children to swim',
       about: 'Keep rollin\'',
-      messages: [], rows: 1, cols: 1
+      messages: [], rows: 1, cols: 1,
+      zone: 'Z1', type: 'T1'
     },
     {
       name: 'Mouse', status: 'Hide and seek',
       about: 'Quick hide!',
-      messages: [], rows: 1, cols: 1
+      messages: [], rows: 1, cols: 1,
+      zone: 'Z3', type: 'T2'
     },
     {
       name: 'Penguin', status: 'Teaching children to swim',
       about: 'Dancing with the stars',
-      messages: [], rows: 1, cols: 1
+      messages: [], rows: 1, cols: 1,
+      zone: 'Z4', type: 'T1'
     },
     {
       name: 'Panda', status: 'Papa was a rolling stone',
       about: 'Not endangered any more',
-      messages: [], rows: 2, cols: 1
+      messages: [], rows: 2, cols: 1,
+      zone: 'Z3', type: 'T4'
     },
     {
       name: 'Piglet', status: 'Teaching children to swim',
       about: 'Pretty in pink',
-      messages: [], rows: 1, cols: 1
+      messages: [], rows: 1, cols: 1,
+      zone: 'Z2', type: 'T2'
     },
     {
       name: 'Turtle', status: 'Fast and furious',
       about: 'Wait for me',
-      messages: [], rows: 1, cols: 2
+      messages: [], rows: 1, cols: 2,
+      zone: 'Z1', type: 'T3'
     },
     {
       name: 'Yoda', status: 'Teaching children to swim',
       about: 'Fear is the path to the dark side',
-      messages: [], rows: 1, cols: 1
+      messages: [], rows: 1, cols: 1,
+      zone: 'Z2', type: 'T1'
     },
   ];
 
