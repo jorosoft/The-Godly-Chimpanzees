@@ -1,15 +1,15 @@
-import { TestBed, inject } from '@angular/core/testing';
+// import { TestBed, inject } from '@angular/core/testing';
 
-import { DataBaseService } from './data-base.service';
+// import { DataBaseService } from './data-base.service';
 
-describe('DataBaseService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [DataBaseService]
-    });
-  });
+// describe('DataBaseService', () => {
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       providers: [DataBaseService]
+//     });
+//   });
 
-  it('should be created', inject([DataBaseService], (service: DataBaseService) => {
-    expect(service).toBeTruthy();
-  }));
-});
+//   it('should be created', inject([DataBaseService], (service: DataBaseService) => {
+//     expect(service).toBeTruthy();
+//   }));
+// });

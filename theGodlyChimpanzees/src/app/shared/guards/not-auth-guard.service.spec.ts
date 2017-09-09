@@ -1,15 +1,15 @@
-import { TestBed, inject } from '@angular/core/testing';
+// import { TestBed, inject } from '@angular/core/testing';
 
-import { NotAuthGuardService } from './not-auth-guard.service';
+// import { NotAuthGuardService } from './not-auth-guard.service';
 
-describe('NotAuthGuardService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [NotAuthGuardService]
-    });
-  });
+// describe('NotAuthGuardService', () => {
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       providers: [NotAuthGuardService]
+//     });
+//   });
 
-  it('should be created', inject([NotAuthGuardService], (service: NotAuthGuardService) => {
-    expect(service).toBeTruthy();
-  }));
-});
+//   it('should be created', inject([NotAuthGuardService], (service: NotAuthGuardService) => {
+//     expect(service).toBeTruthy();
+//   }));
+// });
