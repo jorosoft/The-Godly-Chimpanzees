@@ -32,15 +32,17 @@ ngOnInit() {
   this.createForm();
   this.user = this.userService.getCurrenUser();
   this.activitiService.getItems('donate').subscribe(value => this.options.push(value));
-  this.activitiService.getCurrentAmount(this.user.uid).subscribe((val) => {
-       this.currentBalance = +val;
-   });
+  const temp = this.activitiService.getCurrentAmount(this.user.uid)
+  temp.then((val) => {
+    this.currentBalance = +val.val() || 0;
+ });
+
   }
 
   createForm() {
     this.donateForm = this.fb.group({
       selectOption: ['', [Validators.required]],
-      count: [0, [Validators.required]],
+      count: [0, [Validators.required, Validators.min(1)]],
     });
   }
 
@@ -58,7 +60,9 @@ ngOnInit() {
   }
 
   onSubmit() {
+
     const forAmountUpdate = this.count.value;
+    console.log(forAmountUpdate);
     if (this.selectOption.value === 'donate') {
       this.currentBalance -= forAmountUpdate;
     } else if ( this.selectOption.value === 'charging' ) {

@@ -41,12 +41,9 @@ import { UsersService } from './services/users.service';
 import { ActivitiesModule } from './activities/activities.module';
 import { ActivitiesService } from './services/activities.service';
 import { DataBaseService } from './services/data-base.service';
-<<<<<<< HEAD
 import { UsersGuardService } from './shared/guards/auth.service';
 import { NotAuthGuardService } from './shared/guards/not-auth-guard.service';
-=======
 import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
->>>>>>> master
 
 @NgModule({
   declarations: [
@@ -96,19 +93,10 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
     NotFoundComponent,
     // AddMessageComponent
   ],
-<<<<<<< HEAD
-  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService, UsersGuardService, NotAuthGuardService],
-=======
-  providers: [
-    AnimalsService,
-    UsersService,
-    ActivitiesService,
-    DataBaseService,
-    [{
-      provide: ToastsManager, useClass: CustomToastsManager
-    }]
-  ],
->>>>>>> master
+  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService, UsersGuardService, NotAuthGuardService,    
+  [{
+    provide: ToastsManager, useClass: CustomToastsManager
+  }]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

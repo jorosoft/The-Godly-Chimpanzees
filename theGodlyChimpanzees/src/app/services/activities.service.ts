@@ -113,7 +113,7 @@ public selectedValue: string;
   }
 
   getCurrentAmount(user: string) {
-    return this.dataBaseService.getItems('users/' + user + '/info/amount/');
+    return this.dataBaseService.getItemsPromise('users/' + user + '/info/amount/');
   }
 
   updateCurrentAmount(currentBalance: number, user: string) {
