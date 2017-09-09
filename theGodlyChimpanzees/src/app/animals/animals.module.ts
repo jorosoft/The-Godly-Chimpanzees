@@ -13,6 +13,7 @@ import {
   MdIconModule,
   MdInputModule,
   MdSelectModule,
+  MdTooltipModule,
   MdButtonModule
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk';
@@ -34,12 +35,13 @@ import { MyFavToggleDirective } from './../shared/directives/my-fav-toggle.direc
     MdIconModule,
     MdInputModule,
     MdSelectModule,
+    MdTooltipModule,
     MdButtonModule
   ],
   declarations: [
     AnimalsListComponent,
     AnimalDetailsComponent,
     MyFavToggleDirective
-]
+  ]
 })
-export class AnimalsModule {}
+export class AnimalsModule { }

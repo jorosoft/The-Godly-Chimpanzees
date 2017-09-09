@@ -22,6 +22,7 @@ import {
   MdMenuModule,
   MdSidenavModule,
   MdToolbarModule,
+  MdTooltipModule,
   MdTabsModule,
   MdDatepickerModule
 } from '@angular/material';
@@ -76,6 +77,7 @@ import { UsersService } from './services/users.service';
     MdMenuModule,
     MdSidenavModule,
     MdToolbarModule,
+    MdTooltipModule,
     MdTabsModule,
     MdDatepickerModule,
     FlexLayoutModule,

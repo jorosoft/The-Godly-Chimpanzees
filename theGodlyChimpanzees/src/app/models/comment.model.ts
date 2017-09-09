@@ -4,6 +4,8 @@ export class Comment {
 
     userName: string;
 
+    date: Date;
+
     subject: string;
 
     content: string;

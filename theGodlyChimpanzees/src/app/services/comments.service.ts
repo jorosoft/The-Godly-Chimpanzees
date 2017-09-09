@@ -9,12 +9,14 @@ export class CommentsService {
         {
             animalName: 'Bear',
             userName: 'Nadia',
+            date: new Date('12.24.2017'),
             subject: 'First comment',
             content: 'Nice bear'
         },
         {
             animalName: 'Bear',
             userName: 'Mimi',
+            date: new Date('1/3/2017'),
             subject: 'Second comment',
             content: 'The polar bear (Ursus maritimus) is a carnivorous bear whose native range lies largely within ... Polar bears hunt their preferred food of seals from the edge of sea ice, often living off fat reserves when no sea ice is present'
         }
