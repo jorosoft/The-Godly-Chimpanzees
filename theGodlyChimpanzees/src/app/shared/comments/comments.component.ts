@@ -9,11 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CommentsComponent implements OnInit {
 
-  @Input() animal: string;
+  @Input() name: string; // this is animal or tour name
+  @Input() collection: string;
   @Input() currentUser;
   comments: Comment[];
 
-  today: Date;
+  today: number;
 
   newCommentOpen: boolean;
 
@@ -22,29 +23,32 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit() {
     this.commentsService
-      .getCommentsForCollection('animals', this.animal)
-      .subscribe(data => this.comments = data);
+      .getComments(this.name, this.collection)
+      .subscribe(data => {
+        console.log(data);
+        this.comments = data.filter(a => a.name === this.name);
+        console.log(this.comments);
+        console.log(this.name);
+      });
     this.newCommentOpen = false;
-    this.today = new Date(Date.now());
+    this.today = Date.now();
     this.currentUser = this.currentUser || { displayName: 'guest' };
   }
 
-
   toggleNewCommentForm() {
-    // toggle form
     this.newCommentOpen = !this.newCommentOpen;
   }
 
   createComment(formData) {
     // TODO are validations needed here? will validate values in model
     // TODO add check for currentUser
-    const user = this.currentUser || { displayName: 'guest' };
-    this.today = new Date(Date.now());
-    const newComment = new Comment(this.animal, user.displayName, this.today, formData.content);
-    console.log(newComment);
-    this.commentsService.addCommentToCollection('animals', newComment);
-    this.toggleNewCommentForm();
-    console.log(user);
+    this.today = Date.now();
+    const newComment = new Comment(this.name, this.currentUser.displayName, this.today, formData.content);
+
+    this.commentsService.addComment(newComment, this.collection)
+      .then(res => {
+        this.toggleNewCommentForm();
+      });
   }
 
   checkCurrentUser() {
@@ -53,8 +57,6 @@ export class CommentsComponent implements OnInit {
       // TODO check if user logged in
     } else {
       // show login in modal;
-      console.log('No current user, setting to guest');
-      this.currentUser = { displayName: 'guest' };
     }
   }
 }

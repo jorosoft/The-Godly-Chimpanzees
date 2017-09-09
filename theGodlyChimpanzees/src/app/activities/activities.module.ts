@@ -9,6 +9,7 @@ import { TourInfoComponent } from './tour-info/tour-info.component';
 import { ToursComponent } from './tours/tours.component';
 import { CdkTableModule } from '@angular/cdk';
 import { CarouselModule } from 'angular4-carousel';
+import { CommentsComponent } from '../shared/comments/comments.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,7 @@ import { CarouselModule } from 'angular4-carousel';
     DatePickerModule,
     CdkTableModule
   ],
-  declarations: [TicketsComponent, TourInfoComponent, ToursComponent],
+  declarations: [TicketsComponent, TourInfoComponent, ToursComponent, CommentsComponent],
   exports: [TicketsComponent, TourInfoComponent, ToursComponent]
 })
 export class ActivitiesModule { }
