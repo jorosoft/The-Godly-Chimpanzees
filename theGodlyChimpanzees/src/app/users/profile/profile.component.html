@@ -1,14 +1,29 @@
-<h1>Hello, {{currentUser.displayName}}</h1>
-<h2>Tickets</h2>
-<ul>
-    <li *ngFor="let item of items | async">
-        {{ item.name }}
-      </li>
-</ul>
 
-<h2>Animals</h2>
-<ul>
-    <li *ngFor="let animal of animals | async">
-        {{ animal.$key }}
-      </li>
-</ul>
+<md-card class="cardMaterial">
+    <md-card-header>
+      <md-card-title>
+          <h1 class= "userProfileTitle">Hello, {{currentUser.displayName  | uppercase}}</h1>
+      </md-card-title>
+    </md-card-header>
+          <md-card-content>
+                <ng2-datepicker id="date" [options]=datePickerOptions></ng2-datepicker>
+            <md-card >
+                <h3>Bought Tickets</h3>
+                <ul>
+                    <li *ngFor="let item of items | async">
+                        {{ item.name }}
+                      </li>
+                </ul>
+            </md-card>
+          </md-card-content>
+          <md-card-content>
+            <h3>Fav Animals</h3>
+            <ul>
+                <li *ngFor="let animal of animals | async | existingValue" >
+                 <a (click)="redirectTo(animal)" class="profileAnchor">{{ animal.$key }}</a>
+                </li>
+            </ul>
+        </md-card-content>
+        <md-card-actions>
+      </md-card-actions>
+    </md-card>

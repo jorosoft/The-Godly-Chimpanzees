@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MyFavToggleDirective } from './directives/my-fav-toggle.directive';
 import { NbPipe } from './pipes/nb.pipe';
 import { ErrorMsgDirective } from './directives/error-msg.directive';
-
+import { ExistingValuePipe } from './pipes/existing-value.pipe';
 
 @NgModule({
   imports: [
@@ -18,14 +18,16 @@ import { ErrorMsgDirective } from './directives/error-msg.directive';
     MyFavToggleDirective,
     NbPipe,
     ErrorMsgDirective,
-    CommentsComponent
+    CommentsComponent,
+    ExistingValuePipe
   ],
   providers: [],
   exports: [
     MyFavToggleDirective,
     NbPipe,
     ErrorMsgDirective,
-    CommentsComponent
+    CommentsComponent,
+    ExistingValuePipe
   ]
 })
 

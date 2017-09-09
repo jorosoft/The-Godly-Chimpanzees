@@ -18,13 +18,26 @@ export class ProfileComponent implements OnInit {
   public items: Observable<any>;
   public animals: Observable<any>;
 
-  constructor(private usersService: UsersService, private dataBaseService: DataBaseService) { }
+  public datePickerOptions = {
+    format: 'DD.MM.YYYY',
+    locale: 'bg',
+    minDate: new Date(),
+    maxDate: (() => {
+        const date = new Date();
+        date.setDate(date.getDate() + 50);
+        return date;
+    })(),
+};
+  constructor(private usersService: UsersService, private dataBaseService: DataBaseService, private router: Router) { }
 
   ngOnInit() {
     this.currentUser = this.usersService.getCurrenUser();
     this.items = this.dataBaseService.getItems('users/' + this.currentUser.uid + '/info/tickets/');
     this.animals = this.dataBaseService.getItems('users/' + this.currentUser.uid + '/info/favs/');
+    // this.animals.subscribe((val) => console.log(val));
   }
 
-
+  redirectTo(animal) {
+    this.router.navigateByUrl('animals/' + animal.$key);
+  }
 }

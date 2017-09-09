@@ -10,7 +10,7 @@ import { UsersService } from './../services/users.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { DatePickerModule } from 'ng2-datepicker';
 
 @NgModule({
   imports: [
@@ -19,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    DatePickerModule
   ],
   declarations: [LoginComponent, RegisterComponent, ProfileComponent],
   providers: []
