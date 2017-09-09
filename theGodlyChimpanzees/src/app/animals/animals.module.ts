@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AnimalsRoutingModule } from './animals-routing.module';
 import { AnimalsListComponent } from './animals-list/animals-list.component';
 import { AnimalDetailsComponent } from './animal-details/animal-details.component';
+import { CommentsComponent } from './../shared/comments/comments.component';
 import {
   MdPaginatorModule,
   MdTableModule,
@@ -26,6 +28,7 @@ import { MyFavToggleDirective } from './../shared/directives/my-fav-toggle.direc
     CommonModule,
     AnimalsRoutingModule,
     CdkTableModule,
+    FormsModule,
     MdTableModule,
     MdPaginatorModule,
     MdGridListModule,
@@ -41,6 +44,7 @@ import { MyFavToggleDirective } from './../shared/directives/my-fav-toggle.direc
   declarations: [
     AnimalsListComponent,
     AnimalDetailsComponent,
+    CommentsComponent,
     MyFavToggleDirective
   ]
 })

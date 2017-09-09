@@ -1,7 +1,5 @@
 import { Animal } from './../../models/animal.model';
-import { Comment } from './../../models/comment.model';
 import { AnimalsService } from '../../services/animals.service';
-import { CommentsService } from './../../services/comments.service';
 import { UsersService } from './../../services/users.service';
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,12 +13,10 @@ export class AnimalDetailsComponent implements OnInit {
   currentUser;
   animal: Animal;
 
-  comments: Comment[];
   public condition: boolean;
 
   constructor(public usersService: UsersService,
     private animalService: AnimalsService,
-    private commentsService: CommentsService,
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
 
@@ -29,7 +25,6 @@ export class AnimalDetailsComponent implements OnInit {
       const name = params['name'];
       this.animal = this.animalService.getAnimalByName(name);
       this.currentUser = this.usersService.getCurrenUser();
-      this.comments = this.commentsService.getCommentsForAnimal(this.animal.name);
     });
     if (this.currentUser) {
       this.animalService.checkStatus(this.animal.name, this.currentUser.uid)

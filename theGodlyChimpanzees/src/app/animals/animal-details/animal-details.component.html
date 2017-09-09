@@ -29,30 +29,5 @@
     </md-card-actions>
 </md-card>
 
-<md-card class="comments" fxFlex="33" fxLayout="row" fxLayoutGap="16px">
-    <md-card-header>
-        <md-card-title>
-            <h2>Comments</h2>
-            <button md-mini-fab class="add-comment" color="primary" mdTooltip="Add comment" mdTooltipPosition="left">
-                <md-icon>add</md-icon>
-            </button>
-        </md-card-title>
-    </md-card-header>
 
-    <md-card-content>
-        <md-divider></md-divider>
-        <md-card *ngFor="let comment of comments">
-            <md-card-header>
-                <img md-card-avatar src="assets/img/avatars/1.svg" alt="avatar">
-                <md-card-title> {{comment.subject}} </md-card-title>
-                <md-card-subtitle>
-                    {{comment.userName}}
-                    <span>•</span> {{comment.date | date:'d MMM y'}}
-                </md-card-subtitle>
-            </md-card-header>
-            <md-card-content>
-                {{comment.content}}
-            </md-card-content>
-        </md-card>
-    </md-card-content>
-</md-card>
+<app-comments [animal]=animal.name [currentUser]=currentUser></app-comments>
