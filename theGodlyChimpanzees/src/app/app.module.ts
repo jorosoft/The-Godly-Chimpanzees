@@ -1,4 +1,3 @@
-import { AnimalsService } from './services/animals.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -36,10 +35,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UsersModule } from './users/users.module';
 import { AnimalsModule } from './animals/animals.module';
 import { AppRoutingModule } from './app-routing.module';
-import { UsersService } from './services/users.service';
 import { ActivitiesModule } from './activities/activities.module';
+
 import { ActivitiesService } from './services/activities.service';
+import { AnimalsService } from './services/animals.service';
+import { CommentsService } from './services/comments.service';
 import { DataBaseService } from './services/data-base.service';
+import { UsersService } from './services/users.service';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,13 @@ import { DataBaseService } from './services/data-base.service';
     NotFoundComponent,
     // AddMessageComponent
   ],
-  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService],
+  providers: [
+    AnimalsService,
+    ActivitiesService,
+    CommentsService,
+    DataBaseService,
+    UsersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

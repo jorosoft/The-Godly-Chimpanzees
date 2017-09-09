@@ -2,3 +2,7 @@
     width: 400px;
     margin-left: 20px;
 }
+
+md-card-title h2 {
+    margin-top: 8px;
+}

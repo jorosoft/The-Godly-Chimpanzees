@@ -1,10 +1,10 @@
+import { Animal } from './../../models/animal.model';
+import { Comment } from './../../models/comment.model';
+import { AnimalsService } from '../../services/animals.service';
+import { CommentsService } from './../../services/comments.service';
 import { UsersService } from './../../services/users.service';
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { AnimalsService } from '../../services/animals.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
-
 
 @Component({
   selector: 'app-animal-details',
@@ -13,10 +13,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AnimalDetailsComponent implements OnInit {
   currentUser;
-  animal;
+  animal: Animal;
+
+  comments: Comment[];
   public condition: boolean;
 
-  constructor(public usersService: UsersService, private animalService: AnimalsService,
+  constructor(public usersService: UsersService,
+    private animalService: AnimalsService,
+    private commentsService: CommentsService,
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
 
@@ -25,16 +29,17 @@ export class AnimalDetailsComponent implements OnInit {
       const name = params['name'];
       this.animal = this.animalService.getAnimalByName(name);
       this.currentUser = this.usersService.getCurrenUser();
+      this.comments = this.commentsService.getCommentsForAnimal(this.animal.name);
     });
     if (this.currentUser) {
       this.animalService.checkStatus(this.animal.name, this.currentUser.uid)
-      .then((item) => {
-        console.log('ngOnInIT');
-        console.log(item.val());
-        console.log(this.condition);
-        this.condition = item.val();
-      })
-      .catch((err) => alert(err));
+        .then((item) => {
+          console.log('ngOnInIT');
+          console.log(item.val());
+          console.log(this.condition);
+          this.condition = item.val();
+        })
+        .catch((err) => alert(err));
     }
   }
 
@@ -44,8 +49,7 @@ export class AnimalDetailsComponent implements OnInit {
 
   favAnimal() {
     this.animalService.addFavAnimal(this.animal.name, this.currentUser.uid)
-         .then((item) => this.condition = item.val())
-         .catch((err) => alert(err));
+      .then((item) => this.condition = item.val())
+      .catch((err) => alert(err));
   }
-
 }
