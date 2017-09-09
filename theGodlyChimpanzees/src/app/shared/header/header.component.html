@@ -7,26 +7,16 @@
         </button>
     </div>
 
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="example-fill-remaining-space"></span>
+    <!-- Span to take the middle space so log-in is to the right -->
+    <span fxFlex></span>
 
 
     <!-- <a [routerLink]="[ '/animals/all' ]">Animals</a> -->
-    <span *ngIf="displayName || (userService.userA | async) " class="fill-remaining-space">
-        <span>{{displayName}}</span>
+    <span *ngIf="displayName || (userService.userA | async) ">
     <a md-button (click)="logOut()">Log Out</a>
-    <a md-button [routerLink]="[ '/users/profile' ]">Profile</a>
+    <a md-button [routerLink]="[ '/users/profile' ]">{{displayName}}</a>
     </span>
-    <span *ngIf="!displayName" class="fill-remaining-space">
+    <span *ngIf="!displayName">
         <a  md-button [routerLink]="[ '/users/login' ]">Log In</a>
     </span>
 
