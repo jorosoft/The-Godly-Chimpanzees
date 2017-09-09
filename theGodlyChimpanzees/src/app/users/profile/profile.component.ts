@@ -16,12 +16,14 @@ import { DataBaseService } from './../../services/data-base.service';
 export class ProfileComponent implements OnInit {
   public currentUser: any;
   public items: Observable<any>;
+  public animals: Observable<any>;
 
   constructor(private usersService: UsersService, private dataBaseService: DataBaseService) { }
 
   ngOnInit() {
     this.currentUser = this.usersService.getCurrenUser();
     this.items = this.dataBaseService.getItems('users/' + this.currentUser.uid + '/info/tickets/');
+    this.animals = this.dataBaseService.getItems('users/' + this.currentUser.uid + '/info/favs/');
   }
 
 

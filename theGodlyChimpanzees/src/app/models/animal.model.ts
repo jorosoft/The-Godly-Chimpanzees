@@ -7,6 +7,10 @@ export class Animal {
     rows: number;
 
     cols: number;
+
+    zone: string;
+
+    type: string;
 }
 
 export class Message {

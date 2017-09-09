@@ -1,0 +1,12 @@
+.example-card {
+    width: 400px;
+}
+
+.example-header-image {
+    background-image: url('../../assets/img/icon.png');
+    background-size: cover;
+}
+
+a {
+    color: darkgray;
+}

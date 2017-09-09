@@ -12,7 +12,8 @@ export class NavComponent implements OnInit {
     { name: 'Tours', icon: 'flight_takeoff', path: 'activities/tours' },
     { name: 'Tickets', icon: 'account_balance_wallet', path: 'activities/tickets' },
     { name: 'Membership', icon: 'account_box', path: 'home' },
-    { name: 'Donate', icon: 'group_work', path: 'home' },
+    { name: 'Donate', icon: 'group_work', path: 'activities/donate' },
+    { name: 'About', icon: 'local_offer', path: 'about' },
   ];
   constructor() { }
 
