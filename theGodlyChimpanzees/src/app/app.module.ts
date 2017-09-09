@@ -24,6 +24,7 @@ import {
   MdSidenavModule,
   MdToolbarModule,
   MdTabsModule,
+  MdTooltipModule,
   MdDatepickerModule
 } from '@angular/material';
 
@@ -75,6 +76,7 @@ import { DataBaseService } from './services/data-base.service';
     MdSidenavModule,
     MdToolbarModule,
     MdTabsModule,
+    MdTooltipModule,
     MdDatepickerModule,
     FlexLayoutModule,
     ActivitiesModule
