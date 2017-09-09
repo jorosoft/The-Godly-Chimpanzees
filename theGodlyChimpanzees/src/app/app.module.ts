@@ -40,6 +40,8 @@ import { UsersService } from './services/users.service';
 import { ActivitiesModule } from './activities/activities.module';
 import { ActivitiesService } from './services/activities.service';
 import { DataBaseService } from './services/data-base.service';
+import { UsersGuardService } from './shared/guards/auth.service';
+import { NotAuthGuardService } from './shared/guards/not-auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,7 @@ import { DataBaseService } from './services/data-base.service';
     NotFoundComponent,
     // AddMessageComponent
   ],
-  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService],
+  providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService, UsersGuardService, NotAuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

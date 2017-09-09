@@ -54,6 +54,11 @@ public tours = [
   {value: 'tour-5', name: 'monkeys', viewValue: 'Monkeys', viewDate: '15.09.2017',
   ticketPrice: 25, info: this.monkeys, imgs: ['monkeys_0', 'monkeys_1', 'monkeys_2']}
 ];
+public donate = [
+  {value: 'charging', viewValue: 'Charging the account'},
+  {value: 'check', viewValue: 'Check current amount'},
+  {value: 'donate', viewValue: 'Donate'}
+];
 public selectedValue: string;
 
   constructor(public db: AngularFireDatabase, public dataBaseService: DataBaseService) { }
@@ -89,9 +94,16 @@ public selectedValue: string;
     );
   }
 
-  addTickets(arr, user) {
-    // this.dataBaseService.getItems('users/' + user + '/info/tickets/').subscribe(value => arr.push(value));
+  getItems(path: string) {
+    if (path === 'donate') {
+      return new Observable( observer => {
+        this.donate.forEach( tour => observer.next(tour));
+        observer.complete();
+      });
+    }
+  }
 
+  addTickets(arr: string[], user: string) {
    return this.dataBaseService.getItemsPromise('users/' + user + '/info/tickets/')
         .then((lists) => {
           arr = arr.concat(lists.val());
@@ -99,8 +111,13 @@ public selectedValue: string;
         })
         .catch((err) => alert(err));
   }
-  
 
+  getCurrentAmount(user: string) {
+    return this.dataBaseService.getItems('users/' + user + '/info/amount/');
+  }
 
+  updateCurrentAmount(currentBalance: number, user: string) {
+    return this.dataBaseService.addItems(currentBalance, 'users/' + user + '/info/amount/');
+  }
 }
 
