@@ -25,6 +25,7 @@ import {
   MdSidenavModule,
   MdToolbarModule,
   MdTabsModule,
+  MdTooltipModule,
   MdDatepickerModule
 } from '@angular/material';
 
@@ -34,7 +35,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { UsersModule } from './users/users.module';
 import { AnimalsModule } from './animals/animals.module';
 import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './services/users.service';
@@ -46,6 +46,7 @@ import { NotAuthGuardService } from './shared/guards/not-auth-guard.service';
 import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { AboutComponent } from './about/about.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,8 +55,7 @@ import { AboutComponent } from './about/about.component';
     HeaderComponent,
     HomeComponent,
     NotFoundComponent,
-    AboutComponent,
-    // AddMessageComponent
+    AboutComponent
 ],
   entryComponents: [
     AppComponent,
@@ -81,6 +81,7 @@ import { AboutComponent } from './about/about.component';
     MdSidenavModule,
     MdToolbarModule,
     MdTabsModule,
+    MdTooltipModule,
     MdDatepickerModule,
     FlexLayoutModule,
     ActivitiesModule,
@@ -93,7 +94,7 @@ import { AboutComponent } from './about/about.component';
     HeaderComponent,
     HomeComponent,
     AboutComponent,
-    NotFoundComponent,
+    NotFoundComponent
     // AddMessageComponent
   ],
   providers: [AnimalsService, UsersService, ActivitiesService, DataBaseService, UsersGuardService, NotAuthGuardService,
