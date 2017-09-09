@@ -15,18 +15,17 @@
             <form (ngSubmit)="createComment(createNewComment.value)" #createNewComment=ngForm ngNativeValidate>
                 <md-card-header>
                     <img md-card-avatar src="assets/img/avatars/1.svg" alt="avatar">
-                    <md-card-title>User : </md-card-title>
-                    <!--{{currentUser.userName}} -->
+                    <md-card-title>User : {{currentUser.displayName}}</md-card-title>
                     <md-card-subtitle>Date: {{today | date: 'd MMM y'}}</md-card-subtitle>
                 </md-card-header>
                 <md-card-content>
                     <md-input-container>
                         <textarea mdInput ngModel name="content" #contentArea=ngModel placeholder="Your comment" rows="3" cols="50" required></textarea>
-                        <md-error *ngIf="!contentArea.valid && contentArea.touched ">This field is required</md-error>
+                        <md-error *ngIf="!contentArea.valid && contentArea.touched">This field is required</md-error>
                     </md-input-container>
                 </md-card-content>
                 <md-card-actions align="end">
-                    <button md-raised-button>Cancel</button>
+                    <button md-raised-button (click)="toggleNewCommentForm()">Cancel</button>
                     <button md-raised-button color="primary" type="submit" [disabled]="!createNewComment.valid">Submit</button>
                 </md-card-actions>
             </form>
