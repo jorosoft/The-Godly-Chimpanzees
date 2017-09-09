@@ -1,3 +1,4 @@
+import { NbPipe } from './../../shared/pipes/nb.pipe';
 import { UsersService } from './../../services/users.service';
 import { ActivitiesService } from './../../services/activities.service';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -36,7 +37,8 @@ describe('TicketsComponent', () => {
         TicketsComponent,
         ToursComponent,
         DonateComponent,
-        TourInfoComponent
+        TourInfoComponent,
+        NbPipe
       ],
       imports: [
         MaterialModule,
