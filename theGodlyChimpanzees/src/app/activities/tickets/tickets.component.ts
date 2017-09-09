@@ -29,6 +29,7 @@ export class TicketsComponent implements OnInit, DoCheck {
   public options: DatePickerOptions;
   public newTicket: Ticket;
   public searched: any;
+  public errorMsg: string;
 
    constructor(public router: Router, public fb: FormBuilder,
                public activitiService: ActivitiesService, public userService: UsersService) {
@@ -39,13 +40,13 @@ export class TicketsComponent implements OnInit, DoCheck {
      this.createForm();
      this.user = this.userService.getCurrenUser();
      this.options = new DatePickerOptions();
-    //  this.tickets = this.activitiService.getTickets().subscribe((data) => data)
-    this.activitiService.getTickets().subscribe(value => this.tickets.push(value));
+     this.activitiService.getTickets().subscribe(value => this.tickets.push(value));
      this.activitiService.getNumbers().subscribe(number => this.numbers.push(number));
      const tempValue = this.activitiService.getSelectedValue();
      if (tempValue) {
       this.selectedValue = tempValue;
      }
+     this.errorMsg = 'Please choose an event type or a date!';
    }
 
    ngDoCheck() {

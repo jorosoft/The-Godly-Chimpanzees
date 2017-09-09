@@ -10,6 +10,7 @@ import { ToursComponent } from './tours/tours.component';
 import { CdkTableModule } from '@angular/cdk';
 import { CarouselModule } from 'angular4-carousel';
 import { DonateComponent } from './donate/donate.component';
+import { NbPipe } from '../shared/pipes/nb.pipe';
 
 @NgModule({
   imports: [
@@ -52,7 +53,12 @@ import { DonateComponent } from './donate/donate.component';
     DatePickerModule,
     CdkTableModule
   ],
-  declarations: [TicketsComponent, TourInfoComponent, ToursComponent, DonateComponent],
+  declarations: [
+    TicketsComponent,
+    TourInfoComponent,
+    ToursComponent,
+    DonateComponent,
+    NbPipe],
   exports: [TicketsComponent, TourInfoComponent, ToursComponent]
 })
 export class ActivitiesModule { }
