@@ -5,7 +5,7 @@
               <ng-container cdkColumnDef="name">
                   <md-header-cell *cdkHeaderCellDef></md-header-cell>
                   <md-cell *cdkCellDef="let model">
-                      <md-grid-list cols="4" rowHeight="250px">
+                      <md-grid-list cols="1" rowHeight="250px">
                             <div (click) = "redirectToUrl(model.name)">
                               <md-grid-tile>
                                   <img src="assets/img/tours/{{model.name}}/{{model.name}}_0.jpg" alt="model">
