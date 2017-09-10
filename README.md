@@ -30,7 +30,7 @@ Technologies used: Angular4, Angular Material2, Firebase database, authenticatio
 
 
 ### Links
-- [Cloud](https://the-godly-chimpanzees.firebaseapp.com/home)
+- [Cloud](https://the-godly-chimpanzees.firebaseapp.com)
 - [GitHub Team Godly Chimpanzees](https://github.com/TeamGodlyChimpanzees)
 - [Telerik Best - TO ADD](http://)
 

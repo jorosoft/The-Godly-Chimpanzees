@@ -1,3 +1,4 @@
+import { UsersService } from './../../core/users.service';
 import { LoaderService } from './../../core/loader.service';
 import { ActivitiesService } from './../../core/activities.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +15,8 @@ import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
     styleUrls: ['./tour-info.component.scss']
 })
 export class TourInfoComponent implements OnInit {
+
+    public currentUser;
     public tours: any[];
     public tour;
     public imageSources: string[];
@@ -30,7 +33,8 @@ export class TourInfoComponent implements OnInit {
     constructor(private activitiesService: ActivitiesService,
         private activatedRoute: ActivatedRoute,
         private router: Router,
-        private loaderService: LoaderService) { }
+        private loaderService: LoaderService,
+        public usersService: UsersService) { }
 
     ngOnInit() {
         // show loader
@@ -50,6 +54,7 @@ export class TourInfoComponent implements OnInit {
                 // hide loader
                 this.loaderService.display(false);
             });
+            this.currentUser = this.usersService.getCurrenUser();
         });
     }
     backToList() {

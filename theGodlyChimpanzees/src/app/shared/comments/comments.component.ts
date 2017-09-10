@@ -1,24 +1,29 @@
+import { UsersService } from './../../core/users.service';
+import { LoginDialogComponent } from './../../users/login-dialog/login-dialog.component';
 import { Comment } from './../../models/comment.model';
 import { CommentsService } from './../../core/comments.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, DoCheck } from '@angular/core';
+import { MdDialog } from '@angular/material';
 
 @Component({
     selector: 'app-comments',
     templateUrl: './comments.component.html',
     styleUrls: ['./comments.component.scss']
 })
-export class CommentsComponent implements OnInit {
+export class CommentsComponent implements OnInit, DoCheck {
 
     @Input() name: string; // this is animal or tour name
     @Input() collection: string;
     @Input() currentUser;
     comments: Comment[];
-
     today: number;
 
     newCommentOpen: boolean;
 
     constructor(
+        public loginDialog: MdDialog,
+
+        public usersService: UsersService,
         private commentsService: CommentsService) { }
 
     ngOnInit() {
@@ -32,13 +37,18 @@ export class CommentsComponent implements OnInit {
         this.currentUser = this.currentUser || { displayName: 'guest' };
     }
 
+    ngDoCheck() {
+        this.currentUser = this.usersService.getCurrenUser() ? this.usersService.getCurrenUser() : { displayName: 'guest' };
+    }
+
     toggleNewCommentForm() {
+        if (this.newCommentOpen === false) {
+            this.checkCurrentUser();
+        }
         this.newCommentOpen = !this.newCommentOpen;
     }
 
     createComment(formData) {
-        // TODO are validations needed here? will validate values in model
-        // TODO add check for currentUser
         this.today = Date.now();
         const newComment = new Comment(this.name, this.currentUser.displayName, this.today, formData.content);
 
@@ -49,11 +59,9 @@ export class CommentsComponent implements OnInit {
     }
 
     checkCurrentUser() {
-        if (this.currentUser !== null) {
-            console.log(this.currentUser);
-            // TODO check if user logged in
-        } else {
-            // show login in modal;
+        if (this.currentUser.displayName === 'guest') {
+            // open login modal
+            this.loginDialog.open(LoginDialogComponent);
         }
     }
 }
