@@ -1,3 +1,4 @@
+import { LoaderService } from './services/loader.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersService } from './services/users.service';
 import { ToastOptions } from 'ng2-toastr';
@@ -30,7 +31,6 @@ const AngularFireDBMocks = {
 
   describe('AppComponent', () => {
   beforeEach(async(() => {
-    // firebase.initializeApp(firebaseConfig);
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
@@ -39,9 +39,7 @@ const AngularFireDBMocks = {
       ],
       imports: [
         MaterialModule,
-        RouterTestingModule,
-        // AngularFireModule.initializeApp(firebaseConfig)
-        // RouterModule
+        RouterTestingModule
       ],
       providers: [
         UsersService,
@@ -50,8 +48,6 @@ const AngularFireDBMocks = {
         [{
             provide: ToastsManager, useClass: CustomToastsManager
           }],
-        //   AngularFireAuth,
-        //   AngularFireDatabase,
           FirebaseApp,
         {
           provide: AngularFireDatabase,
@@ -60,7 +56,8 @@ const AngularFireDBMocks = {
         {
           provide: AngularFireAuth,
           useValue: AngularFireMocks
-        }
+        },
+        LoaderService
     ]
     }).compileComponents();
   }));

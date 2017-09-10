@@ -1,3 +1,4 @@
+import { LoaderService } from './../../services/loader.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { DataBaseService } from './../../services/data-base.service';
 import { AnimalsService } from './../../services/animals.service';
@@ -46,7 +47,8 @@ describe('AnimalsListComponent', () => {
         {
           provide: AngularFireAuth,
           useValue: AngularFireMocks
-        }
+        },
+        LoaderService
       ]
     })
     .compileComponents();

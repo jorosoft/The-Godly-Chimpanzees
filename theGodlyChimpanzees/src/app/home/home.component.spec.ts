@@ -1,3 +1,4 @@
+import { LoaderService } from './../services/loader.service';
 import { AnimalsService } from './../services/animals.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -55,7 +56,8 @@ describe('HomeComponent', () => {
           {
             provide: AngularFireAuth,
             useValue: AngularFireMocks
-          }
+          },
+          LoaderService
       ]
     })
     .compileComponents();
