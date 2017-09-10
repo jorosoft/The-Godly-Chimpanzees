@@ -11,6 +11,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActivatedRoute } from '@angular/router';
 
 describe('ToursComponent', () => {
     let component: ToursComponent;
@@ -23,7 +24,13 @@ describe('ToursComponent', () => {
     const AngularFireDBMocks = {
         database: jasmine.createSpy('database')
     };
-
+    const ActivatedRouteMocks = {
+        snapshot: {
+            data: {
+                tours: []
+            }
+        }
+    };
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [ToursComponent],
@@ -46,7 +53,11 @@ describe('ToursComponent', () => {
                 {
                     provide: AngularFireAuth,
                     useValue: AngularFireMocks
-                }
+                },
+                {
+                    provide: ActivatedRoute,
+                    useValue: ActivatedRouteMocks
+                  }
             ]
         })
             .compileComponents();
