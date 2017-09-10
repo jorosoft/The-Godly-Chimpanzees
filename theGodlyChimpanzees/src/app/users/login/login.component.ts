@@ -10,7 +10,8 @@ import { UsersService } from './../../services/users.service';
 })
 export class LoginComponent implements OnInit {
 
-  private loginForm: FormGroup;
+  public loginForm: FormGroup;
+  public mouseover = false;
 
   constructor(private fb: FormBuilder, private userService: UsersService, private router: Router) {
     this.createForm();

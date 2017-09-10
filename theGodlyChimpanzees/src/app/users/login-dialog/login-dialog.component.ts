@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class LoginDialogComponent implements OnInit {
     loginForm: FormGroup;
+    public mouseover = false;
 
     constructor(private fb: FormBuilder,
         private userService: UsersService,
