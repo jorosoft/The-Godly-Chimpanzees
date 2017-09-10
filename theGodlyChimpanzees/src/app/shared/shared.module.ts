@@ -7,6 +7,7 @@ import { MyFavToggleDirective } from './directives/my-fav-toggle.directive';
 import { NbPipe } from './pipes/nb.pipe';
 import { ErrorMsgDirective } from './directives/error-msg.directive';
 import { ExistingValuePipe } from './pipes/existing-value.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import { ExistingValuePipe } from './pipes/existing-value.pipe';
         NbPipe,
         ErrorMsgDirective,
         CommentsComponent,
-        ExistingValuePipe
+        ExistingValuePipe,
+        FilterPipe
     ],
     providers: [],
     exports: [
@@ -27,7 +29,8 @@ import { ExistingValuePipe } from './pipes/existing-value.pipe';
         NbPipe,
         ErrorMsgDirective,
         CommentsComponent,
-        ExistingValuePipe
+        ExistingValuePipe,
+        FilterPipe
     ]
 })
 
