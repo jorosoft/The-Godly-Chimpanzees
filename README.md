@@ -90,7 +90,7 @@ The task was to design and implement a **Single-page web application** using [An
 - DONE: responsive UI using Angular Material2.
 - Your project should pass the default TS linting configuration without any errors.
 - DONE: Used Angular CLI.
-- TODO:Your application should compile, work and produce an adequate result.
+- DONE:Your application should compile, work and produce an adequate result.
     - Applications that do not adhere to these requirements, will be severely penalized or not accepted at all.
 
 ##  General Requirements
