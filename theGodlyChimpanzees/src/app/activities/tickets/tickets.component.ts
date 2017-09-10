@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/find';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-tickets',
@@ -33,7 +34,7 @@ export class TicketsComponent implements OnInit, DoCheck {
   public errorMsg: string;
 
    constructor(public router: Router, public fb: FormBuilder,
-               public activitiService: ActivitiesService, public userService: UsersService) {
+               public activitiService: ActivitiesService, public userService: UsersService, public toastr: ToastsManager) {
 
     }
 
@@ -79,7 +80,7 @@ export class TicketsComponent implements OnInit, DoCheck {
 
   onSubmit() {
     if (!this.user) {
-      alert('You should log in to proceed!');
+      this.toastr.error('You should log in to proceed!');
       this.router.navigate(['/users/login']);
     } else {
       const addTickets = [];
@@ -90,8 +91,8 @@ export class TicketsComponent implements OnInit, DoCheck {
         addTickets.push(new Ticket(this.searched.viewValue, this.searched.viewDate, this.searched.ticketPrice / 2, 'child'));
       }
       this.activitiService.addTickets(addTickets, this.user.uid)
-        .then((conf) => console.log('Done'))
-        .catch((err) => alert(err));
+        .then((conf) => this.toastr.success('Done! Please check you profile page, where you can see your tickets'))
+        .catch((err) => this.toastr.error(err.message));
     }
   }
 }

@@ -111,7 +111,7 @@ public selectedValue: string;
           arr = arr.concat(lists.val());
           return this.dataBaseService.addItems(arr, 'users/' + user + '/info/tickets/');
         })
-        .catch((err) => alert(err));
+        .catch((err) => this.toastr.error(err.message));
   }
 
   getCurrentAmount(user: string) {

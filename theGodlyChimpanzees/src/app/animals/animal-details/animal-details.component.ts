@@ -4,6 +4,7 @@ import { AnimalsService } from '../../services/animals.service';
 import { UsersService } from './../../services/users.service';
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
     selector: 'app-animal-details',
@@ -20,7 +21,7 @@ export class AnimalDetailsComponent implements OnInit {
         private animalService: AnimalsService,
         private activatedRoute: ActivatedRoute,
         private router: Router,
-        private loaderService: LoaderService) { }
+        private loaderService: LoaderService, public toastr: ToastsManager) { }
 
     ngOnInit() {
         // show loader
@@ -39,7 +40,7 @@ export class AnimalDetailsComponent implements OnInit {
                     console.log(this.condition);
                     this.condition = item.val();
                 })
-                .catch((err) => alert(err));
+                .catch((err) => this.toastr.error(err.message));
         }
         // hide loader
         this.loaderService.display(false);
@@ -52,6 +53,6 @@ export class AnimalDetailsComponent implements OnInit {
     favAnimal() {
         this.animalService.addFavAnimal(this.animal.name, this.currentUser.uid)
             .then((item) => this.condition = item.val())
-            .catch((err) => alert(err));
+            .catch((err) => this.toastr.error(err.message));
     }
 }
