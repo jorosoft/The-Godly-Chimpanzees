@@ -1,3 +1,4 @@
+import { LoaderService } from './services/loader.service';
 import { MaterialModule } from './shared/material/material.module';
 import { CustomToastsManager } from './app.toastr.settings';
 import { BrowserModule } from '@angular/platform-browser';
@@ -35,54 +36,55 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 
 @NgModule({
-  declarations: [
-    AboutComponent,
-    AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    HomeComponent,
-    NavComponent,
-    NotFoundComponent,
-  ],
-  entryComponents: [
-    AppComponent,
-    // AddMessageComponent
-  ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    FormsModule,
-    HttpModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule,
-    ActivitiesModule,
-    ToastModule.forRoot()
-  ],
-  exports: [
-    AboutComponent,
-    AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    HomeComponent,
-    NavComponent,
-    NotFoundComponent,
-    // AddMessageComponent
-  ],
-  providers: [
-    AnimalsService,
-    ActivitiesService,
-    CommentsService,
-    DataBaseService,
-    NotAuthGuardService,
-    UsersGuardService,
-    UsersService,
-    [{
-      provide: ToastsManager, useClass: CustomToastsManager
-    }]],
-  bootstrap: [AppComponent]
+    declarations: [
+        AboutComponent,
+        AppComponent,
+        FooterComponent,
+        HeaderComponent,
+        HomeComponent,
+        NavComponent,
+        NotFoundComponent,
+    ],
+    entryComponents: [
+        AppComponent,
+        // AddMessageComponent
+    ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireAuthModule,
+        AngularFireDatabaseModule,
+        FormsModule,
+        HttpModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        FlexLayoutModule,
+        ActivitiesModule,
+        ToastModule.forRoot()
+    ],
+    exports: [
+        AboutComponent,
+        AppComponent,
+        FooterComponent,
+        HeaderComponent,
+        HomeComponent,
+        NavComponent,
+        NotFoundComponent,
+        // AddMessageComponent
+    ],
+    providers: [
+        AnimalsService,
+        ActivitiesService,
+        CommentsService,
+        DataBaseService,
+        LoaderService,
+        NotAuthGuardService,
+        UsersGuardService,
+        UsersService,
+        [{
+            provide: ToastsManager, useClass: CustomToastsManager
+        }]],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

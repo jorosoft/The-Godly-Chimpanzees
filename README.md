@@ -10,20 +10,21 @@
 ...
 
 #### Todos
-- Come up with a better name of the page
-- Login to popup with modal
 
 - **Nadia**:
-    - Implement comments
-    - Take out data form animals.service.ts file and move to firebase
+    - Implement loader
+    - Implement modal login popup for comments
     - Include tours in home page
-    - Try to implement toastr
-    - N/A: Fix header to not scroll on long pages
-    + DONE: Fix sidebar to hide link names with mediaquery
-    + BRANCH
-    - Change name of project in GitHub to 'TheZoo'
-    - Cleanup code, organise better, move Material modules to a bundling/core module and import that everywhere else
+    - Take out data form animals.service.ts file and move to firebase
+    - Cleanup code, organise better
     - Delete theGodlyChimpanzees folder, move app files to main repo directory
+    - N/A: Fix header to not scroll on long pages
+    + Done: Move Material modules to a MaterialModule and import that everywhere else
+    + DONE: Implement comments
+    + DONE: Implement toastr
+    + DONE: Fix sidebar to hide link names with mediaquery
+    + DONE: BRANCH
+    + DONE: Change name of project in GitHub to 'TheZoo'
 
 
 
