@@ -18,6 +18,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActivatedRoute } from '@angular/router';
 
 describe('TicketsComponent', () => {
     let component: TicketsComponent;
@@ -30,6 +31,16 @@ describe('TicketsComponent', () => {
     const AngularFireDBMocks = {
         database: jasmine.createSpy('database')
     };
+
+    const ActivatedRouteMocks = {
+        snapshot: {
+            data: {
+                tickets: []
+            }
+        }
+    };
+
+
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -63,7 +74,11 @@ describe('TicketsComponent', () => {
                 {
                     provide: AngularFireAuth,
                     useValue: AngularFireMocks
-                }
+                },
+                {
+                    provide: ActivatedRoute,
+                    useValue: ActivatedRouteMocks
+                  }
             ]
         })
             .compileComponents();
