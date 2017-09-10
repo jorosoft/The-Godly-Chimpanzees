@@ -1,4 +1,4 @@
-import { MaterialModule } from './../shared/material/material.module';
+import { MaterialModule } from './../shared/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -11,18 +11,18 @@ import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AnimalsRoutingModule,
-    CdkTableModule,
-    FormsModule,
-    MaterialModule,
-    SharedModule
-  ],
-  declarations: [
-    AnimalsListComponent,
-    AnimalDetailsComponent
-    // MyFavToggleDirective
-  ]
+    imports: [
+        CommonModule,
+        AnimalsRoutingModule,
+        CdkTableModule,
+        FormsModule,
+        MaterialModule,
+        SharedModule
+    ],
+    declarations: [
+        AnimalsListComponent,
+        AnimalDetailsComponent
+        // MyFavToggleDirective
+    ]
 })
 export class AnimalsModule { }

@@ -1,6 +1,6 @@
 import { LoginDialogComponent } from './users/login-dialog/login-dialog.component';
 import { LoaderService } from './services/loader.service';
-import { MaterialModule } from './shared/material/material.module';
+import { MaterialModule } from './shared/material.module';
 import { CustomToastsManager } from './app.toastr.settings';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,7 +17,6 @@ import { firebaseConfig } from './../environments/firebase.config';
 import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
 import { NavComponent } from './shared/nav/nav.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -40,7 +39,6 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
     declarations: [
         AboutComponent,
         AppComponent,
-        FooterComponent,
         HeaderComponent,
         HomeComponent,
         NavComponent,
@@ -69,12 +67,10 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
     exports: [
         AboutComponent,
         AppComponent,
-        FooterComponent,
         HeaderComponent,
         HomeComponent,
         NavComponent,
         NotFoundComponent,
-        // AddMessageComponent
     ],
     providers: [
         AnimalsService,
