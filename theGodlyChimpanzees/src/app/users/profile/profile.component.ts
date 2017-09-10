@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   public currentUser: any;
   public items: Observable<any>;
   public animals: Observable<any>;
-
+  public  step = 0;
   public datePickerOptions = {
     format: 'DD.MM.YYYY',
     locale: 'bg',
@@ -37,7 +37,21 @@ export class ProfileComponent implements OnInit {
     // this.animals.subscribe((val) => console.log(val));
   }
 
-  redirectTo(animal) {
-    this.router.navigateByUrl('animals/' + animal.$key);
+
+    setStep(index: number) {
+      this.step = index;
+    }
+
+    nextStep() {
+      this.step++;
+    }
+
+    prevStep() {
+      this.step--;
+    }
+
+  redirectTo(rout: string) {
+    // this.router.navigateByUrl('animals/' + animal.$key);
+    return this.router.navigateByUrl(rout);
   }
 }
