@@ -15,6 +15,7 @@ Application architecture
 - **Nadia**:
     - Implement modal login popup for comments
     - Include tours in home page
+    - Make comments under tours take current user instead of guest
     - Take out data form animals.service.ts file and move to firebase
     - Cleanup code, organise better
     - Delete theGodlyChimpanzees folder, move app files to main repo directory
@@ -39,7 +40,7 @@ Application architecture
 
 
 ### Links
-- [Cloud - TO ADD]()
+- [Cloud - TO ADD](https://the-godly-chimpanzees.firebaseapp.com/home)
 - [GitHub Team Godly Chimpanzees](https://github.com/TeamGodlyChimpanzees)
 - [Telerik Best - TO ADD](http://)
 
