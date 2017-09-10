@@ -2,11 +2,11 @@ import { User } from './../models/user.model';
 import { Animal } from './../models/animal.model';
 import { Injectable } from '@angular/core';
 import { DataBaseService } from './data-base.service';
-
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 @Injectable()
 export class AnimalsService {
       public condition: boolean;
-      constructor(public dataBaseService: DataBaseService) {
+      constructor(public dataBaseService: DataBaseService, public toastr: ToastsManager) {
             this.condition = false;
       }
 
@@ -99,7 +99,7 @@ export class AnimalsService {
                   .then(() => {
                         return this.dataBaseService.getItemsPromise(collectionPath + animal);
                   })
-                  .catch((err) => alert(err));
+                  .catch((err) => this.toastr.error(err.message));
 
       }
 }

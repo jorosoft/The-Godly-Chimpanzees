@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { User } from './../../models/user.model';
 import { UsersService } from './../../core/users.service';
-
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
     selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     public registerForm: FormGroup;
     user: User;
     firstPassword: string;
-    constructor(private fb: FormBuilder, private userService: UsersService, private router: Router) {
+    constructor(private fb: FormBuilder, private userService: UsersService, private router: Router, public toastr: ToastsManager) {
     }
 
     ngOnInit() {
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
                 this.router.navigate(['/home']);
             })
             .catch((err) => {
-                alert(err);
+                this.toastr.error(err.message);
                 throw err;
             });
     }
