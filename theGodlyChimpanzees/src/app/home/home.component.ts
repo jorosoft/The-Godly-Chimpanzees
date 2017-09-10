@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { MdSidenav } from '@angular/material';
 import { Animal } from './../models/animal.model';
 import { AnimalsService } from './../core/animals.service';
@@ -14,13 +15,16 @@ export class HomeComponent implements OnInit {
 
     animals: Animal[] = [];
     constructor(private animalsService: AnimalsService,
+
+        private activatedRoute: ActivatedRoute,
         private loaderService: LoaderService) { }
 
     ngOnInit() {
         // show loader
         this.loaderService.display(true);
-
-        this.animals = this.animalsService.getAll();
+        this.animals = this.activatedRoute.snapshot.data['animals'];
+        // this.animals = this.animalsService.getAll();
+        // this.animalsService.getAll().subscribe(data => this.animals = data);
         // hide loader
         this.loaderService.display(false);
     }

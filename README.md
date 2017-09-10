@@ -19,9 +19,10 @@ Application architecture
     - Make comments under tours take current user instead of guest
     - Take out data form animals.service.ts file and move to firebase
     - Cleanup code, organise better
-    - Delete theGodlyChimpanzees folder, move app files to main repo directory
+    - N/A: Delete theGodlyChimpanzees folder, move app files to main repo directory
     - N/A: Fix header to not scroll on long pages
     + TO TEST ON FIREBASE: Implement notFound
+    + DONE: Extract services to CoreModule
     + DONE: Implement loader
     + Done: Move Material modules to a MaterialModule and import that everywhere else
     + DONE: Implement comments
@@ -89,7 +90,7 @@ The task was to design and implement a **Single-page web application** using [An
 - DONE: Private (authenticated) web pages - user profile, animal details favourite button.
 - DONE: Used **pipes** - 2.
 - DONE: Used **directives** - 2.
-- DONE: Used **modules** - users, animals, tours, material, shared.
+- DONE: Used **modules** - users, animals, activities, material, shared.
 - TO COMPLETE: Data loaded from a `web server` using **services** using `Firebase`
 - CHECK: Unit test at **least 2 components**.
 - CHECK: Integration test at **least 1 module**.
