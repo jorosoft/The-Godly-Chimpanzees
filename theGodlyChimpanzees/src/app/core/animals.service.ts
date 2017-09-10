@@ -107,7 +107,10 @@ export class AnimalsService {
             this.getAnimalByName(animal).owner = user;
 
             const collectionPath = 'users/' + user + '/adoptedAnimals/';
-            return this.dataBaseService.addItemsObjects(animal, collectionPath)
+            return this.dataBaseService.getItemsPromise(collectionPath + animal)
+                  .then(() => {
+                        return this.dataBaseService.addItemsObjects(animal, collectionPath);
+                  })
                   .then(() => {
                         return this.dataBaseService.getItemsPromise(collectionPath + animal);
                   })
