@@ -1,6 +1,6 @@
 import { MdDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
-import { UsersService } from './../../services/users.service';
+import { UsersService } from './../../core/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 

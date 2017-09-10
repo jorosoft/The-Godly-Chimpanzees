@@ -1,4 +1,4 @@
-import { LoaderService } from './services/loader.service';
+import { LoaderService } from './core/loader.service';
 import { Animal } from './models/animal.model';
 import { HeaderComponent } from './shared/header/header.component';
 

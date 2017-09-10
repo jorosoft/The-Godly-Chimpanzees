@@ -1,7 +1,6 @@
-import { LoginDialogComponent } from './users/login-dialog/login-dialog.component';
-import { LoaderService } from './services/loader.service';
+import { CoreModule } from './core/core.module';
 import { MaterialModule } from './shared/material.module';
-import { CustomToastsManager } from './app.toastr.settings';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,23 +15,17 @@ import { firebaseConfig } from './../environments/firebase.config';
 
 import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
-import { NavComponent } from './shared/nav/nav.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './home/home.component';
+import { LoginDialogComponent } from './users/login-dialog/login-dialog.component';
+import { NavComponent } from './shared/nav/nav.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AnimalsModule } from './animals/animals.module';
 import { AppRoutingModule } from './app-routing.module';
+import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { ActivitiesModule } from './activities/activities.module';
 
-import { ActivitiesService } from './services/activities.service';
-import { AnimalsService } from './services/animals.service';
-import { CommentsService } from './services/comments.service';
-import { DataBaseService } from './services/data-base.service';
-import { NotAuthGuardService } from './shared/guards/not-auth-guard.service';
-import { UsersGuardService } from './shared/guards/auth.service';
-import { UsersService } from './services/users.service';
-import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 
 @NgModule({
@@ -59,10 +52,11 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
         ReactiveFormsModule,
         HttpModule,
         BrowserAnimationsModule,
-        MaterialModule,
         FlexLayoutModule,
         ActivitiesModule,
-        ToastModule.forRoot()
+        CoreModule,
+        ToastModule.forRoot(),
+        MaterialModule,
     ],
     exports: [
         AboutComponent,
@@ -72,18 +66,7 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
         NavComponent,
         NotFoundComponent,
     ],
-    providers: [
-        AnimalsService,
-        ActivitiesService,
-        CommentsService,
-        DataBaseService,
-        LoaderService,
-        NotAuthGuardService,
-        UsersGuardService,
-        UsersService,
-        [{
-            provide: ToastsManager, useClass: CustomToastsManager
-        }]],
+    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

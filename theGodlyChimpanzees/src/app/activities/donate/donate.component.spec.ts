@@ -1,8 +1,8 @@
 import { SharedModule } from './../../shared/shared.module';
-import { UsersService } from './../../services/users.service';
-import { DataBaseService } from './../../services/data-base.service';
+import { UsersService } from './../../core/users.service';
+import { DataBaseService } from './../../core/data-base.service';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { ActivitiesService } from './../../services/activities.service';
+import { ActivitiesService } from './../../core/activities.service';
 import { CarouselModule } from 'angular4-carousel';
 import { TourInfoComponent } from './../tour-info/tour-info.component';
 import { ToursComponent } from './../tours/tours.component';
@@ -21,74 +21,74 @@ import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DonateComponent', () => {
-  let component: DonateComponent;
-  let fixture: ComponentFixture<DonateComponent>;
+    let component: DonateComponent;
+    let fixture: ComponentFixture<DonateComponent>;
 
-  const AngularFireMocks = {
-    auth: jasmine.createSpy('auth')
-  };
+    const AngularFireMocks = {
+        auth: jasmine.createSpy('auth')
+    };
 
-  const AngularFireDBMocks = {
-    database: jasmine.createSpy('database')
-  };
+    const AngularFireDBMocks = {
+        database: jasmine.createSpy('database')
+    };
 
-  const UserMocks = {
-    getCurrenUser: jasmine.createSpy('getCurrenUser')
-  };
+    const UserMocks = {
+        getCurrenUser: jasmine.createSpy('getCurrenUser')
+    };
 
-  UserMocks.getCurrenUser.and.returnValue({ uid: 1234 });
+    UserMocks.getCurrenUser.and.returnValue({ uid: 1234 });
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        DonateComponent,
-        TicketsComponent,
-        ToursComponent,
-        TourInfoComponent
-      ],
-      imports: [
-        MaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-        CdkTableModule,
-        ActivitiesRoutingModule,
-        MdPaginatorModule,
-        CarouselModule,
-        ActivitiesRoutingModule,
-        RouterTestingModule,
-        SharedModule,
-        BrowserAnimationsModule
-      ],
-      providers: [
-        ActivitiesService,
-        ToastsManager,
-        ToastOptions,
-        DataBaseService,
-        FirebaseApp,
-        {
-            provide: AngularFireDatabase,
-            useValue: AngularFireDBMocks
-        },
-        {
-          provide: AngularFireAuth,
-          useValue: AngularFireMocks
-        },
-        {
-          provide: UsersService,
-          useValue: UserMocks
-        }
-      ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [
+                DonateComponent,
+                TicketsComponent,
+                ToursComponent,
+                TourInfoComponent
+            ],
+            imports: [
+                MaterialModule,
+                FormsModule,
+                ReactiveFormsModule,
+                CdkTableModule,
+                ActivitiesRoutingModule,
+                MdPaginatorModule,
+                CarouselModule,
+                ActivitiesRoutingModule,
+                RouterTestingModule,
+                SharedModule,
+                BrowserAnimationsModule
+            ],
+            providers: [
+                ActivitiesService,
+                ToastsManager,
+                ToastOptions,
+                DataBaseService,
+                FirebaseApp,
+                {
+                    provide: AngularFireDatabase,
+                    useValue: AngularFireDBMocks
+                },
+                {
+                    provide: AngularFireAuth,
+                    useValue: AngularFireMocks
+                },
+                {
+                    provide: UsersService,
+                    useValue: UserMocks
+                }
+            ]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DonateComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(DonateComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -1,10 +1,10 @@
-import { CommentsService } from './../../services/comments.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../material.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommentsComponent } from './comments.component';
-import { DataBaseService } from '../../services/data-base.service';
+import { CommentsService } from './../../core/comments.service';
+import { DataBaseService } from '../../core/data-base.service';
 import { FirebaseApp } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
