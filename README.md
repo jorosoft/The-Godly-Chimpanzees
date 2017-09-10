@@ -15,6 +15,7 @@ Application architecture
 - **Nadia**:
     - Implement modal login popup for comments
     - Include tours in home page
+    - Make comments under tours take current user instead of guest
     - Take out data form animals.service.ts file and move to firebase
     - Cleanup code, organise better
     - Delete theGodlyChimpanzees folder, move app files to main repo directory
@@ -39,7 +40,7 @@ Application architecture
 
 
 ### Links
-- [Cloud - TO ADD]()
+- [Cloud - TO ADD](https://the-godly-chimpanzees.firebaseapp.com/home)
 - [GitHub Team Godly Chimpanzees](https://github.com/TeamGodlyChimpanzees)
 - [Telerik Best - TO ADD](http://)
 
@@ -80,8 +81,8 @@ The task was to design and implement a **Single-page web application** using [An
 
 - DONE: public web pages.
 - DONE: Private (authenticated) web pages - user profile, animal details favourite button.
-- TO COUNT: Create several **different pipes** and use them.
-- TO COUNT: Create several **different directives** and use them.
+- DONE: Create several **different pipes** and use them.
+- DONE: Create several **different directives** and use them.
 - DONE: modules - users, animals, tours, material, shared.
 - TO COMPLETE: Data loaded from a `web server` using **services** using `Firebase`
 - CHECK: Unit test at **least 2 components**.
@@ -89,7 +90,7 @@ The task was to design and implement a **Single-page web application** using [An
 - DONE: responsive UI using Angular Material2.
 - Your project should pass the default TS linting configuration without any errors.
 - DONE: Used Angular CLI.
-- TODO:Your application should compile, work and produce an adequate result.
+- DONE:Your application should compile, work and produce an adequate result.
     - Applications that do not adhere to these requirements, will be severely penalized or not accepted at all.
 
 ##  General Requirements
@@ -101,6 +102,6 @@ The task was to design and implement a **Single-page web application** using [An
 
 - DONE: Used `git flow` or other **branching** workflow.
 - DONE: Used GitHub Issues
-- TODO: Upload your application in the cloud
+- TO UPDATE: Upload your application in the cloud
 
 

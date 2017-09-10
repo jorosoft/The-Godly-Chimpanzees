@@ -11,7 +11,7 @@ import { UsersService } from './../../services/users.service';
     styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+    public mouseover = false;
     public registerForm: FormGroup;
     user: User;
     firstPassword: string;

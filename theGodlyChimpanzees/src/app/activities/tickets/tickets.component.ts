@@ -15,6 +15,7 @@ import 'rxjs/add/operator/find';
   styleUrls: ['./tickets.component.scss']
 })
 export class TicketsComponent implements OnInit, DoCheck {
+  public mouseover = false;
   public user: any;
   public selectedValue: string;
   public selectedNumberOfAdults = 0;

@@ -17,8 +17,8 @@ export class HeaderComponent implements DoCheck {
     constructor(
         private router: Router,
 
-        private loginDialog: MdDialog,
-        private userService: UsersService) {
+        public loginDialog: MdDialog,
+        public userService: UsersService) {
 
     }
 
