@@ -1,3 +1,6 @@
+// import { CommentsService } from './../../services/comments.service';
+// import { LoaderService } from './../../services/loader.service';
+// import { SharedModule } from './../../shared/shared.module';
 // import { RouterTestingModule } from '@angular/router/testing';
 // import { ActivatedRouteSnapshot } from '@angular/router';
 // import { ActivitiesService } from './../../services/activities.service';
@@ -30,7 +33,8 @@
 //       imports: [
 //         MaterialModule,
 //         CarouselModule,
-//         RouterTestingModule
+//         RouterTestingModule,
+//         SharedModule
 //       ],
 //       providers: [
 //           ActivitiesService,
@@ -45,7 +49,9 @@
 //           {
 //             provide: AngularFireAuth,
 //             useValue: AngularFireMocks
-//           }
+//           },
+//           LoaderService,
+//           CommentsService
 //       ]
 //     })
 //     .compileComponents();

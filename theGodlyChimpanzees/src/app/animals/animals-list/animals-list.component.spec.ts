@@ -1,8 +1,8 @@
+import { LoaderService } from './../../services/loader.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { DataBaseService } from './../../services/data-base.service';
 import { AnimalsService } from './../../services/animals.service';
 import { CdkTableModule } from '@angular/cdk';
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -46,7 +46,8 @@ describe('AnimalsListComponent', () => {
         {
           provide: AngularFireAuth,
           useValue: AngularFireMocks
-        }
+        },
+        LoaderService
       ]
     })
     .compileComponents();

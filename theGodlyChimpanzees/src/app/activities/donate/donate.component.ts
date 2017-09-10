@@ -15,7 +15,7 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
   styleUrls: ['./donate.component.scss']
 })
 export class DonateComponent implements OnInit {
-
+  public mouseover = false;
   public donateForm: FormGroup;
   public selectedValue: string;
   public user: any;
