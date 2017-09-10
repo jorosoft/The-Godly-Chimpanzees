@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 import { Router } from '@angular/router';
@@ -14,6 +14,8 @@ import { UsersService } from './../../core/users.service';
     styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+    public dateFormatted: string;
+    public name;
     public currentUser: any;
     public items: Observable<any>;
     public animals: Observable<any>;
@@ -54,6 +56,8 @@ export class ProfileComponent implements OnInit {
 
     redirectTo(rout: string) {
         // this.router.navigateByUrl('animals/' + animal.$key);
+        rout = rout.toLowerCase();
         return this.router.navigateByUrl(rout);
     }
-}
+
+ }

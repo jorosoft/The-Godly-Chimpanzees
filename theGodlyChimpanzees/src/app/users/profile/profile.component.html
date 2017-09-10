@@ -1,3 +1,5 @@
+<!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form"> -->
+
 <md-card class="cardMaterial">
     <div fxLayout="row" fxLayoutAlign="space-evenly center profile-title">
         <img class="profile-avatar" src="/assets/img/avatars/tiger.svg">
@@ -20,7 +22,7 @@
             </md-card-content>
         </md-card>
     </md-card-content>
-    <md-card-content>
+    <!-- <md-card-content>
         <md-card *ngIf="adoptedAnimals">
             <h3>Adopted Animals</h3>
             <md-card-content>
@@ -33,15 +35,15 @@
                 </md-list>
             </md-card-content>
         </md-card>
-    </md-card-content>
+    </md-card-content> -->
     <md-card-content>
         <md-card>
             <md-list>
                 <h3 md-header>Bought Tickets</h3>
-                <ng2-datepicker id="date" [options]=datePickerOptions></ng2-datepicker>
-                <md-list-item *ngFor="let item of items | async">
+                <ng2-datepicker id="date" [(ngModel)] ="name" #datepicker="ngModel" [options]=datePickerOptions></ng2-datepicker>
+                <md-list-item *ngFor="let item of items | async | filterByDatepicker: name ">
                     <md-icon md-list-icon>event</md-icon>
-                    <a md-line class="profileAnchor">{{ item.name }}</a>
+                    <a md-button (click)="redirectTo('activities/'+item.name)" class="profileAnchor"> <span class="profileLabel">{{ item.name }}</span>: on {{item.date}} for type - {{item.type}}, price: {{item.price}} </a>
                     <!--(click)="showInfo()"-->
                 </md-list-item>
                 <md-divider></md-divider>
@@ -51,6 +53,7 @@
     <md-card-actions>
     </md-card-actions>
 </md-card>
+<!-- </form> -->
 <!-- 
         <md-list>
             <md-list-item> Tour date:</md-list-item>
