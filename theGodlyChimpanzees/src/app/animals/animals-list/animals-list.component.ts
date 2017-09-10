@@ -9,7 +9,7 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 import { Animal } from '../../models/animal.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-animals-list',
@@ -33,12 +33,13 @@ export class AnimalsListComponent implements OnInit {
 
     constructor(private animalService: AnimalsService,
         public router: Router,
+        private activatedRoute: ActivatedRoute,
         private loaderService: LoaderService) { }
 
     ngOnInit() {
         // show loader
         this.loaderService.display(true);
-        this.animals = this.animalService.getAll();
+        this.animals = this.activatedRoute.snapshot.data['animals'];
         this.filteredAnimals = this.animals.slice(0);
         this.types = this.animals
             .map((animal) => animal.type)
@@ -51,9 +52,9 @@ export class AnimalsListComponent implements OnInit {
         this.initDB();
         // hide loader
         this.loaderService.display(false);
-    //     const tempToursURL = 'animals/';
-    //   const tempTours = this.animals;
-    //   this.animalService.uploadToDb(tempToursURL, tempTours);
+        //     const tempToursURL = 'animals/';
+        //   const tempTours = this.animals;
+        //   this.animalService.uploadToDb(tempToursURL, tempTours);
     }
 
     initDB() {

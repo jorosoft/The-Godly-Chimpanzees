@@ -29,8 +29,8 @@ export class AnimalDetailsComponent implements OnInit {
 
         this.activatedRoute.params.subscribe(params => {
             const name = params['name'];
-
-            this.animal = this.animalService.getAnimalByName(name);
+            this.animal = this.activatedRoute.snapshot.data['animals'].find(a => a.name === name);
+            // this.animal = this.animalService.getAnimalByName(name);
             this.currentUser = this.usersService.getCurrenUser();
         });
 

@@ -1,3 +1,4 @@
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { User } from './../models/user.model';
@@ -12,76 +13,23 @@ export class AnimalsService {
         this.condition = false;
     }
 
-    animals: Animal[] = [
-        {
-            name: 'Bear', status: 'Teaching children to swim',
-            about: 'Native range lies largely within the Arctic Circle',
-            rows: 1, cols: 1,
-            zone: 'Z1', type: 'T3'
-        },
-        {
-            name: 'Duck', status: 'Teaching children to swim',
-            about: 'Quack',
-            rows: 1, cols: 1,
-            zone: 'Z2', type: 'T2'
-        },
-        {
-            name: 'Fox', status: 'Hide and seek',
-            about: 'What does the fox say?',
-            rows: 1, cols: 1,
-            zone: 'Z1', type: 'T3'
-        },
-        {
-            name: 'Hedgehog', status: 'Teaching children to swim',
-            about: 'Keep rollin\'',
-            rows: 1, cols: 1,
-            zone: 'Z1', type: 'T1'
-        },
-        {
-            name: 'Mouse', status: 'Hide and seek',
-            about: 'Quick hide!',
-            rows: 1, cols: 1,
-            zone: 'Z3', type: 'T2'
-        },
-        {
-            name: 'Penguin', status: 'Teaching children to swim',
-            about: 'Dancing with the stars',
-            rows: 1, cols: 1,
-            zone: 'Z4', type: 'T1'
-        },
-        {
-            name: 'Panda', status: 'Papa was a rolling stone',
-            about: 'Not endangered any more',
-            rows: 2, cols: 1,
-            zone: 'Z3', type: 'T4'
-        },
-        {
-            name: 'Piglet', status: 'Teaching children to swim',
-            about: 'Pretty in pink',
-            rows: 1, cols: 1,
-            zone: 'Z2', type: 'T2'
-        },
-        {
-            name: 'Turtle', status: 'Fast and furious',
-            about: 'Wait for me',
-            rows: 1, cols: 2,
-            zone: 'Z1', type: 'T3'
-        },
-        {
-            name: 'Yoda', status: 'Teaching children to swim',
-            about: 'Fear is the path to the dark side',
-            rows: 1, cols: 1,
-            zone: 'Z2', type: 'T1'
-        },
-    ];
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        return this.getItemsObservable('animals/')
+            .map((x) => x).first();
+    }
+
 
     // getAll(): Observable<Animal[]> {
     //     return this.dataBaseService.getItems('animals');
     // }
 
 
-    getAll(): Animal[] {
-        return this.animals;
+    // getAll(): Animal[] {
+    //     return this.animals;
+    // }
+
+    getItemsObservable(path: string) {
+        return this.dataBaseService.getItems(path);
     }
 
     // getAnimalByName(name: string): Animal {
