@@ -41,7 +41,8 @@
                 <ng2-datepicker id="date" [options]=datePickerOptions></ng2-datepicker>
                 <md-list-item *ngFor="let item of items | async">
                     <md-icon md-list-icon>event</md-icon>
-                    <a md-line (click)="showInfo()" class="profileAnchor">{{ item.name }}</a>
+                    <a md-line class="profileAnchor">{{ item.name }}</a>
+                    <!--(click)="showInfo()"-->
                 </md-list-item>
                 <md-divider></md-divider>
             </md-list>
