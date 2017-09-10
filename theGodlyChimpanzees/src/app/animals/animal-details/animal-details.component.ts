@@ -29,9 +29,11 @@ export class AnimalDetailsComponent implements OnInit {
 
         this.activatedRoute.params.subscribe(params => {
             const name = params['name'];
+
             this.animal = this.animalService.getAnimalByName(name);
             this.currentUser = this.usersService.getCurrenUser();
         });
+
         if (this.currentUser) {
             this.animalService.checkStatus(this.animal.name, this.currentUser.uid)
                 .then((item) => {

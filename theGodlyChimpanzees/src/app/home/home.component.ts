@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
         this.loaderService.display(true);
 
         this.animals = this.animalsService.getAll();
+        // this.animalsService.getAll().subscribe(data => this.animals = data);
         // hide loader
         this.loaderService.display(false);
     }
