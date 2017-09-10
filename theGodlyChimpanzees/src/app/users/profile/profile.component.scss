@@ -1,13 +1,22 @@
-.userProfileTitle {
-    color: purple;
+// .userProfileTitle {
+//     color: purple;
+// }
+// .profileAnchor {
+//     color:grey;
+//     text-decoration: none;
+//     display: inline;
+// }
+// .profileAnchor:hover {
+//     color:purple;
+//     text-decoration: underline;
+// }
+.profile-avatar {
+    min-width: 30px;
+    max-width: 90px;
+    width: 20%;
+    border-radius: 50%;
 }
 
-.profileAnchor {
-    color:grey;
-    text-decoration: none;
-    display: inline;
-}
-.profileAnchor:hover {
-    color:purple;
-    text-decoration: underline;
+.profile-title {
+    height: 100px;
 }

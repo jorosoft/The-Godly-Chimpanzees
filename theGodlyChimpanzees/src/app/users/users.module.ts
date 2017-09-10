@@ -1,3 +1,4 @@
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { MaterialModule } from './../shared/material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,16 +14,20 @@ import { SharedModule } from '../shared/shared.module';
 import { DatePickerModule } from 'ng2-datepicker';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    UsersRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    SharedModule,
-    DatePickerModule
-  ],
-  declarations: [LoginComponent, RegisterComponent, ProfileComponent],
-  providers: []
+    imports: [
+        CommonModule,
+        UsersRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MaterialModule,
+        SharedModule,
+        DatePickerModule
+    ],
+    entryComponents: [],
+    declarations: [
+        LoginComponent,
+        RegisterComponent,
+        ProfileComponent],
+    providers: []
 })
 export class UsersModule { }

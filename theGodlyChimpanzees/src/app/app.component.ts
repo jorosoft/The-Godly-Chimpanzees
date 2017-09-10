@@ -4,7 +4,7 @@ import { HeaderComponent } from './shared/header/header.component';
 
 import { element } from 'protractor';
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { MdSidenav, MdDialog, MdDialogConfig, MdDialogRef, MdInputContainer } from '@angular/material';
+import { MdSidenav, MdInputContainer } from '@angular/material';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 // import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
 
@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
     constructor(
         private toastr: ToastsManager,
         private vcr: ViewContainerRef,
-        private mdDialog: MdDialog,
         private loaderService: LoaderService) {
         this.toastr.setRootViewContainerRef(vcr);
     }

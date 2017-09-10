@@ -8,17 +8,18 @@
 
 ### Description
 ...
+Application architecture
 
 #### Todos
 
 - **Nadia**:
-    - Implement loader
     - Implement modal login popup for comments
     - Include tours in home page
     - Take out data form animals.service.ts file and move to firebase
     - Cleanup code, organise better
     - Delete theGodlyChimpanzees folder, move app files to main repo directory
     - N/A: Fix header to not scroll on long pages
+    + DONE: Implement loader
     + Done: Move Material modules to a MaterialModule and import that everywhere else
     + DONE: Implement comments
     + DONE: Implement toastr
@@ -71,62 +72,35 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 The task was to design and implement a **Single-page web application** using [Angular](https://angular.io/)
 
+**Public** : All pages except user profile page.
 
-### Public Part
-
-**Visible without authentication**. This public part could be the application start page, application statistics, the user login and user registration forms.
-
-### Private Part (Registered users area)
-
-**Registered users** should have personal area in the web application accessible after **successful login**. This area could hold for example the user's profiles management functionality or the user's posts in a blog system.
+**Private** : Accessible to registered users: personal area in the application accessible after successful login. Holds the user's profile information, favourite animals, and purchased tickets.
 
 ## Technical Requirements
 
-- Create several **public dynamic web pages** and use them.
-- Create several **private (authenticated) dynamic web pages** and use them.
-- Create several **different pipes** and use them.
-- Create several **different directives** and use them.
-- Create several **modules** and use them in the **routing**.
-- All of the data should be loaded from a `web server` using **services**.
-  - You can either use `Firebase`, `Kinvey` or any other back-end service.
-  - Or you can use your own server written in `Node.js`, `ASP.NET WebAPI` or any other technology.
-- Unit test at **least 2 components**.
-- Integration test at **least 1 module**.
-- Implement responsive UI using Bootstrap 3 or 4, or Materialize.
+- DONE: public web pages.
+- DONE: Private (authenticated) web pages - user profile, animal details favourite button.
+- TO COUNT: Create several **different pipes** and use them.
+- TO COUNT: Create several **different directives** and use them.
+- DONE: modules - users, animals, tours, material, shared.
+- TO COMPLETE: Data loaded from a `web server` using **services** using `Firebase`
+- CHECK: Unit test at **least 2 components**.
+- CHECK: Integration test at **least 1 module**.
+- DONE: responsive UI using Angular Material2.
 - Your project should pass the default TS linting configuration without any errors.
-- You can use Angular CLI, Webpack, SystemJS or any other module loader/bundler.
-- Your application should compile, work and produce an adequate result.
+- DONE: Used Angular CLI.
+- TODO:Your application should compile, work and produce an adequate result.
     - Applications that do not adhere to these requirements, will be severely penalized or not accepted at all.
 
 ##  General Requirements
 
-- Use Git
-  - Github, Gitlab, Bitbucket, or other online repository.
-  - Each team member must have meaningful commits with adequate commit messages.
-- Brief **documentation** of the project and the project architecture
-  - As `README.md` file at the root of the github repository
+- DONE: Used GitHub 
+- TO COMPLETE: Brief **documentation** of the project and the project architecture
 
 ### Additional Requirements (Bonus points and real world skills)
 
-- Use `git flow` or other **branching** workflow.
-- Build your application using an **agile project managment tool/system**
-    - Simple ones are Trello, ZenHub, GitHub Issues
-    - More advanced ones are Jira, MS Team Services
-- Upload your application in the cloud
-  - MS Azure, HerokuCloud, Amazon, all are fine
-- Consume moderate quantities of pizza and bira.
+- DONE: Used `git flow` or other **branching** workflow.
+- DONE: Used GitHub Issues
+- TODO: Upload your application in the cloud
 
-### Public Project Defense
 
-Each team will have to make a **public defence** of its work in front of a trainer (for about 30 minutes), in which each of the team members will answer to the trainer's questions individually, **one at a time**. If a trainer is suspicious about a team member's contribution to the project, additional tasks and questions may be given. Team members that have attended the defence, but have no significant contribution to the project, nor any significant knowledge of Angular and the technologies around it, will not be awarded the full amount of points, if any.
-
-The public defence includes:
-
-- Live **demonstration** of the developed web application (prepare sample data).
-- Explain application structure and its **source code**
-- Show the **commit logs** in the source control repository to prove a contribution from all team members.
-- Answer to conceptual technologies questions, some of which can be misleading.
-
-### Give Feedback about Your Teammates
-
-You will be invited to **provide feedback** about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. The feedback is a mandatory, important part of the project evaluation, so **take it seriously**. You will be provided a template, by which to write your review.

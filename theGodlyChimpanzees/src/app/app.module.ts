@@ -1,9 +1,10 @@
+import { LoginDialogComponent } from './users/login-dialog/login-dialog.component';
 import { LoaderService } from './services/loader.service';
 import { MaterialModule } from './shared/material/material.module';
 import { CustomToastsManager } from './app.toastr.settings';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -44,10 +45,11 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
         HomeComponent,
         NavComponent,
         NotFoundComponent,
+        LoginDialogComponent
     ],
     entryComponents: [
         AppComponent,
-        // AddMessageComponent
+        LoginDialogComponent
     ],
     imports: [
         AppRoutingModule,
@@ -56,6 +58,7 @@ import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
         AngularFireAuthModule,
         AngularFireDatabaseModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpModule,
         BrowserAnimationsModule,
         MaterialModule,
