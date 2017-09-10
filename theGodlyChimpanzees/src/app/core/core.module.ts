@@ -1,9 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CustomToastsManager } from './app.toastr.settings';
-import { ToastsManager } from 'ng2-toastr';
-
 import { UsersGuardService } from './../shared/guards/auth.service';
 import { NotAuthGuardService } from './../shared/guards/not-auth-guard.service';
 
@@ -29,9 +26,7 @@ import { AnimalsService } from './animals.service';
         NotAuthGuardService,
         UsersGuardService,
         UsersService,
-        [{
-            provide: ToastsManager, useClass: CustomToastsManager
-        }]]
+    ]
 })
 export class CoreModule {
 
