@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, DoCheck } from '@angular/core';
 import { ActivitiesService } from './../../core/activities.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DataSource } from '@angular/cdk';
 import { MdPaginator } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -31,38 +31,17 @@ export class ToursComponent implements OnInit, DoCheck {
 
     displayedColumns = ['name'];
 
-    constructor(public activitiService: ActivitiesService, public router: Router) { }
+    constructor(public activitiService: ActivitiesService, public router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-            // this.activitiService.getItemsPromise('tours/')
-            //                 .then((res) => {
-            //                   res.val().forEach(element => {
-            //                     this.tours.push(element);
-            //                   });
-            //                   return this.tours;
-            //                 })
-            //                 .then((tours) => {
-            //                   console.log(tours);
-            //                   this.filteredTours = this.tours.slice(0);
-            //                 });
-
-            //                   this.types = this.tours
-            //                     .map((tour) => tour.viewDate)
-            //                     .filter((value, index, self) => self.indexOf(value) === index);
-            //                   this.zones = this.tours
-            //                     .map((tour) => tour.ticketPrice)
-            //                     .filter((value, index, self) => self.indexOf(value) === index);
-
-            this.activitiService.getTours().subscribe(value => this.tours.push(value));
-            this.filteredTours = this.tours.slice(0);
-            this.types = this.tours
-                .map((tour) => tour.viewDate)
-                .filter((value, index, self) => self.indexOf(value) === index);
-            this.zones = this.tours
-                .map((tours) => tours.ticketPrice)
-                .filter((value, index, self) => self.indexOf(value) === index);
-
-
+    this.tours = this.activatedRoute.snapshot.data['tours'];
+    this.filteredTours = this.tours.slice(0);
+    this.types = this.tours
+        .map((tour) => tour.viewDate)
+        .filter((value, index, self) => self.indexOf(value) === index);
+    this.zones = this.tours
+        .map((tours) => tours.ticketPrice)
+        .filter((value, index, self) => self.indexOf(value) === index);
       // const tempToursURL = 'tours/';
       // const tempTours = this.tours;
       // this.activitiService.uploadToDb(tempToursURL, tempTours);

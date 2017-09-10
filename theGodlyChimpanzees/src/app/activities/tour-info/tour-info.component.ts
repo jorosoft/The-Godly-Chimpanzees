@@ -14,6 +14,7 @@ import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
     styleUrls: ['./tour-info.component.scss']
 })
 export class TourInfoComponent implements OnInit {
+    public tours: any[];
     public tour;
     public imageSources: string[];
     public config: ICarouselConfig = {
@@ -33,10 +34,11 @@ export class TourInfoComponent implements OnInit {
 
     ngOnInit() {
         // show loader
+        this.tours = this.activatedRoute.snapshot.data['tours'];
         this.loaderService.display(true);
         this.activatedRoute.params.subscribe(params => {
             const name = params['name'];
-            this.activitiesService.getTours().subscribe((value: Tour) => {
+            this.tours.forEach((value: Tour) => {
                 if (value.name === name) {
                     this.tour = value;
                     this.imageSources = [

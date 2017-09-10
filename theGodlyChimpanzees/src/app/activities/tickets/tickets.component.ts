@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 import { ActivitiesService } from './../../core/activities.service';
 import { UsersService } from './../../core/users.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/find';
@@ -24,7 +24,6 @@ export class TicketsComponent implements OnInit, DoCheck {
     public ticketForm: FormGroup;
     public ticketPrice = 0;
     public totalPrice = 0;
-    // public tickets: Observable<any>;
     public tickets = [];
     public numbers = [];
     public date: DateModel;
@@ -34,7 +33,8 @@ export class TicketsComponent implements OnInit, DoCheck {
     public errorMsg: string;
 
     constructor(public router: Router, public fb: FormBuilder,
-        public activitiService: ActivitiesService, public userService: UsersService, public toastr: ToastsManager) {
+        public activitiService: ActivitiesService, public userService: UsersService, public toastr: ToastsManager,
+        private activatedRoute: ActivatedRoute) {
 
     }
 
@@ -42,7 +42,7 @@ export class TicketsComponent implements OnInit, DoCheck {
         this.createForm();
         this.user = this.userService.getCurrenUser();
         this.options = new DatePickerOptions();
-        this.activitiService.getTickets().subscribe(value => this.tickets.push(value));
+        this.tickets = this.activatedRoute.snapshot.data['tickets'];
         this.activitiService.getNumbers().subscribe(number => this.numbers.push(number));
         const tempValue = this.activitiService.getSelectedValue();
         if (tempValue) {
