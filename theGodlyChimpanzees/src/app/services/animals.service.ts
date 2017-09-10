@@ -99,7 +99,7 @@ export class AnimalsService {
                   .then(() => {
                         return this.dataBaseService.getItemsPromise(collectionPath + animal);
                   })
-                  .catch((err) => this.toastr.error(err.message);
+                  .catch((err) => this.toastr.error(err.message));
 
       }
 }
