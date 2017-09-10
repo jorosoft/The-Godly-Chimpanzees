@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
     public currentUser: any;
     public items: Observable<any>;
     public animals: Observable<any>;
+    public adoptedAnimals: Observable<any>;
     public step = 0;
     public datePickerOptions = {
         format: 'DD.MM.YYYY',
@@ -34,6 +35,7 @@ export class ProfileComponent implements OnInit {
         this.currentUser = this.usersService.getCurrenUser();
         this.items = this.dataBaseService.getItems('users/' + this.currentUser.uid + '/info/tickets/');
         this.animals = this.dataBaseService.getItems('users/' + this.currentUser.uid + '/info/favs/');
+        this.adoptedAnimals = this.dataBaseService.getItems('users/' + this.currentUser.uid + '/adoptedAnimals/');
         // this.animals.subscribe((val) => console.log(val));
     }
 

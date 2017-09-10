@@ -13,6 +13,7 @@ import { FirebaseApp } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 
 describe('AnimalsListComponent', () => {
     let component: AnimalsListComponent;
@@ -47,7 +48,9 @@ describe('AnimalsListComponent', () => {
                     provide: AngularFireAuth,
                     useValue: AngularFireMocks
                 },
-                LoaderService
+                LoaderService,
+                ToastsManager,
+                ToastOptions,
             ]
         })
             .compileComponents();

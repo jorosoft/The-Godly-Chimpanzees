@@ -4,6 +4,7 @@ export class User {
     password: string;
     info: any;
     avatar: string;
+    adoptedAnimals: string[];
 
     constructor(username, email, password, avatar) {
         this.username = username;
@@ -11,7 +12,7 @@ export class User {
         this.password = password;
         this.info = { type: 'v', tickets: [] };
         this.avatar = avatar;
-
+        this.adoptedAnimals = [];
     }
 }
 

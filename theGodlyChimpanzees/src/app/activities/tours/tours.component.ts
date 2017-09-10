@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, DoCheck } from '@angular/core';
 import { ActivitiesService } from './../../core/activities.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DataSource } from '@angular/cdk';
 import { MdPaginator } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -18,29 +18,34 @@ import { Tour } from '../../models/tour.model';
     styleUrls: ['./tours.component.scss']
 })
 export class ToursComponent implements OnInit, DoCheck {
-    public tours = [];
-    public types;
-    public zones;
-    public filteredTours;
-    public exampleDatabase;
-    public dataSource: ExampleDataSource | null;
+  public tours = [];
+  public types;
+  public zones;
+  public filteredTours;
+  public exampleDatabase;
+  public dataSource: ExampleDataSource | null;
+  // public tours: Observable<any>;
+
 
     @ViewChild(MdPaginator) paginator: MdPaginator;
 
     displayedColumns = ['name'];
 
-    constructor(public activitiService: ActivitiesService, public router: Router) { }
+    constructor(public activitiService: ActivitiesService, public router: Router, private activatedRoute: ActivatedRoute) { }
 
-    ngOnInit() {
-        this.activitiService.getTours().subscribe(value => this.tours.push(value));
-        this.filteredTours = this.tours.slice(0);
-        this.types = this.tours
-            .map((tour) => tour.viewDate)
-            .filter((value, index, self) => self.indexOf(value) === index);
-        this.zones = this.tours
-            .map((tours) => tours.ticketPrice)
-            .filter((value, index, self) => self.indexOf(value) === index);
-    }
+  ngOnInit() {
+    this.tours = this.activatedRoute.snapshot.data['tours'];
+    this.filteredTours = this.tours.slice(0);
+    this.types = this.tours
+        .map((tour) => tour.viewDate)
+        .filter((value, index, self) => self.indexOf(value) === index);
+    this.zones = this.tours
+        .map((tours) => tours.ticketPrice)
+        .filter((value, index, self) => self.indexOf(value) === index);
+      // const tempToursURL = 'tours/';
+      // const tempTours = this.tours;
+      // this.activitiService.uploadToDb(tempToursURL, tempTours);
+  }
 
     ngDoCheck() {
         this.exampleDatabase = new ExampleDatabase(this.filteredTours);

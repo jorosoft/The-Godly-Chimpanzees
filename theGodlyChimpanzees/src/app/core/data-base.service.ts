@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class DataBaseService {
+
     items: FirebaseListObservable<any[]>;
     constructor(public db: AngularFireDatabase) { }
 
@@ -31,6 +32,12 @@ export class DataBaseService {
         return firebase.database().ref(collectionPath).child(item).set(true);
     }
 
+    addJSONToDB(ref: string, arr) {
+        arr.forEach(element => {
+            firebase.database().ref(ref).push(element);
+        });
+    }
+
     removeItem(collectionPath: string, listKey: string) {
         return firebase.database()
             .ref(collectionPath).child(listKey).set(false);
@@ -48,10 +55,6 @@ export class DataBaseService {
         const ref = firebase.database().ref(collectionPath).orderByChild(query.key).equalTo(query.value);
         return ref.once('value').then(snapshot => snapshot.val());
     }
-
-
-
-
 
 
     //    queryCollection(collectionName: string, queryParameter: Object) {

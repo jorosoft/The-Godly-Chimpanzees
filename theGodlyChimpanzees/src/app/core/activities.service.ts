@@ -11,14 +11,6 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 export class ActivitiesService {
   items: FirebaseListObservable<any[]>;
   public toastr: ToastsManager;
-  public tickets = [
-    {value: 'tour-0', viewValue: 'General', viewDate: '10.09.2017', ticketPrice: 10},
-    {value: 'tour-1', viewValue: 'Snakes', viewDate: '11.09.2017', ticketPrice: 15},
-    {value: 'tour-2', viewValue: 'Big cats', viewDate: '12.09.2017', ticketPrice: 20},
-    {value: 'tour-3', viewValue: 'Birds', viewDate: '13.09.2017', ticketPrice: 10},
-    {value: 'tour-4', viewValue: 'Jungle', viewDate: '14.09.2017', ticketPrice: 30},
-    {value: 'tour-5', viewValue: 'Monkeys', viewDate: '15.09.2017', ticketPrice: 2}
-  ];
 
   public numbers = [
     {value: 0},
@@ -39,23 +31,6 @@ export class ActivitiesService {
     {value: 15}
   ];
 
-public snakes = 'Snakes are elongated, legless, carnivorous reptiles of the suborder Serpentes.[2] Like all squamates, snakes are ectothermic, amniote vertebrates covered in overlapping scales. Many species of snakes have skulls with several more joints than their lizard ancestors, enabling them to swallow prey much larger than their heads with their highly mobile jaws. To accommodate their narrow bodies, snakes paired organs (such as kidneys) appear one in front of the other instead of side by side, and most have only one functional lung. ';
-public big_cats = 'The informal term "big cat" is typically used to refer to any of the four largest (living) members of the entire Panthera genus. Among the five total species within the Panthera genus, these four are the only cats that are able to roar.';
-public birds = 'Birds (Aves) are a group of endothermic vertebrates, characterised by feathers, toothless beaked jaws, the laying of hard-shelled eggs, a high metabolic rate, a four-chambered heart, and a strong yet lightweight skeleton.';
-public monkeys = 'Monkeys are haplorhine primates, a group generally possessing tails and consisting of about 260 known living species. There are two distinct lineages of monkeys: New World Monkeys and catarrhines. ';
-
-public tours = [
-  {value: 'tour-1', name: 'snakes', viewValue: 'Snakes', viewDate: '11.09.2017',
-  ticketPrice: 15, info: this.snakes, imgs: ['snakes_0', 'snakes_1', 'snakes_2']},
-  {value: 'tour-2', name: 'big_cats', viewValue: 'Big cats', viewDate: '12.09.2017',
-  ticketPrice: 20, info: this.big_cats, imgs: ['big_cats_0', 'big_cats_1', 'big_cats_2']},
-  {value: 'tour-3', name: 'birds', viewValue: 'Birds', viewDate: '13.09.2017',
-  ticketPrice: 10, info: this.birds, imgs: ['birds_0', 'birds_1', 'birds_2']},
-  {value: 'tour-4', name: 'jungle', viewValue: 'Jungle', viewDate: '14.09.2017',
-  ticketPrice: 30, info: this.big_cats, imgs: ['jungle_0', 'jungle_1', 'jungle_2']},
-  {value: 'tour-5', name: 'monkeys', viewValue: 'Monkeys', viewDate: '15.09.2017',
-  ticketPrice: 25, info: this.monkeys, imgs: ['monkeys_0', 'monkeys_1', 'monkeys_2']}
-];
 public donate = [
   {value: 'charging', viewValue: 'Charging the account'},
   {value: 'check', viewValue: 'Check current amount'},
@@ -63,7 +38,12 @@ public donate = [
 ];
 public selectedValue: string;
 
+
   constructor(public db: AngularFireDatabase, public dataBaseService: DataBaseService) { }
+
+  uploadToDb(tempToursURL, tempTours) {
+    return this.dataBaseService.addJSONToDB(tempToursURL, tempTours);
+  }
 
   setSelectedValue(selectedValue: string) {
     this.selectedValue = selectedValue;
@@ -73,13 +53,6 @@ public selectedValue: string;
     return this.selectedValue;
   }
 
-  getTickets() {
-    return new Observable( observer => {
-      this.tickets.forEach( ticket => observer.next(ticket));
-      observer.complete();
-      }
-    );
-  }
   getNumbers() {
     return new Observable( observer => {
       this.numbers.forEach( number => observer.next(number));
@@ -88,13 +61,6 @@ public selectedValue: string;
     );
   }
 
-  getTours() {
-    return new Observable( observer => {
-      this.tours.forEach( tour => observer.next(tour));
-      observer.complete();
-      }
-    );
-  }
 
   getItems(path: string) {
     if (path === 'donate') {
@@ -103,6 +69,14 @@ public selectedValue: string;
         observer.complete();
       });
     }
+  }
+
+  getItemsObservable(path: string) {
+    return this.dataBaseService.getItems(path);
+  }
+
+  getItemsPromise(path: string) {
+      return this.dataBaseService.getItemsPromise(path);
   }
 
   addTickets(arr: string[], user: string) {
@@ -128,5 +102,7 @@ public selectedValue: string;
   getAllDonations() {
     return this.dataBaseService.getItemsPromise('donations/');
   }
+
+
 }
 

@@ -11,6 +11,8 @@ import { CdkTableModule } from '@angular/cdk';
 import { CarouselModule } from 'angular4-carousel';
 import { DonateComponent } from './donate/donate.component';
 import { SharedModule } from '../shared/shared.module';
+import { TicketResolve } from './ticket-resolve';
+import { ToursResolve } from './tours-resolve';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { SharedModule } from '../shared/shared.module';
         DonateComponent
         // ErrorMsgDirective
     ],
-    exports: [TicketsComponent, TourInfoComponent, ToursComponent]
+    exports: [TicketsComponent, TourInfoComponent, ToursComponent],
+    providers: [TicketResolve, ToursResolve]
 })
 export class ActivitiesModule { }
