@@ -17,7 +17,7 @@
     <a md-button [routerLink]="[ '/users/profile' ]">{{displayName}}</a>
     </span>
     <span *ngIf="!displayName">
-        <a  md-button [routerLink]="[ '/users/login' ]">Log In</a>
+        <a  md-button (click)="openLoginDialog()">Log In</a>
     </span>
 
     <!-- menu button -->
@@ -29,5 +29,5 @@
 <!-- menu -->
 <md-menu x-position="before" #menu="mdMenu">
     <button md-menu-item (click)="toggleTheme()">Toggle Theme</button>
-    <button md-menu-item (click)="openLoginDialog()">Log in</button>
+    <a md-menu-item [routerLink]="[ '/users/login' ]">Log in</a>
 </md-menu>
