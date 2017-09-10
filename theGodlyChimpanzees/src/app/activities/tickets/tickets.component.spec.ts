@@ -1,4 +1,4 @@
-import { NbPipe } from './../../shared/pipes/nb.pipe';
+import { SharedModule } from './../../shared/shared.module';
 import { UsersService } from './../../services/users.service';
 import { ActivitiesService } from './../../services/activities.service';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -37,8 +37,7 @@ describe('TicketsComponent', () => {
         TicketsComponent,
         ToursComponent,
         DonateComponent,
-        TourInfoComponent,
-        NbPipe
+        TourInfoComponent
       ],
       imports: [
         MaterialModule,
@@ -47,7 +46,8 @@ describe('TicketsComponent', () => {
         ReactiveFormsModule,
         CdkTableModule,
         CarouselModule,
-        RouterTestingModule
+        RouterTestingModule,
+        SharedModule
       ],
       providers: [
           ActivitiesService,

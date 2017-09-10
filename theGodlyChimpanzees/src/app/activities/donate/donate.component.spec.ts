@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { UsersService } from './../../services/users.service';
 import { DataBaseService } from './../../services/data-base.service';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -17,6 +18,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FirebaseApp } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DonateComponent', () => {
   let component: DonateComponent;
@@ -29,6 +31,12 @@ describe('DonateComponent', () => {
   const AngularFireDBMocks = {
     database: jasmine.createSpy('database')
   };
+
+  const UserMocks = {
+    getCurrenUser: jasmine.createSpy('getCurrenUser')
+  };
+
+  UserMocks.getCurrenUser.and.returnValue({ uid: 1234 });
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -47,11 +55,12 @@ describe('DonateComponent', () => {
         MdPaginatorModule,
         CarouselModule,
         ActivitiesRoutingModule,
-        RouterTestingModule
+        RouterTestingModule,
+        SharedModule,
+        BrowserAnimationsModule
       ],
       providers: [
         ActivitiesService,
-        UsersService,
         ToastsManager,
         ToastOptions,
         DataBaseService,
@@ -63,6 +72,10 @@ describe('DonateComponent', () => {
         {
           provide: AngularFireAuth,
           useValue: AngularFireMocks
+        },
+        {
+          provide: UsersService,
+          useValue: UserMocks
         }
       ]
     })

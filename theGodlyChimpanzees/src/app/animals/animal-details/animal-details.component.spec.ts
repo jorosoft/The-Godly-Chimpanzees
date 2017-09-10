@@ -1,3 +1,7 @@
+import { CommentsService } from './../../services/comments.service';
+import { LoaderService } from './../../services/loader.service';
+import { SharedModule } from './../../shared/shared.module';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AnimalsService } from './../../services/animals.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersService } from './../../services/users.service';
@@ -7,7 +11,6 @@ import { DebugElement } from '@angular/core';
 
 import { AnimalDetailsComponent } from './animal-details.component';
 import { MaterialModule } from '@angular/material';
-import { MyFavToggleDirective } from '../../shared/directives/my-fav-toggle.directive';
 import { FirebaseApp } from 'angularfire2';
 import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 import { DataBaseService } from '../../services/data-base.service';
@@ -22,21 +25,29 @@ describe('AnimalDetailsComponent', () => {
   };
 
   const AngularFireDBMocks = {
-    database: jasmine.createSpy('database')
+    database: jasmine.createSpy('database'),
+    list: jasmine.createSpy('list')
   };
+
+  const AnimalServiceMocks = {
+    getAnimalByName: jasmine.createSpy('getAnimalByName')
+  };
+
+  AngularFireDBMocks.list.and.returnValue({ subscribe: () => {} });
+  AnimalServiceMocks.getAnimalByName.and.returnValue({ name: 'AnyName'});
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AnimalDetailsComponent,
-        MyFavToggleDirective
+        AnimalDetailsComponent
     ],
       imports: [
-        MaterialModule
+        MaterialModule,
+        RouterTestingModule,
+        SharedModule
       ],
       providers: [
         UsersService,
-        AnimalsService,
         FirebaseApp,
         ToastsManager,
         ToastOptions,
@@ -49,6 +60,12 @@ describe('AnimalDetailsComponent', () => {
         {
           provide: AngularFireAuth,
           useValue: AngularFireMocks
+        },
+        LoaderService,
+        CommentsService,
+        {
+          provide: AnimalsService,
+          useValue: AnimalServiceMocks
         }
       ]
     })
