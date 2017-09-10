@@ -81,8 +81,8 @@ The task was to design and implement a **Single-page web application** using [An
 
 - DONE: public web pages.
 - DONE: Private (authenticated) web pages - user profile, animal details favourite button.
-- TO COUNT: Create several **different pipes** and use them.
-- TO COUNT: Create several **different directives** and use them.
+- DONE: Create several **different pipes** and use them.
+- DONE: Create several **different directives** and use them.
 - DONE: modules - users, animals, tours, material, shared.
 - TO COMPLETE: Data loaded from a `web server` using **services** using `Firebase`
 - CHECK: Unit test at **least 2 components**.
@@ -102,6 +102,6 @@ The task was to design and implement a **Single-page web application** using [An
 
 - DONE: Used `git flow` or other **branching** workflow.
 - DONE: Used GitHub Issues
-- TODO: Upload your application in the cloud
+- TO UPDATE: Upload your application in the cloud
 
 
