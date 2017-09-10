@@ -102,4 +102,15 @@ export class AnimalsService {
                   .catch((err) => this.toastr.error(err.message));
 
       }
+
+      adoptAnimal(animal: string, user: string) {
+            this.getAnimalByName(animal).owner = user;
+
+            const collectionPath = 'users/' + user + '/adoptedAnimals/';
+            return this.dataBaseService.addItemsObjects(animal, collectionPath)
+                  .then(() => {
+                        return this.dataBaseService.getItemsPromise(collectionPath + animal);
+                  })
+                  .catch((err) => this.toastr.error(err.message));
+      }
 }

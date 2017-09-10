@@ -50,6 +50,12 @@ export class AnimalDetailsComponent implements OnInit {
         this.router.navigateByUrl('animals/all');
     }
 
+    adoptAnimal() {
+        this.animalService.adoptAnimal(this.animal.name, this.currentUser.uid)
+            .then(() => this.toastr.success('Success adopt!'))
+            .catch((err) => this.toastr.error(err.message));
+    }
+
     favAnimal() {
         this.animalService.addFavAnimal(this.animal.name, this.currentUser.uid)
             .then((item) => this.condition = item.val())
