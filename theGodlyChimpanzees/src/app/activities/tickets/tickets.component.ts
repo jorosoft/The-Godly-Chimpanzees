@@ -39,25 +39,17 @@ export class TicketsComponent implements OnInit, DoCheck {
     }
 
     ngOnInit() {
+        this.createForm();
         this.user = this.userService.getCurrenUser();
-        // this.activitiService.getTickets().subscribe(value => this.tickets.push(value));
-        this.activitiService.getItemsPromise('tickets/')
-            .then((res) => {
-                res.forEach(element => {
-                    this.tickets.push(element);
-                });
-                console.log(this.tickets);
-                this.createForm();
-                this.options = new DatePickerOptions();
-                this.activitiService.getNumbers().subscribe(number => this.numbers.push(number));
-                const tempValue = this.activitiService.getSelectedValue();
-                if (tempValue) {
-                    this.selectedValue = tempValue;
-                }
-                this.errorMsg = 'Please choose an event type or a date!';
-
-            });
-            }
+        this.options = new DatePickerOptions();
+        this.activitiService.getTickets().subscribe(value => this.tickets.push(value));
+        this.activitiService.getNumbers().subscribe(number => this.numbers.push(number));
+        const tempValue = this.activitiService.getSelectedValue();
+        if (tempValue) {
+         this.selectedValue = tempValue;
+        }
+        this.errorMsg = 'Please choose an event type or a date!';
+    }
 
     ngDoCheck() {
         this.searched = this.tickets.find((el) => el.value === this.selectedValue);
