@@ -109,6 +109,11 @@ public selectedValue: string;
       });
     }
   }
+
+  getItemsO(path: string) {
+    return this.dataBaseService.getItems(path);
+  }
+
   getItemsPromise(path: string) {
       return this.dataBaseService.getItemsPromise(path);
   }

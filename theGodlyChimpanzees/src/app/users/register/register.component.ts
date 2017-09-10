@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from './../../models/user.model';
-import { UsersService } from './../../services/users.service';
+import { UsersService } from './../../core/users.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({

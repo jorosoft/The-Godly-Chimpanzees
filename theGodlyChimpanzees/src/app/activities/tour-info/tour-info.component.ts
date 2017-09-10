@@ -1,5 +1,5 @@
-import { LoaderService } from './../../services/loader.service';
-import { ActivitiesService } from './../../services/activities.service';
+import { LoaderService } from './../../core/loader.service';
+import { ActivitiesService } from './../../core/activities.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/find';

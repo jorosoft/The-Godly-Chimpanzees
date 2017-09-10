@@ -106,4 +106,17 @@ export class AnimalsService {
       uploadToDb(tempToursURL, tempTours) {
             return this.dataBaseService.addJSONToDB(tempToursURL, tempTours);
           }
+      adoptAnimal(animal: string, user: string) {
+            this.getAnimalByName(animal).owner = user;
+
+            const collectionPath = 'users/' + user + '/adoptedAnimals/';
+            return this.dataBaseService.getItemsPromise(collectionPath + animal)
+                  .then(() => {
+                        return this.dataBaseService.addItemsObjects(animal, collectionPath);
+                  })
+                  .then(() => {
+                        return this.dataBaseService.getItemsPromise(collectionPath + animal);
+                  })
+                  .catch((err) => this.toastr.error(err.message));
+      }
 }

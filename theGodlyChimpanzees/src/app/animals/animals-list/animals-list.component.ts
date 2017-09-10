@@ -1,5 +1,5 @@
-import { LoaderService } from './../../services/loader.service';
-import { AnimalsService } from './../../services/animals.service';
+import { LoaderService } from './../../core/loader.service';
+import { AnimalsService } from './../../core/animals.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataSource } from '@angular/cdk';
 import { MdPaginator } from '@angular/material';

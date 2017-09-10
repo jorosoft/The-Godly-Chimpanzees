@@ -21,6 +21,7 @@ Application architecture
     - Cleanup code, organise better
     - Delete theGodlyChimpanzees folder, move app files to main repo directory
     - N/A: Fix header to not scroll on long pages
+    + TO TEST ON FIREBASE: Implement notFound
     + DONE: Implement loader
     + Done: Move Material modules to a MaterialModule and import that everywhere else
     + DONE: Implement comments

@@ -1,7 +1,7 @@
-import { LoaderService } from './../../services/loader.service';
 import { Animal } from './../../models/animal.model';
-import { AnimalsService } from '../../services/animals.service';
-import { UsersService } from './../../services/users.service';
+import { AnimalsService } from '../../core/animals.service';
+import { LoaderService } from './../../core/loader.service';
+import { UsersService } from './../../core/users.service';
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
@@ -48,6 +48,12 @@ export class AnimalDetailsComponent implements OnInit {
 
     backToList() {
         this.router.navigateByUrl('animals/all');
+    }
+
+    adoptAnimal() {
+        this.animalService.adoptAnimal(this.animal.name, this.currentUser.uid)
+            .then(() => this.toastr.success('Success adopt!'))
+            .catch((err) => this.toastr.error(err.message));
     }
 
     favAnimal() {

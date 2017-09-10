@@ -1,7 +1,7 @@
-import { LoaderService } from './../services/loader.service';
 import { MdSidenav } from '@angular/material';
 import { Animal } from './../models/animal.model';
-import { AnimalsService } from './../services/animals.service';
+import { AnimalsService } from './../core/animals.service';
+import { LoaderService } from './../core/loader.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({

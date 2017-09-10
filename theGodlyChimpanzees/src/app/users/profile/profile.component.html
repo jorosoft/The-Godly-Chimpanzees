@@ -21,6 +21,20 @@
         </md-card>
     </md-card-content>
     <md-card-content>
+        <md-card *ngIf="adoptedAnimals">
+            <h3>Adopted Animals</h3>
+            <md-card-content>
+                <md-list>
+                    <md-list-item *ngFor="let animal of adoptedAnimals | async | existingValue">
+                        <md-icon md-list-icon>pets</md-icon>
+                        <a md-button (click)="redirectTo('animals/'+animal.$key)" class="profileAnchor">{{ animal.$key }}</a>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                </md-list>
+            </md-card-content>
+        </md-card>
+    </md-card-content>
+    <md-card-content>
         <md-card>
             <md-list>
                 <h3 md-header>Bought Tickets</h3>

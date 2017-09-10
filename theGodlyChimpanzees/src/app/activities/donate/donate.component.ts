@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
-import { ActivitiesService } from './../../services/activities.service';
-import { UsersService } from './../../services/users.service';
+import { ActivitiesService } from './../../core/activities.service';
+import { UsersService } from './../../core/users.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';

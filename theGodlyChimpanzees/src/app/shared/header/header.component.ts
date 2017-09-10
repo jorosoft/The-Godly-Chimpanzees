@@ -1,7 +1,7 @@
 import { MdDialog } from '@angular/material';
 import { LoginDialogComponent } from './../../users/login-dialog/login-dialog.component';
 import { Component, Output, EventEmitter, DoCheck } from '@angular/core';
-import { UsersService } from './../../services/users.service';
+import { UsersService } from './../../core/users.service';
 import { Router, RouterModule } from '@angular/router';
 
 
