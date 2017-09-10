@@ -4,26 +4,40 @@
       <md-card-title>
           <h1 class= "userProfileTitle">Hello, {{currentUser.displayName  | uppercase}}</h1>
       </md-card-title>
+      <md-card-subtitle>email: {{currentUser.email}}</md-card-subtitle>
     </md-card-header>
           <md-card-content>
-                <ng2-datepicker id="date" [options]=datePickerOptions></ng2-datepicker>
             <md-card >
-                <h3>Bought Tickets</h3>
-                <ul>
-                    <li *ngFor="let item of items | async">
-                        {{ item.name }}
-                      </li>
-                </ul>
+                <md-list>
+                    <h3 md-header>Fav Animals</h3>
+                        <md-list-item *ngFor="let animal of animals | async | existingValue" >
+                            <md-icon md-list-icon>pets</md-icon>
+                            <a md-line (click)="redirectTo('animals/'+animal.$key)" class="profileAnchor">{{ animal.$key }}</a>
+                        </md-list-item>
+                    <md-divider></md-divider>
+                </md-list>
             </md-card>
-          </md-card-content>
-          <md-card-content>
-            <h3>Fav Animals</h3>
-            <ul>
-                <li *ngFor="let animal of animals | async | existingValue" >
-                 <a (click)="redirectTo(animal)" class="profileAnchor">{{ animal.$key }}</a>
-                </li>
-            </ul>
         </md-card-content>
+        <md-card-content>
+                <md-card >
+                    <md-list>
+                            <h3 md-header>Bought Tickets</h3>
+                            <ng2-datepicker id="date" [options]=datePickerOptions></ng2-datepicker>
+                                <md-list-item *ngFor="let item of items | async" >
+                                                <md-icon md-list-icon>event</md-icon>
+                                                <a md-line (click)="showInfo()" class="profileAnchor">{{ item.name }}</a>
+                                </md-list-item>
+                            <md-divider></md-divider>
+                    </md-list>
+                </md-card>
+              </md-card-content>
         <md-card-actions>
       </md-card-actions>
     </md-card>
+<!-- 
+        <md-list>
+            <md-list-item> Tour date:</md-list-item>
+            <md-list-item> Price: </md-list-item>
+            <md-list-item> Type:</md-list-item>
+        </md-list> -->
+

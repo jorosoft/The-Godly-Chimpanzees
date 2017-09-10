@@ -25,10 +25,14 @@ export class UsersService {
               this.userAuth = firebase.auth().currentUser;
               this.userAuth.updateProfile({ displayName: newUser.username, photoURL: '' });
               this.displayUser = {displayName: newUser.username, uid: this.userAuth.uid};
-              localStorage.setItem('displayUser', JSON.stringify({displayName: newUser.username, uid: user.uid}));
+              localStorage.setItem('displayUser', JSON.stringify({displayName: newUser.username, uid: user.uid, email: newUser.email}));
 
               console.log(this.userAuth);
               return firebase.database().ref('users/').child(user.uid).set(newUser);
+          })
+          .catch(err => {
+            this.toastr.error(err.message);
+            throw err;
           });
   }
 
@@ -37,7 +41,7 @@ export class UsersService {
               .then((user) => {
                 this.userAuth = firebase.auth().currentUser;
                 this.displayUser = {displayName: user.displayName, uid: user.uid};
-                localStorage.setItem('displayUser', JSON.stringify({displayName: user.displayName, uid: user.uid}));
+                localStorage.setItem('displayUser', JSON.stringify({displayName: user.displayName, uid: user.uid, email: user.email}));
                 this.toastr.success('Login Success!');
                 return this.displayUser;
               })
