@@ -1,27 +1,27 @@
-import { Injectable  } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { UsersService } from './../../services/users.service';
 
 @Injectable()
 export class NotAuthGuardService implements CanActivate {
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
-    const currentUser = this.usersService.getCurrenUser();
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        const currentUser = this.usersService.getCurrenUser();
 
-    console.log(currentUser + ' currentUser');
-    let check = true;
+        console.log(currentUser + ' currentUser');
+        let check = true;
 
-    if (currentUser) {
-      check = false;
-      this.router.navigate(['/home']);
-    } else {
-      check = true;
+        if (currentUser) {
+            check = false;
+            this.router.navigate(['/home']);
+        } else {
+            check = true;
+        }
+
+
+        return check;
     }
 
-
-    return check;
-  }
-
-  constructor(private usersService: UsersService,
-  private router: Router) { }
+    constructor(private usersService: UsersService,
+        private router: Router) { }
 
 }

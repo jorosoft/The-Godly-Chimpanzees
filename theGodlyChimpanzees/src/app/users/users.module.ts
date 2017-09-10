@@ -1,5 +1,5 @@
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
-import { MaterialModule } from './../shared/material/material.module';
+import { MaterialModule } from './../shared/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';

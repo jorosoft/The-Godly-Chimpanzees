@@ -1,4 +1,4 @@
-import { MaterialModule } from './../shared/material/material.module';
+import { MaterialModule } from './../shared/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TicketsComponent } from './tickets/tickets.component';
@@ -14,24 +14,24 @@ import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    CarouselModule,
-    ActivitiesRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    DatePickerModule,
-    CdkTableModule,
-    MaterialModule,
-    SharedModule
-  ],
-  declarations: [
-    TicketsComponent,
-    TourInfoComponent,
-    ToursComponent,
-    DonateComponent
-    // ErrorMsgDirective
-  ],
-  exports: [TicketsComponent, TourInfoComponent, ToursComponent]
+    imports: [
+        CommonModule,
+        CarouselModule,
+        ActivitiesRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        DatePickerModule,
+        CdkTableModule,
+        MaterialModule,
+        SharedModule
+    ],
+    declarations: [
+        TicketsComponent,
+        TourInfoComponent,
+        ToursComponent,
+        DonateComponent
+        // ErrorMsgDirective
+    ],
+    exports: [TicketsComponent, TourInfoComponent, ToursComponent]
 })
 export class ActivitiesModule { }

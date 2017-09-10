@@ -1,12 +1,19 @@
-.example-card {
+/* .about-card {
     width: 400px;
 }
 
 .example-header-image {
+    display: inline-block;
     background-image: url('../../assets/img/monkey-ico.svg');
     background-size: cover;
 }
 
 a {
     color: darkgray;
+} */
+
+/deep/ .about-card .mat-list-item,
+.about-card .mat-list-avatar {
+    min-height: 80px !important;
+    min-width: 80px !important;
 }
