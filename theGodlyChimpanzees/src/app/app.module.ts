@@ -22,9 +22,11 @@ import { NavComponent } from './shared/nav/nav.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AnimalsModule } from './animals/animals.module';
-import { AppRoutingModule } from './app-routing.module';
-import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { ActivitiesModule } from './activities/activities.module';
+import { AppRoutingModule } from './app-routing.module';
+
+import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { CustomToastsManager } from './core/app.toastr.settings';
 
 
 
@@ -66,7 +68,9 @@ import { ActivitiesModule } from './activities/activities.module';
         NavComponent,
         NotFoundComponent,
     ],
-    providers: [],
+    providers: [[{
+        provide: ToastsManager, useClass: CustomToastsManager
+    }]],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
