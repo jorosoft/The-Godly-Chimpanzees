@@ -39,6 +39,12 @@ export class DataBaseService {
   pushItems(item: any, collectionPath: string) {
     return this.db.list(collectionPath).push(item);
   }
+
+  addJSONToDB(ref: string, arr) {
+    arr.forEach(element => {
+      firebase.database().ref(ref).push(element);
+    });
+  }
 }
 
 

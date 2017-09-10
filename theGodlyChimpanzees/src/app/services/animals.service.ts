@@ -102,4 +102,8 @@ export class AnimalsService {
                   .catch((err) => this.toastr.error(err.message));
 
       }
+
+      uploadToDb(tempToursURL, tempTours) {
+            return this.dataBaseService.addJSONToDB(tempToursURL, tempTours);
+          }
 }

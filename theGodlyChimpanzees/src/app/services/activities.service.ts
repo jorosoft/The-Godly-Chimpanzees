@@ -63,7 +63,12 @@ public donate = [
 ];
 public selectedValue: string;
 
+
   constructor(public db: AngularFireDatabase, public dataBaseService: DataBaseService) { }
+
+  uploadToDb(tempToursURL, tempTours) {
+    return this.dataBaseService.addJSONToDB(tempToursURL, tempTours);
+  }
 
   setSelectedValue(selectedValue: string) {
     this.selectedValue = selectedValue;
@@ -104,6 +109,9 @@ public selectedValue: string;
       });
     }
   }
+  getItemsPromise(path: string) {
+      return this.dataBaseService.getItemsPromise(path);
+  }
 
   addTickets(arr: string[], user: string) {
    return this.dataBaseService.getItemsPromise('users/' + user + '/info/tickets/')
@@ -128,5 +136,7 @@ public selectedValue: string;
   getAllDonations() {
     return this.dataBaseService.getItemsPromise('donations/');
   }
+
+
 }
 

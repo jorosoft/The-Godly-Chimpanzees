@@ -51,6 +51,9 @@ export class AnimalsListComponent implements OnInit {
         this.initDB();
         // hide loader
         this.loaderService.display(false);
+    //     const tempToursURL = 'animals/';
+    //   const tempTours = this.animals;
+    //   this.animalService.uploadToDb(tempToursURL, tempTours);
     }
 
     initDB() {

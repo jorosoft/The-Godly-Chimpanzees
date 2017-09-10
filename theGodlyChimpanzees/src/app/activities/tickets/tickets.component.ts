@@ -49,6 +49,9 @@ export class TicketsComponent implements OnInit, DoCheck {
       this.selectedValue = tempValue;
      }
      this.errorMsg = 'Please choose an event type or a date!';
+      // const tempToursURL = 'tickets/';
+      // const tempTours = this.tickets;
+      // this.activitiService.uploadToDb(tempToursURL, tempTours);
    }
 
    ngDoCheck() {
