@@ -14,6 +14,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
+import { ActivatedRoute } from '@angular/router';
 
 describe('AnimalsListComponent', () => {
     let component: AnimalsListComponent;
@@ -25,6 +26,14 @@ describe('AnimalsListComponent', () => {
 
     const AngularFireDBMocks = {
         database: jasmine.createSpy('database')
+    };
+
+    const ActivatedRouteMocks = {
+        snapshot: {
+            data: {
+                animals: []
+            }
+        }
     };
 
     beforeEach(async(() => {
@@ -51,6 +60,10 @@ describe('AnimalsListComponent', () => {
                 LoaderService,
                 ToastsManager,
                 ToastOptions,
+                {
+                    provide: ActivatedRoute,
+                    useValue: ActivatedRouteMocks
+                }
             ]
         })
             .compileComponents();

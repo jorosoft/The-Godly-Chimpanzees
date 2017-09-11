@@ -1,3 +1,4 @@
+import { UsersService } from './../../core/users.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../material.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -8,6 +9,7 @@ import { DataBaseService } from '../../core/data-base.service';
 import { FirebaseApp } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 
 describe('CommentsComponent', () => {
     let component: CommentsComponent;
@@ -34,6 +36,9 @@ describe('CommentsComponent', () => {
             ],
             providers: [
                 CommentsService,
+                UsersService,
+                ToastsManager,
+                ToastOptions,
                 DataBaseService,
                 FirebaseApp,
                 {

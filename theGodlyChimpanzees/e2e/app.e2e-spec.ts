@@ -24,7 +24,7 @@ describe('the-godly-chimpanzees App', () => {
 
       expect(page.getElementText('a[ng-reflect-router-link="/users/profile"]')).toBeTruthy();
 
-      page.navigateTo('/users/logout');
+      page.clickButton('.mat-toolbar-layout a:first-of-type');
       page.waitForElementTextToChange('.mat-toolbar-layout a:first-of-type', 'Log In');
     });
   });
