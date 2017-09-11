@@ -66,7 +66,7 @@ The task was to design and implement a **Single-page web application** using [An
 
 - DONE: Used `git flow` **branching** workflow.
 - DONE: Used GitHub Issues
-- DONE: Upload your application in the cloud
+- DONE: Application uploaded to Firebase hosting
 
 ## Prerequisites for local launch
 
@@ -85,7 +85,6 @@ The task was to design and implement a **Single-page web application** using [An
 
 ### Other commands
 - `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload on change of the source files.
-- `ng generate component component-name` to generate a new component. Use also `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 - `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 - `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.

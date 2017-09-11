@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './shared/material.module';
 
@@ -20,10 +21,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginDialogComponent } from './users/login-dialog/login-dialog.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-import { AnimalsModule } from './animals/animals.module';
-import { ActivitiesModule } from './activities/activities.module';
-import { AppRoutingModule } from './app-routing.module';
 
 import { ToastModule, ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { CustomToastsManager } from './core/app.toastr.settings';
@@ -55,7 +52,6 @@ import { CustomToastsManager } from './core/app.toastr.settings';
         HttpModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
-        ActivitiesModule,
         CoreModule,
         ToastModule.forRoot(),
         MaterialModule,
