@@ -19,9 +19,9 @@ export class AnimalsService {
     }
 
 
-    // getAll(): Observable<Animal[]> {
-    //     return this.dataBaseService.getItems('animals');
-    // }
+    getAll(): Observable<Animal[]> {
+        return this.dataBaseService.getItems('animals');
+    }
 
 
     // getAll(): Animal[] {
