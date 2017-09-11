@@ -31,7 +31,16 @@ export class TicketsComponent implements OnInit, DoCheck {
     public newTicket: Ticket;
     public searched: any;
     public errorMsg: string;
-
+    public datePickerOptions = {
+        format: 'DD.MM.YYYY',
+        locale: 'bg',
+        minDate: new Date(),
+        maxDate: (() => {
+            const date = new Date();
+            date.setDate(date.getDate() + 50);
+            return date;
+        })(),
+    };
     constructor(public router: Router, public fb: FormBuilder,
         public activitiService: ActivitiesService, public userService: UsersService, public toastr: ToastsManager,
         private activatedRoute: ActivatedRoute) {
