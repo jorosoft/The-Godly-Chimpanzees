@@ -12,16 +12,12 @@
     <md-card-content>
         <p>{{animal.status}}</p>
         <p>{{animal.about}}</p>
-        <p *ngIf="animal.owner">Adopted by: {{animal.owner}}</p>
         <md-divider></md-divider>
     </md-card-content>
     <md-card-actions>
         <div fxLayout="row">
             <button md-raised-button (click)="backToList()">
             <md-icon>keyboard_backspace</md-icon>
-          </button>
-            <button md-raised-button *ngIf="currentUser && !animal.owner" (click)="adoptAnimal()">
-              Adopt
           </button>
             <button md-raised-button *ngIf="currentUser" (click)="favAnimal()" [ngClass]="{ 'a': !condition}">
           {{condition ? 'Remove from my favs' : 'Add To My Fav'}}                

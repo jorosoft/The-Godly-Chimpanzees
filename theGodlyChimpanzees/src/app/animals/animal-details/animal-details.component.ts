@@ -30,16 +30,12 @@ export class AnimalDetailsComponent implements OnInit {
         this.activatedRoute.params.subscribe(params => {
             const name = params['name'];
             this.animal = this.activatedRoute.snapshot.data['animals'].find(a => a.name === name);
-            // this.animal = this.animalService.getAnimalByName(name);
             this.currentUser = this.usersService.getCurrenUser();
         });
 
         if (this.currentUser) {
             this.animalService.checkStatus(this.animal.name, this.currentUser.uid)
                 .then((item) => {
-                    console.log('ngOnInIT');
-                    console.log(item.val());
-                    console.log(this.condition);
                     this.condition = item.val();
                 })
                 .catch((err) => this.toastr.error(err.message));
