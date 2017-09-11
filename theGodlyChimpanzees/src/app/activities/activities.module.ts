@@ -14,7 +14,6 @@ import { SharedModule } from '../shared/shared.module';
 import { TicketResolve } from './ticket-resolve';
 import { ToursResolve } from './tours-resolve';
 
-
 @NgModule({
     imports: [
         CommonModule,

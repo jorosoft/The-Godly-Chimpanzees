@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+
+=======
 // import { CommentsService } from './../../core/comments.service';
 // import { LoaderService } from './../../core/loader.service';
 // import { UsersService } from './../../core/users.service';
@@ -104,3 +107,4 @@
 //         expect(component).toBeTruthy();
 //     });
 // });
+>>>>>>> 4942cd5e402ca54a59e0bbe7df4e40381a632046

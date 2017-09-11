@@ -1,4 +1,4 @@
-<!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form"> -->
+
 
 <md-card class="cardMaterial">
     <div fxLayout="row" fxLayoutAlign="space-evenly center profile-title">
@@ -22,20 +22,6 @@
             </md-card-content>
         </md-card>
     </md-card-content>
-    <!-- <md-card-content>
-        <md-card *ngIf="adoptedAnimals">
-            <h3>Adopted Animals</h3>
-            <md-card-content>
-                <md-list>
-                    <md-list-item *ngFor="let animal of adoptedAnimals | async | existingValue">
-                        <md-icon md-list-icon>pets</md-icon>
-                        <a md-button (click)="redirectTo('animals/'+animal.$key)" class="profileAnchor">{{ animal.$key }}</a>
-                    </md-list-item>
-                    <md-divider></md-divider>
-                </md-list>
-            </md-card-content>
-        </md-card>
-    </md-card-content> -->
     <md-card-content>
         <md-card>
             <md-list>
@@ -44,7 +30,6 @@
                 <md-list-item *ngFor="let item of items | async | filterByDatepicker: name ">
                     <md-icon md-list-icon>event</md-icon>
                     <a md-button (click)="redirectTo('activities/'+item.name)" class="profileAnchor"> <span class="profileLabel">{{ item.name }}</span>: on {{item.date}} for type - {{item.type}}, price: {{item.price}} </a>
-                    <!--(click)="showInfo()"-->
                 </md-list-item>
                 <md-divider></md-divider>
             </md-list>
@@ -53,10 +38,3 @@
     <md-card-actions>
     </md-card-actions>
 </md-card>
-<!-- </form> -->
-<!-- 
-        <md-list>
-            <md-list-item> Tour date:</md-list-item>
-            <md-list-item> Price: </md-list-item>
-            <md-list-item> Type:</md-list-item>
-        </md-list> -->
