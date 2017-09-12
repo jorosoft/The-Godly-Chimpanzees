@@ -1,0 +1,33 @@
+<md-toolbar color="primary" class="mat-elevation-z1 mat-toolbar " #header>
+
+    <div>
+        <button md-raised-button color="primary" class="z-depth-0" routerLink="/home">
+            <img src="assets/img/monkey-ico.svg" width="35px">
+            <span class="mat-title" fxShow="true" fxShow.lt-md="false">&nbsp;TheZoo</span>
+        </button>
+    </div>
+
+    <!-- Span to take the middle space so log-in is to the right -->
+    <span fxFlex></span>
+
+
+    <!-- <a [routerLink]="[ '/animals/all' ]">Animals</a> -->
+    <span *ngIf="displayName || (userService.userA | async) ">
+    <a md-button (click)="logOut()">Log Out</a>
+    <a md-button [routerLink]="[ '/users/profile' ]">{{displayName}}</a>
+    </span>
+    <span *ngIf="!displayName">
+        <a  md-button (click)="openLoginDialog()">Log In</a>
+    </span>
+
+    <!-- menu button -->
+    <button md-icon-button [md-menu-trigger-for]="menu">
+            <md-icon>more_vert</md-icon>
+    </button>
+</md-toolbar>
+
+<!-- menu -->
+<md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item (click)="toggleTheme()">Toggle Theme</button>
+    <a md-menu-item [routerLink]="[ '/users/login' ]">Log in</a>
+</md-menu>

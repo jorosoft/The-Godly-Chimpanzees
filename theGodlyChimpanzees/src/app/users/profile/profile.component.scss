@@ -1,0 +1,26 @@
+// .userProfileTitle {
+//     color: purple;
+// }
+// .profileAnchor {
+//     color:grey;
+//     text-decoration: none;
+//     display: inline;
+// }
+// .profileAnchor:hover {
+//     color:purple;
+//     text-decoration: underline;
+// }
+.profile-avatar {
+    min-width: 30px;
+    max-width: 90px;
+    width: 20%;
+    border-radius: 50%;
+}
+
+.profile-title {
+    height: 100px;
+}
+
+.profileLabel {
+    font-weight: bold;
+}

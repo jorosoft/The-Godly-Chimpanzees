@@ -1,0 +1,30 @@
+<md-card fxFlex="80%" fxLayout="row">
+    <md-card-header>
+        <md-card-title>
+            <h2>{{animal.name}}</h2>
+        </md-card-title>
+
+        <button md-icon-button color="warn">
+                <md-icon md-list-icon class='a' *appMyFavToggle='!condition'>grade</md-icon>
+            </button>
+    </md-card-header>
+    <img class="img-width" md-card-image src="assets/img/{{animal.name}}.jpg">
+    <md-card-content>
+        <p>{{animal.status}}</p>
+        <p>{{animal.about}}</p>
+        <md-divider></md-divider>
+    </md-card-content>
+    <md-card-actions>
+        <div fxLayout="row">
+            <button md-raised-button (click)="backToList()">
+            <md-icon>keyboard_backspace</md-icon>
+          </button>
+            <button md-raised-button *ngIf="currentUser" (click)="favAnimal()" [ngClass]="{ 'a': !condition}">
+          {{condition ? 'Remove from my favs' : 'Add To My Fav'}}                
+        </button>
+        </div>
+    </md-card-actions>
+</md-card>
+
+
+<app-comments [name]="animal.name" [currentUser]="currentUser" [collection]="'animals'"></app-comments>

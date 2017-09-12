@@ -1,0 +1,34 @@
+<!-- animals -->
+
+<md-toolbar color="warn">
+    <button md-menu-item routerLink="/animals"> Animals </button>
+</md-toolbar>
+<md-grid-list cols="4" rowHeight="3:3">
+    <md-grid-tile *ngFor="let animal of animals" [rowspan]="animal.rows" [colspan]="animal.cols">
+        <img src="assets/img/{{animal.name}}.jpg" alt="animal">
+        <md-grid-tile-footer>
+            <h3 md-line>{{animal.name}}</h3>
+            <span md-line>{{animal.status}}</span>
+            <button md-icon-button routerLink="/animals/{{animal.name}}"> <!-- (click)="" TODO open animal page -->
+                        <md-icon>info</md-icon>
+                    </button>
+        </md-grid-tile-footer>
+    </md-grid-tile>
+</md-grid-list>
+
+<md-toolbar color="primary">
+    <button md-menu-item routerLink="/activities/tours"> Tours </button>
+</md-toolbar>
+
+<md-grid-list cols="5" rowHeight="3:3">
+    <md-grid-tile *ngFor="let tour of tours" [rowspan]="1" [colspan]="1">
+        <img src="assets/img/tours/{{tour.name}}.jpg" alt="tour">
+        <md-grid-tile-footer>
+            <h3 md-line>{{tour.viewValue}}</h3>
+            <span md-line>{{tour.info}}</span>
+            <button md-icon-button routerLink="/activities/{{tour.name}}"> <!-- (click)="" TODO open animal page -->
+                        <md-icon>info</md-icon>
+                    </button>
+        </md-grid-tile-footer>
+    </md-grid-tile>
+</md-grid-list>

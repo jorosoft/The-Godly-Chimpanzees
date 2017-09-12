@@ -1,0 +1,9 @@
+<section class="app flex-container" fxFlex fxLayout="column" fxLayoutAlign="start stretch" [class.dark-theme]="header.isDarkTheme">
+    <app-header></app-header>
+    <app-nav fxFlex fxLayout="column">
+        <router-outlet>
+            <div *ngIf="showLoader" class="loading"></div>
+        </router-outlet>
+    </app-nav>
+
+</section>

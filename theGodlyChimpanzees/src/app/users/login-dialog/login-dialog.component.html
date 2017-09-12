@@ -1,0 +1,43 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <button md-icon-button md-dialog-close class="fab-top-right md-10">
+        <md-icon>clear</md-icon>
+    </button>
+
+    <h3>Log in form</h3>
+    <p>Please fill in the fields below:</p>
+
+    <md-card-content>
+        <md-input-container class="example-full-width">
+            <input mdInput placeholder="Email" formControlName="email">
+
+            <md-error *ngIf="email.hasError('required') && (email.touched || mouseover)" appErrorMsg>
+                Please provide an email!
+            </md-error>
+            <md-error *ngIf="email.invalid && (email.touched || mouseover)" appErrorMsg>
+                Wrong email format!
+            </md-error>
+        </md-input-container>
+    </md-card-content>
+
+    <md-card-content>
+        <md-input-container class="example-full-width">
+            <input mdInput type="password" placeholder="Password" formControlName="password">
+
+            <md-error *ngIf="password.invalid && (password.touched || mouseover)">
+                <div *ngIf="password.dirty || password.hasError('required')" appErrorMsg>
+                    The password should be at least 6 symbols!
+                </div>
+                <div *ngIf="password.hasError('pattern')" appErrorMsg>
+                    The password should contain only letters, numbers and _!
+                </div>
+            </md-error>
+        </md-input-container>
+    </md-card-content>
+
+    <div align="center">
+        <span (mouseenter)="mouseover = true" (mouseleave)="mouseover = false">
+            <button md-raised-button type="submit" [disabled]="!loginForm.valid">Log In</button>
+            <a md-raised-button [routerLink]="[ '/users/register' ]">Register</a>                
+        </span>
+    </div>
+</form>

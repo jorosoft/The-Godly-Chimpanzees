@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://fonts.googleapis.com/icon?family=Roboto);
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: Roboto, sans-serif;
+}
+
+.app {
+    height: 100vh; // emmet h100vh
+}
+
+md-toolbar {
+    z-index: 10; // emmet z10
+}
+
+md-card {
+    margin: 12px;
+}
+
+md-grid-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+md-toolbar-row {
+    justify-content: space-between;
+}
+
+// homepage loader
+body {
+    background-color: rgba(0, 188, 212, 1);
+}
+
+#loader-row {
+    min-height: 400px;
+}
+
+.loader {
+    z-index: 1;
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url('/assets/img/monkey-ico.svg');
+    background-size: cover;
+    width: 6em;
+    height: 6em;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
